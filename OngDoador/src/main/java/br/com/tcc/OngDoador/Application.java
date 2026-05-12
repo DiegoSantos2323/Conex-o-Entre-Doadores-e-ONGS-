@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  *
  * Spring Boot application starter class
  */
-@EntityScan()
+@EntityScan("br.com.tcc.OngDoador.entity")
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
