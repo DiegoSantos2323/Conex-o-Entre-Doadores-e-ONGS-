@@ -82,7 +82,7 @@ async function cadastroDeOng() {
         alert("Erro ao conectar com servidor!");
 
     }
-
+	limparFormulario();
 }
 /*  Login ONG*/
 
@@ -281,4 +281,21 @@ function validaCNPJ(cnpj) {
         return false;
 
     return true;
+}
+
+function limparFormulario() {
+
+    document.getElementById('nomeFantasia').value = '';
+    document.getElementById('cnpj').value = '';
+    document.getElementById('areaAtuacao').value = '';
+    document.getElementById('emailOng').value = '';
+
+    document.getElementById('nomeGestor').value = '';
+    document.getElementById('cpfGestor').value = '';
+    document.getElementById('cargoGestor').value = '';
+    document.getElementById('emailGestor').value = '';
+    document.getElementById('telefoneGestor').value = '';
+
+    localStorage.removeItem("dadosOng");
+
 }
