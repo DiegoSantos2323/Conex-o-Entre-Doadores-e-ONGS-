@@ -1,8 +1,6 @@
 const API_SALVAR_ONG = "http://localhost:8000/ong/salvar";
 
-/* ===================================
-   ETAPA 1
-=================================== */
+/* Etapa 1*/
 
 function salvarEtapaUm() {
     const dadosOng = {
@@ -21,9 +19,8 @@ function salvarEtapaUm() {
     window.location.href =
         "TelaCadastroOngEtapaDois.html";
 }
-/* ===================================
-   ETAPA 2 - FINALIZAR CADASTRO
-=================================== */
+/*  Etapa 2 - FINALIZAR CADASTRO
+ */
 
 async function cadastroDeOng() {
 	
@@ -87,9 +84,7 @@ async function cadastroDeOng() {
     }
 
 }
-/* ===================================
-   LOGIN ONG
-=================================== */
+/*  Login ONG*/
 
 async function logar() {
 
@@ -154,7 +149,7 @@ function GestorCPF(cpf) {
         .replace(/[^\d]/g, '');
 
     if (strCPF.length !== 11) {
-        return false;
+        return alert("CPF Inválido!!");
     }
 
     if (
@@ -169,7 +164,7 @@ function GestorCPF(cpf) {
         strCPF === '88888888888' ||
         strCPF === '99999999999'
     ) {
-        return false;
+        return alert("CPF Inválido!!");
     }
 
     for (let i = 1; i <= 9; i++) {
@@ -190,7 +185,7 @@ function GestorCPF(cpf) {
         Resto !==
         parseInt(strCPF.substring(9, 10))
     ) {
-        return false;
+        return alert("CPF Inválido!");
     }
 
     Soma = 0;
@@ -213,12 +208,12 @@ function GestorCPF(cpf) {
         Resto !==
         parseInt(strCPF.substring(10, 11))
     ) {
-        return false;
+        return alert("CPF Inválido!!");
     }
 
-    return true;
+	return true;
 }
-
+console.log(GestorCPF)
 /* ===================================
    VALIDA CNPJ
 =================================== */
@@ -235,10 +230,10 @@ function validaCNPJ(cnpj) {
         .replace(/[^\d]/g, '');
 
     if (c.length !== 14)
-        return false;
+        return alert("Inválido!");
 
     if (/0{14}/.test(c))
-        return false;
+        return alert("Inválido!");
 
     for (
         var i = 0, n = 0;
@@ -250,7 +245,7 @@ function validaCNPJ(cnpj) {
         c[12] !=
         (((n %= 11) < 2) ? 0 : 11 - n)
     )
-        return false;
+        return alert("Inválido!");
 
     for (
         var i = 0, n = 0;
@@ -262,7 +257,8 @@ function validaCNPJ(cnpj) {
         c[13] !=
         (((n %= 11) < 2) ? 0 : 11 - n)
     )
-        return false;
-
-    return true;
+        return alert("Inválido!");
+		
+		return true;
+console.log(validaCNPJ);
 }
