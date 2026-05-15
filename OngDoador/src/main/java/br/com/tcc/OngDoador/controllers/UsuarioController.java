@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import br.com.tcc.OngDoador.reposity.UsuarioRepository;
 
 @RestController
 @RequestMapping("/usuario")
+@CrossOrigin("*")
 public class UsuarioController {
 
 	@Autowired
@@ -32,18 +34,21 @@ public class UsuarioController {
 	
 	@GetMapping("/listartodos")
 	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
 	public List<UsuarioEntity> ListarTodos(){
 		return usuarioRepository.findAll();
 	}//Listar Todos
 	
 	@GetMapping("/listarporid/{id}")
 	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
 	public Optional<UsuarioEntity> ListarPorId(@PathVariable Long id){
 		return usuarioRepository.findById(id);
 	}//Listar por id
 	
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
+	@CrossOrigin("*")
 	public UsuarioEntity Salvar(@RequestBody UsuarioEntity entity) {
 		entity.setSenha(encoder.encode(entity.getSenha()));//criptografando a senha;
 		return usuarioRepository.save(entity);
@@ -51,6 +56,7 @@ public class UsuarioController {
 	
 	@DeleteMapping("/deletar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@CrossOrigin("*")
 	public String Deletar(@PathVariable Long id) {
 		if(usuarioRepository.existsById(id)) {
 			usuarioRepository.deleteById(id);
@@ -62,6 +68,7 @@ public class UsuarioController {
 	
 	@PutMapping("/atualizar/{id}")
 	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
 	public UsuarioEntity Atualizar(@RequestBody UsuarioEntity entity, @PathVariable Long id) {
 		if(usuarioRepository.existsById(id)) {
 			entity.setId(id);
@@ -71,6 +78,7 @@ public class UsuarioController {
 	}//Atualizar
 	
 	@GetMapping("/login")
+	@CrossOrigin("*")
 	public ResponseEntity<UsuarioEntity> login(@RequestBody UsuarioEntity usuarioLogin){
 		
 		Optional<UsuarioEntity> usuario = 

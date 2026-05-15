@@ -1,3 +1,49 @@
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-menu {
+   position: absolute;
+
+   top: calc(100% + 2px);
+   right: 0;
+
+   display: none;
+
+   width: 192px;
+   background: white;
+
+   border: 1px solid #f3f4f6;
+   border-radius: 12px;
+
+   box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+
+   padding: 0.5rem 0;
+
+   z-index: 9999;
+}
+
+.dropdown:hover .dropdown-menu {
+   display: block;
+}
+
+.dropdown-menu a {
+   display: block;
+   padding: 0.75rem 1rem;
+
+   color: #374151;
+   text-decoration: none;
+
+   font-size: 0.875rem;
+
+   transition: all 0.2s;
+}
+
+.dropdown-menu a:hover {
+   background: #f9fafb;
+   color: #48D1CC;
+}
 
 * {
    margin: 0;
@@ -140,37 +186,8 @@ body {
    height: 16px;
    stroke-width: 2;
 }
-.dropdown {
-   position: relative;
-}
-.dropdown-menu {
-   display: none;
-   position: absolute;
-   right: 0;
-   margin-top: 0.5rem;
-   width: 192px;
-   background: white;
-   border: 1px solid #f3f4f6;
-   border-radius: 12px;
-   box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-   padding: 0.5rem 0;
-   z-index: 50;
-}
-.dropdown:hover .dropdown-menu {
-   display: block;
-}
-.dropdown-menu a {
-   display: block;
-   padding: 0.5rem 1rem;
-   color: #374151;
-   text-decoration: none;
-   font-size: 0.875rem;
-   transition: all 0.2s;
-}
-.dropdown-menu a:hover {
-   background: #f9fafb;
-   color: #48D1CC;
-}
+
+  
 /* ========== Hero Section ========== */
 .hero {
    position: relative;

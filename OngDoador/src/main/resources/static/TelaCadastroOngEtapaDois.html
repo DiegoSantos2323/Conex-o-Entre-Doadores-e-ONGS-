@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro ONG - Etapa 2 | Doe+</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="css/TelaCadastroOngEtapaDois.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================
+         NAVBAR
+    ==================================== -->
+
+    <nav class="navbar">
+
+        <div class="container navbar-content">
+
+            <!-- LOGO -->
+            <a href="TelaInicio.html"
+               class="logo">
+
+                <div class="logo-icon">
+                    D+
+                </div>
+
+                <span class="logo-text">
+                    Doe<span class="logo-accent">+</span>
+                </span>
+
+            </a>
+
+            <!-- MENU -->
+            <div class="navbar-center">
+
+                <a href="#"
+                   class="nav-link">
+
+                    Sobre nós
+
+                </a>
+
+                <a href="#"
+                   class="nav-link">
+
+                    Explorar ONGs
+
+                </a>
+
+                <a href="#"
+                   class="nav-link">
+
+                    Perguntas Frequentes
+
+                </a>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="navbar-right">
+
+                <!-- SEARCH -->
+                <div class="search-bar">
+
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+                    <input type="text"
+                           class="search-input"
+                           placeholder="Buscar ONGs...">
+
+                </div>
+
+                <!-- LOGIN -->
+                <a href="#"
+                   class="btn-link">
+
+                    Entrar
+
+                </a>
+
+                <!-- DROPDOWN -->
+                <div class="dropdown">
+
+                    <button class="btn-primary">
+
+                        Criar Conta
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <!-- MENU -->
+                    <div class="dropdown-menu">
+
+                        <a href="TelaCadastroUsuario.html">
+
+                            Sou Doador
+
+                        </a>
+
+                        <a href="TelaCadastroOng.html">
+
+                            Sou ONG
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ===================================
+         REGISTER SECTION
+    ==================================== -->
+
+    <section class="register-section">
+
+        <div class="container register-content">
+
+            <!-- FORM AREA -->
+            <div class="register-right">
+
+                <!-- BADGE -->
+                <div class="register-badge">
+
+                    <i class="fa-regular fa-building"></i>
+
+                    <span>
+                        Para Instituições
+                    </span>
+
+                </div>
+
+                <!-- TITLE -->
+                <h1 class="register-title">
+
+                    Solicitação de Cadastro
+
+                </h1>
+
+                <!-- DESCRIPTION -->
+                <p class="register-description">
+
+                    Preencha os dados do gestor responsável pela ONG.
+
+                </p>
+
+                <!-- PROGRESS -->
+                <div class="progress-content">
+
+                    <div class="progress-top">
+
+                        <span>
+                            Etapa 2 de 2
+                        </span>
+
+                        <span>
+                            Dados do Gestor
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD -->
+                <div class="register-card">
+
+                    <!-- INFO BOX -->
+                    <div class="info-box">
+
+                        <h3>
+
+                            Dados do Gestor Responsável
+
+                        </h3>
+
+                        <p>
+
+                            Pessoa que receberá as credenciais de acesso à plataforma
+
+                        </p>
+
+                    </div>
+
+                    <!-- FORM -->
+                    <form>
+
+                        <!-- NOME -->
+                        <div class="form-group">
+
+                            <label>
+
+                                Nome Completo do Gestor
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-user"></i>
+
+                                <input type="text"
+                                       placeholder="Maria da Silva Santos"
+                                       id="nomeGestor">
+
+                            </div>
+
+                        </div>
+
+                        <!-- CPF -->
+                        <div class="form-group">
+
+                            <label>
+
+                                CPF do Gestor
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-id-card"></i>
+
+                                <input type="text"
+                                       placeholder="000.000.000-00"
+                                       id="cpfGestor">
+
+                            </div>
+
+                        </div>
+
+                        <!-- CARGO -->
+                        <div class="form-group">
+
+                            <label>
+
+                                Cargo/Função
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                                <input type="text"
+                                       placeholder="Ex: Presidente, Diretor, Coordenador"
+                                       id="cargoGestor">
+
+                            </div>
+
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+
+                            <label>
+
+                                E-mail do Gestor
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input type="email"
+                                       placeholder="maria@email.com"
+                                       id="emailGestor">
+
+                            </div>
+
+                            <small>
+
+                                As credenciais de acesso serão enviadas para este email
+
+                            </small>
+
+                        </div>
+
+                        <!-- TELEFONE -->
+                        <div class="form-group">
+
+                            <label>
+
+                                Telefone/WhatsApp
+
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <input type="text"
+                                       placeholder="(11) 99999-9999"
+                                       id="telefoneGestor">
+
+                            </div>
+
+                        </div>
+
+                        <!-- ENVIAR -->
+                        <button type="submit"
+                                class="continue-button">
+
+                            <i class="fa-regular fa-paper-plane"></i>
+
+                            Enviar Solicitação
+
+                        </button>
+
+                       <button type="button"
+						        class="continue-button"
+						        onclick="cadastroDeOng()">
+						
+						    <i class="fa-regular fa-paper-plane"></i>
+						
+						    Enviar Solicitação
+						
+						</button>
+                        <!-- MESSAGE -->
+                        <p class="bottom-message">
+
+                            *Após análise, você receberá login e senha por email
+
+                        </p>
+
+                        <!-- LOGIN INFO -->
+                        <p class="login-message">
+
+                            Sua ONG já foi cadastrada?
+
+                            <a href="#">
+                                Faça login
+                            </a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="text/javascript"
+            src="js/CadastroLoginOng.js"></script>
+
+</body>
+
+</html>

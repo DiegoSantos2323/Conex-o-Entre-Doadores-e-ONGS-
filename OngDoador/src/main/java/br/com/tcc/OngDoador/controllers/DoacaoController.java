@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import br.com.tcc.OngDoador.reposity.DoacaoRepository;
 
 @RestController
 @RequestMapping("/doacao")
+@CrossOrigin("*")
 public class DoacaoController {
 
 	@Autowired
@@ -27,24 +29,28 @@ public class DoacaoController {
 	
 	@GetMapping("/listartodos")
 	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
 	public List<DoacaoEntity> ListarTodos(){
 		return repository.findAll();
 	}//ListarTodos
 
 	@GetMapping("/listarporid/{id}")
 	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
 	public Optional<DoacaoEntity> ListaPorId(@PathVariable Long id){
 		return repository.findById(id);
 	}//Listar Por id
 	
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
+	@CrossOrigin("*")
 	public DoacaoEntity Salvar(@RequestBody DoacaoEntity entity) {
 		return repository.save(entity);
 	}//salvar
 	
 	@DeleteMapping("/deletar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@CrossOrigin("*")
 	public String Deletar(@PathVariable Long id) {
 		if(repository.existsById(id)) {
 			repository.deleteById(id);
@@ -55,6 +61,7 @@ public class DoacaoController {
 	
 	@PutMapping("/atualizar/{id}")
 	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
 	public DoacaoEntity Atualizar(@RequestBody DoacaoEntity entity,@PathVariable Long id) {
 		if(repository.existsById(id)) {
 			entity.setId(id);
