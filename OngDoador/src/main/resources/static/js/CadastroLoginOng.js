@@ -1,4 +1,4 @@
-const API_SALVAR_ONG = "http://localhost:8000/ong/salvar";
+const API_SALVAR_ONG = "http://localhost:8001/ong/salvar";
 
 /* Etapa 1*/
 
@@ -149,7 +149,7 @@ function GestorCPF(cpf) {
         .replace(/[^\d]/g, '');
 
     if (strCPF.length !== 11) {
-        return alert("CPF Inválido!!");
+        return false;
     }
 
     if (
@@ -164,7 +164,7 @@ function GestorCPF(cpf) {
         strCPF === '88888888888' ||
         strCPF === '99999999999'
     ) {
-        return alert("CPF Inválido!!");
+        return false;
     }
 
     for (let i = 1; i <= 9; i++) {
@@ -185,7 +185,7 @@ function GestorCPF(cpf) {
         Resto !==
         parseInt(strCPF.substring(9, 10))
     ) {
-        return alert("CPF Inválido!");
+        return false;
     }
 
     Soma = 0;
@@ -208,7 +208,7 @@ function GestorCPF(cpf) {
         Resto !==
         parseInt(strCPF.substring(10, 11))
     ) {
-        return alert("CPF Inválido!!");
+        return false;
     }
 
 	return true;
@@ -220,45 +220,65 @@ console.log(GestorCPF)
 
 function validaCNPJ(cnpj) {
 
-    var b = [
-        6, 5, 4, 3, 2,
-        9, 8, 7, 6, 5,
-        4, 3, 2
-    ];
+    cnpj = cnpj.replace(/[^\d]+/g, '');
 
-    var c = String(cnpj)
-        .replace(/[^\d]/g, '');
+    if (cnpj.length !== 14)
+        return false;
 
-    if (c.length !== 14)
-        return alert("Inválido!");
-
-    if (/0{14}/.test(c))
-        return alert("Inválido!");
-
-    for (
-        var i = 0, n = 0;
-        i < 12;
-        n += c[i] * b[++i]
-    );
-
+    // elimina CNPJs inválidos conhecidos
     if (
-        c[12] !=
-        (((n %= 11) < 2) ? 0 : 11 - n)
-    )
-        return alert("Inválido!");
+        cnpj === "00000000000000" ||
+        cnpj === "11111111111111" ||
+        cnpj === "22222222222222" ||
+        cnpj === "33333333333333" ||
+        cnpj === "44444444444444" ||
+        cnpj === "55555555555555" ||
+        cnpj === "66666666666666" ||
+        cnpj === "77777777777777" ||
+        cnpj === "88888888888888" ||
+        cnpj === "99999999999999"
+    ) {
+        return false;
+    }
 
-    for (
-        var i = 0, n = 0;
-        i <= 12;
-        n += c[i] * b[i++]
-    );
+    let tamanho = cnpj.length - 2;
+    let numeros = cnpj.substring(0, tamanho);
+    let digitos = cnpj.substring(tamanho);
 
-    if (
-        c[13] !=
-        (((n %= 11) < 2) ? 0 : 11 - n)
-    )
-        return alert("Inválido!");
-		
-		return true;
-console.log(validaCNPJ);
+    let soma = 0;
+    let pos = tamanho - 7;
+
+    for (let i = tamanho; i >= 1; i--) {
+
+        soma += numeros.charAt(tamanho - i) * pos--;
+
+        if (pos < 2)
+            pos = 9;
+    }
+
+    let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+    if (resultado != digitos.charAt(0))
+        return false;
+
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0, tamanho);
+
+    soma = 0;
+    pos = tamanho - 7;
+
+    for (let i = tamanho; i >= 1; i--) {
+
+        soma += numeros.charAt(tamanho - i) * pos--;
+
+        if (pos < 2)
+            pos = 9;
+    }
+
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+    if (resultado != digitos.charAt(1))
+        return false;
+
+    return true;
 }
