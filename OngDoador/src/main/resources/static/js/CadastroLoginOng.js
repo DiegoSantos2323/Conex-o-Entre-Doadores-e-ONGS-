@@ -34,9 +34,7 @@ async function cadastroDeOng() {
     const dadosSalvos = JSON.parse(localStorage.getItem("dadosOng"));
 
     if (dadosSalvos == null) {
-
         alert("Dados da etapa 1 não encontrados!");
-
         window.location.href = "TelaCadastroOngEtapaUm.html";
 
     } else {
@@ -88,7 +86,6 @@ async function cadastroDeOng() {
                 window.location.href = "TelaEntrar.html";
 
             } else {
-
                 alert("Erro ao cadastrar ONG!");
             }
         }
