@@ -28,6 +28,7 @@ public class GestorEntity implements Serializable {
 	private String telefone;
 	private boolean isMaster;
 	private String senha;
+	private Boolean senhaTemporaria;
 	
 	@OneToOne
 	@JoinColumn(name = "ongID")
@@ -97,6 +98,15 @@ public class GestorEntity implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public Boolean getSenhaTemporaria() {
+		return senhaTemporaria;
+	}
+
+	public void setSenhaTemporaria(Boolean senhaTemporaria) {
+		this.senhaTemporaria = senhaTemporaria;
+	}
+
 	
 	
 }

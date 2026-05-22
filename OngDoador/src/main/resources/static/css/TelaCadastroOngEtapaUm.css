@@ -106,7 +106,7 @@ body{
    font-size:0.9rem;
    font-weight:500;
 
-   transition:0.3s;
+   transition:0.3s ease;
 }
 
 .nav-link:hover{
@@ -158,7 +158,7 @@ body{
    font-size:0.82rem;
    color:#374151;
 
-   transition:0.3s;
+   transition:0.3s ease;
 }
 
 .search-input:focus{
@@ -179,7 +179,7 @@ body{
    font-size:0.9rem;
    font-weight:500;
 
-   transition:0.3s;
+   transition:0.3s ease;
 }
 
 .btn-link:hover{
@@ -208,7 +208,10 @@ body{
 
    cursor:pointer;
 
-   transition:0.3s;
+   transition:
+      background 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 }
 
 .btn-primary:hover{
@@ -227,6 +230,8 @@ body{
    position:relative;
 }
 
+/* MENU */
+
 .dropdown-menu{
    position:absolute;
 
@@ -244,14 +249,30 @@ body{
 
    overflow:hidden;
 
-   display:none;
-
    z-index:999;
+
+   /* NOVO */
+   opacity:0;
+   visibility:hidden;
+
+   transform:translateY(10px);
+
+   transition:
+      opacity 0.35s ease,
+      transform 0.35s ease,
+      visibility 0.35s;
 }
+
+/* ABRIR MENU */
 
 .dropdown:hover .dropdown-menu{
-   display:block;
+   opacity:1;
+   visibility:visible;
+
+   transform:translateY(0);
 }
+
+/* LINKS */
 
 .dropdown-menu a{
    display:block;
@@ -264,13 +285,18 @@ body{
 
    font-size:0.85rem;
 
-   transition:0.2s;
+   transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      padding-left 0.25s ease;
 }
 
 .dropdown-menu a:hover{
    background:#f9fafb;
 
    color:#48D1CC;
+
+   padding-left:1.2rem;
 }
 
 /* ===================================
@@ -493,7 +519,10 @@ textarea{
 
    outline:none;
 
-   transition:0.3s;
+   transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.2s ease;
 }
 
 /* INPUTS */
@@ -524,6 +553,8 @@ textarea:focus{
    border-color:#48D1CC;
 
    box-shadow:0 0 0 4px rgba(72,209,204,0.1);
+
+   transform:translateY(-1px);
 }
 
 /* ===================================
@@ -567,7 +598,10 @@ textarea{
 
    margin-top:1rem;
 
-   transition:0.3s;
+   transition:
+      background 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 }
 
 .continue-button:hover{

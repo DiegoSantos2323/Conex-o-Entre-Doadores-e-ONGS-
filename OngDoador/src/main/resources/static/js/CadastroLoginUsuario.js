@@ -1,94 +1,105 @@
-const API_SALVAR_USUARIO = "http://localhost:8001/usuario/salvar";
+const API_SALVAR_USUARIO =
+    "http://localhost:8001/usuario/salvar";
+
+const API_LOGIN_USUARIO =
+    "http://localhost:8001/usuario/login";
+
+/* ===================================
+   CADASTRAR USUÁRIO
+=================================== */
 
 async function cadastrar() {
 
-	    const usuario = {
-			nomeCompleto: document.getElementById('nome').value,
-			  email: document.getElementById('email').value,
-		   cep: document.getElementById('cep').value,
-	      cidade: document.getElementById('cidade').value,
-	       estado: document.getElementById('estado').value,
-	    bairro: document.getElementById('bairro').value,
-	      logradouro: document.getElementById('logradouro').value,
-		   numero: document.getElementById('numero').value,
-	   senha: document.getElementById('senha').value,
-	 cpf: document.getElementById('cpf').value
-	    };
-  
-	    const response = await fetch(API_SALVAR_USUARIO, {
+    const usuario = {
+        nomeCompleto: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        cep: document.getElementById('cep').value,
+        cidade: document.getElementById('cidade').value,
+        estado: document.getElementById('estado').value,
+        bairro: document.getElementById('bairro').value,
+        logradouro: document.getElementById('logradouro').value,
+        numero: document.getElementById('numero').value,
+        senha: document.getElementById('senha').value,
+        cpf: document.getElementById('cpf').value
+    };
 
-	        method: "POST",
-
-	        headers: {
-	            "Content-Type": "application/json"
-	        },
-
-	        body: JSON.stringify(usuario)
-	    });
-		if(response.ok){
-
-		    alert("Usuário cadastrado com sucesso!");
-
-		    window.location.href = "login.html";//colocar tela de perfil criado 
-
-		} else {
-
-		    alert("Erro ao cadastrar usuário!");
-		}	
+    if(validaCPF (usuario.cpf)){
+		alert("CPF INVÁLIDO")
+		return;
 	}
+
+	const response = await fetch(
+	       API_SALVAR_USUARIO,
+	       {method: "POST",
+	 
+			 headers: {"Content-Type": "application/json"},
+	           body: JSON.stringify(usuario)
+	       }
+	   );
+
+	   if(response.ok){
+		alert("Usuário cadastrado com sucesso!")
+		limparFormulario();
+		
+	   } else {
+	    alert("Erro ao cadastrar usuário!");
+	}	
+}
 
 
 async function logar() {
 
-    // captura campos
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    // objeto login
     const usuario = {
         email: email,
         senha: senha
     };
-
-    // envia requisição para o backend
-    const response = await fetch("http://localhost:8000/usuario/login", {
+	const doador = await response.json();
+    const response = await fetch(API_LOGIN_USUARIO, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-
         body: JSON.stringify(usuario)
     });
 
-    // verifica resposta
-	if(response.ok){
+    if (response.ok) {
+        
 
-	    alert("Usuário cadastrado com sucesso!");
+        if (doador != null) {
+            localStorage.setItem(
+                "usuarioLogado",
+                JSON.stringify(doador)
+            );
+            alert("Login realizado com sucesso!");
 
-	    limparFormulario();
-
-	    setTimeout(() => {
-
-	        window.location.href = "login.html";
-
-	    }, 1000);
-
-	}
-	
-}	
+            limparFormulario();
+            window.location.href = "TelaInicio.html";
+        }
+      
+    } else {
+        alert("Email ou senha inválidos!");
+    }
+}
 
 function validaCPF(cpf) {
 
     let Soma = 0;
     let Resto;
 
-    let strCPF = String(cpf).replace(/[^\d]/g, '');
+    let strCPF = String(cpf)
+        .replace(/[^\d]/g, '');
 
     if (strCPF.length !== 11) {
+
         return false;
+
     }
 
-    // Bloqueia CPFs repetidos
+    /* BLOQUEIA CPF REPETIDO */
+
     if (
         strCPF === '00000000000' ||
         strCPF === '11111111111' ||
@@ -101,49 +112,66 @@ function validaCPF(cpf) {
         strCPF === '88888888888' ||
         strCPF === '99999999999'
     ) {
-        return alert("CPF INVÁlIDO");
+
+        return false;
+
     }
 
-    // Primeiro dígito
+    /* PRIMEIRO DÍGITO */
+
     for (let i = 1; i <= 9; i++) {
 
-        Soma += parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+        Soma += parseInt(
+            strCPF.substring(i - 1, i)
+        ) * (11 - i);
 
     }
 
     Resto = (Soma * 10) % 11;
 
     if (Resto === 10 || Resto === 11) {
+
         Resto = 0;
+
     }
 
-    if (Resto !== parseInt(strCPF.substring(9, 10))) {
-        return alert("CPF INVÁlIDO");
-    }
+    if (
+        Resto !==
+        parseInt(strCPF.substring(9, 10))
+    ) {
 
+        return false;
+
+    }
     Soma = 0;
 
-    // Segundo dígito
+    /* SEGUNDO DÍGITO */
+
     for (let i = 1; i <= 10; i++) {
 
-        Soma += parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+        Soma += parseInt(
+            strCPF.substring(i - 1, i)
+        ) * (12 - i);
 
     }
 
     Resto = (Soma * 10) % 11;
 
     if (Resto === 10 || Resto === 11) {
+
         Resto = 0;
-    }
 
-    if (Resto !== parseInt(strCPF.substring(10, 11))) {
-        return alert("CPF INVÁlIDO");
     }
-
+    if (  Resto !== parseInt(strCPF.substring(10, 11))
+    ) {
+        return false;
+   }
     return true;
 }
 
-
+/* ===================================
+   LIMPAR FORMULÁRIO
+=================================== */
 
 function limparFormulario() {
 

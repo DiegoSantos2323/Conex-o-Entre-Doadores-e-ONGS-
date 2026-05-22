@@ -1,56 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cadastro Doador - Doe+</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="css/TelaCadastroUsuario.css">
+    <title>Cadastro Doador • Doe+</title>
+
+    <link
+        rel="stylesheet"
+        href="css/TelaCadastroUsuario.css"
+    >
 
     <!-- ICONS -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ═══════════════ NAVBAR ═══════════════ -->
     <nav class="navbar">
 
         <div class="container navbar-content">
 
             <!-- LOGO -->
-            <a href="TelaInicio.html" class="logo">
+            <a
+                href="TelaInicio.html"
+                class="logo"
+            >
 
-                <div class="logo-icon">
-                    D+
-                </div>
+                <div class="logo-icon">D+</div>
 
                 <span class="logo-text">
                     Doe<span class="logo-accent">+</span>
                 </span>
 
             </a>
+            <!-- FIM LOGO -->
 
             <!-- MENU -->
             <div class="navbar-center">
 
-                <a href="#" class="nav-link">
+                <a
+                    href="#"
+                    class="nav-link"
+                >
                     Sobre nós
                 </a>
 
-                <a href="#" class="nav-link">
+                <a
+                    href="#"
+                    class="nav-link"
+                >
                     Explorar ONGs
                 </a>
 
-                <a href="#" class="nav-link">
+                <a
+                    href="#"
+                    class="nav-link"
+                >
                     Perguntas Frequentes
                 </a>
 
             </div>
+            <!-- FIM MENU -->
 
             <!-- RIGHT -->
             <div class="navbar-right">
@@ -67,11 +87,16 @@
                     >
 
                 </div>
+                <!-- FIM SEARCH -->
 
                 <!-- LOGIN -->
-                <a href="TelaEntrar.html" class="btn-link">
+                <a
+                    href="TelaEntrar.html"
+                    class="btn-link"
+                >
                     Entrar
                 </a>
+                <!-- FIM LOGIN -->
 
                 <!-- DROPDOWN -->
                 <div class="dropdown">
@@ -95,16 +120,21 @@
                         </a>
 
                     </div>
+                    <!-- FIM DROPDOWN MENU -->
 
                 </div>
+                <!-- FIM DROPDOWN -->
 
             </div>
+            <!-- FIM NAVBAR RIGHT -->
 
         </div>
+        <!-- FIM NAVBAR CONTENT -->
 
     </nav>
+    <!-- FIM NAVBAR -->
 
-    <!-- CADASTRO -->
+    <!-- ═══════════════ CADASTRO ═══════════════ -->
     <section class="register-section">
 
         <div class="container register-content">
@@ -117,11 +147,10 @@
 
                     <i class="fa-regular fa-heart"></i>
 
-                    <span>
-                        Para Doadores
-                    </span>
+                    <span>Para Doadores</span>
 
                 </div>
+                <!-- FIM BADGE -->
 
                 <!-- TITLE -->
                 <h1 class="register-title">
@@ -156,8 +185,10 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
                         <!-- CPF -->
                         <div class="form-group">
@@ -174,12 +205,14 @@
                                     id="cpf"
                                     type="text"
                                     placeholder="000.000.000-00"
-                                    onblur="validaCPF()"
+                                    onblur="validaCPF(this.value)"
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
                         <!-- EMAIL -->
                         <div class="form-group">
@@ -199,8 +232,10 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
                         <!-- CEP -->
                         <div class="form-group">
@@ -220,14 +255,16 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                             <small>
                                 Para encontrar ONGs próximas a você
                             </small>
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
-                        <!-- CIDADE / ESTADO -->
+                        <!-- ROW -->
                         <div class="form-row">
 
                             <!-- CIDADE -->
@@ -248,8 +285,10 @@
                                     >
 
                                 </div>
+                                <!-- FIM INPUT WRAPPER -->
 
                             </div>
+                            <!-- FIM FORM GROUP -->
 
                             <!-- ESTADO -->
                             <div class="form-group">
@@ -264,9 +303,7 @@
 
                                     <select id="estado">
 
-                                        <option>
-                                            Selecione
-                                        </option>
+                                        <option>Selecione</option>
 
                                         <option>AC</option>
                                         <option>AL</option>
@@ -299,10 +336,13 @@
                                     </select>
 
                                 </div>
+                                <!-- FIM INPUT WRAPPER -->
 
                             </div>
+                            <!-- FIM FORM GROUP -->
 
                         </div>
+                        <!-- FIM FORM ROW -->
 
                         <!-- BAIRRO -->
                         <div class="form-group">
@@ -322,8 +362,10 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
                         <!-- LOGRADOURO -->
                         <div class="form-group">
@@ -343,10 +385,12 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
-                        <!-- NÚMERO -->
+                        <!-- NUMERO -->
                         <div class="form-group">
 
                             <label>
@@ -364,8 +408,10 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
                         <!-- SENHA -->
                         <div class="form-group">
@@ -385,8 +431,10 @@
                                 >
 
                             </div>
+                            <!-- FIM INPUT WRAPPER -->
 
                         </div>
+                        <!-- FIM FORM GROUP -->
 
                         <!-- CHECKBOX -->
                         <div class="checkbox-group">
@@ -394,48 +442,46 @@
                             <input type="checkbox">
 
                             <p>
-
                                 Concordo com os
-
                                 <a href="#">
                                     Termos de Serviço
                                 </a>
-
                                 e
-
                                 <a href="#">
                                     Política de Privacidade
                                 </a>
-
                             </p>
-
                         </div>
-
+                        <!-- FIM CHECKBOX -->
+                        
                         <!-- BUTTON -->
                         <button
                             class="register-button"
                             type="button"
                             onclick="cadastrar()"
                         >
-
                             Criar Conta de Doador
-
                         </button>
+                        <!-- FIM BUTTON -->
 
                     </form>
+                    <!-- FIM FORM -->
 
                 </div>
+                <!-- FIM REGISTER CARD -->
 
             </div>
+            <!-- FIM REGISTER LEFT -->
 
         </div>
+        <!-- FIM REGISTER CONTENT -->
 
     </section>
+    <!-- FIM REGISTER SECTION -->
 
-    <!-- FOOTER -->
+    <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer class="footer">
 
-        <!-- CONTAINER -->
         <div class="footer-container">
 
             <!-- COLUNA 1 -->
@@ -452,6 +498,7 @@
                     </h2>
 
                 </div>
+                <!-- FIM FOOTER LOGO -->
 
                 <p class="footer-description">
 
@@ -480,8 +527,10 @@
                     </a>
 
                 </div>
+                <!-- FIM SOCIAL -->
 
             </div>
+            <!-- FIM COLUNA 1 -->
 
             <!-- COLUNA 2 -->
             <div class="footer-column">
@@ -497,6 +546,7 @@
                 <a href="#">Transparência</a>
 
             </div>
+            <!-- FIM COLUNA 2 -->
 
             <!-- COLUNA 3 -->
             <div class="footer-column">
@@ -511,6 +561,7 @@
                 <a href="#">Diretrizes</a>
 
             </div>
+            <!-- FIM COLUNA 3 -->
 
             <!-- COLUNA 4 -->
             <div class="footer-column">
@@ -525,10 +576,11 @@
                 <a href="#">Contato</a>
 
             </div>
+            <!-- FIM COLUNA 4 -->
 
         </div>
+        <!-- FIM FOOTER CONTAINER -->
 
-        <!-- LINE -->
         <div class="footer-line"></div>
 
         <!-- BOTTOM -->
@@ -543,14 +595,17 @@
             </p>
 
         </div>
+        <!-- FIM FOOTER BOTTOM -->
 
     </footer>
+    <!-- FIM FOOTER -->
 
     <!-- SCRIPT -->
     <script
         type="text/javascript"
-        src="js/CadastroLoginUsuario.js">
-    </script>
+        src="js/CadastroLoginUsuario.js"
+    ></script>
 
 </body>
+
 </html>
