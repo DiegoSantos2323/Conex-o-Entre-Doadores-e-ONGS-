@@ -68,7 +68,7 @@ public class UsuarioController {
 	
 	@PutMapping("/atualizar/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	@CrossOrigin("*")
+	
 	public UsuarioEntity Atualizar(@RequestBody UsuarioEntity entity, @PathVariable Long id) {
 		if(usuarioRepository.existsById(id)) {
 			entity.setId(id);
@@ -78,7 +78,7 @@ public class UsuarioController {
 	}//Atualizar
 	
 	@GetMapping("/login")
-	@CrossOrigin("*")
+
 	public ResponseEntity<UsuarioEntity> login(@RequestBody UsuarioEntity usuarioLogin){
 		
 		Optional<UsuarioEntity> usuario = 
