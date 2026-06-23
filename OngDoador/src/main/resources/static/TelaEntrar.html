@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Entrar • Doe+</title>
+
+    <link rel="stylesheet"
+        href="css/TelaEntrar.css">
+
+</head>
+
+<body>
+
+    <!-- ═══════════════ NAVBAR ═══════════════ -->
+    <nav class="navbar">
+
+        <div class="nav-inner">
+
+            <!-- LOGO -->
+            <a href="TelaInicio.html"
+                class="nav-logo">
+
+                <div class="circle">
+                    D+
+                </div>
+
+                <span>
+                    Doe<em>+</em>
+                </span>
+
+            </a>
+
+            <!-- LINKS -->
+            <div class="nav-links">
+
+                <a href="#">
+                    Sobre nós
+                </a>
+
+                <a href="#">
+                    Explorar ONGs
+                </a>
+
+                <a href="#">
+                    Perguntas Frequentes
+                </a>
+
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="nav-actions">
+
+                <!-- BUSCA -->
+                <div class="search-wrap">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2">
+
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+
+                    </svg>
+
+                    <input
+                        type="text"
+                        placeholder="Buscar ONGs..."
+                    >
+
+                </div>
+
+                <!-- ENTRAR -->
+                <a href="TelaEntrar.html"
+                    class="btn-link">
+
+                    Entrar
+
+                </a>
+
+                <!-- DROPDOWN -->
+                <div class="dropdown">
+
+                    <!-- BOTÃO -->
+                    <button class="btn-primary dropdown-toggle">
+
+                        Criar Conta
+
+                        <svg class="chevron-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <polyline points="6 9 12 15 18 9"></polyline>
+
+                        </svg>
+
+                    </button>
+
+                    <!-- MENU -->
+                    <div class="dropdown-menu">
+
+                        <a href="TelaCadastroUsuario.html">
+
+                            Sou Doador
+                        </a>
+
+                        <a href="TelaCadastroOngEtapaUm.html">
+
+                            Sou uma ONG
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ═══════════════ PAGE ═══════════════ -->
+    <section class="page">
+
+        <!-- LEFT -->
+        <div class="left">
+
+            <div class="form-wrap">
+
+                <h1>
+                    Bem-vindo de volta!
+                </h1>
+
+                <p class="subtitle">
+
+                    Acesse sua conta para continuar
+                    ajudando pessoas e projetos sociais.
+
+                </p>
+
+                <!-- FORM -->
+                <form>
+
+                    <!-- EMAIL -->
+                    <div class="field">
+
+                        <label>
+                            E-mail
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2">
+
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+
+                            </svg>
+
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="seu@email.com"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- SENHA -->
+                    <div class="field">
+
+                        <label>
+                            Senha
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2">
+
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+
+                            </svg>
+
+                            <input
+                                id="senha"
+                                type="password"
+                                placeholder="••••••••"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- OPTIONS -->
+                    <div class="row">
+
+                        <label class="remember">
+
+                            <input type="checkbox">
+
+                            Lembrar-me
+
+                        </label>
+
+                        <a href="#"
+                            class="forgot">
+
+                            Esqueceu a senha?
+
+                        </a>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button
+                        type="button"
+                        class="btn-enter"
+                        onclick="logar()">
+
+                        Entrar na Plataforma
+
+                    </button>
+
+                </form>
+
+               <!-- REGISTER -->
+					<div class="register-box">
+					
+					    <p>
+					        Selecione o tipo de acesso
+					    </p>
+					
+					   <a href="javascript:void(0)"
+						    id="tipoDoador"
+						    class="register-card donor">
+						
+						    Sou Doador			
+						</a>			
+						<a href="javascript:void(0)"
+						    id="tipoOng"
+						    class="register-card ong">
+						
+						    Sou ONG / Gestor
+							</a>			
+							</div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <div class="overlay"></div>
+
+            <div class="quote-card">
+
+                <h2>
+                    A solidariedade move o mundo
+                </h2>
+
+                <p>
+
+                    “Ao apoiar causas sociais,
+                    você ajuda pessoas,
+                    transforma vidas e inspira
+                    mudanças reais.”
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+
+        <div class="footer-inner">
+
+            <!-- TOP -->
+            <div class="footer-grid">
+
+                <!-- BRAND -->
+                <div class="footer-brand">
+
+                    <div class="footer-logo">
+
+                        <div class="circle">
+                            D+
+                        </div>
+
+                        <span>
+                            Doe<em>+</em>
+                        </span>
+
+                    </div>
+
+                    <p>
+
+                        Facilitamos conexões entre
+                        pessoas solidárias e ONGs
+                        verificadas em todo o Brasil.
+
+                    </p>
+
+                </div>
+
+                <!-- COL -->
+                <div class="footer-col">
+
+                    <h3>
+                        Plataforma
+                    </h3>
+
+                    <a href="#">
+                        Sobre nós
+                    </a>
+
+                    <a href="#">
+                        Como funciona
+                    </a>
+
+                    <a href="#">
+                        Transparência
+                    </a>
+
+                </div>
+
+                <!-- COL -->
+                <div class="footer-col">
+
+                    <h3>
+                        Recursos
+                    </h3>
+
+                    <a href="#">
+                        Blog
+                    </a>
+
+                    <a href="#">
+                        Ajuda
+                    </a>
+
+                    <a href="#">
+                        Comunidade
+                    </a>
+
+                </div>
+
+                <!-- COL -->
+                <div class="footer-col">
+
+                    <h3>
+                        Legal
+                    </h3>
+
+                    <a href="#">
+                        Termos
+                    </a>
+
+                    <a href="#">
+                        Privacidade
+                    </a>
+
+                    <a href="#">
+                        Cookies
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- BOTTOM -->
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Doe+. Todos os direitos reservados.
+                </p>
+
+                <p>
+                    Feito com ❤️ para transformar vidas
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="js/loginUsuario.js"></script>
+
+</body>
+
+</html>

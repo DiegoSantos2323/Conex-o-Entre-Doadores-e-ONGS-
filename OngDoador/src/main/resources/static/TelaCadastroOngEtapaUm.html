@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro ONG - Doe+</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="css/TelaCadastroOngEtapaUm.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+   <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="container navbar-content">
+
+            <!-- LEFT -->
+            <div class="navbar-left">
+
+                <a href="TelaInicio.html"
+                   class="logo">
+
+                    <div class="logo-icon">
+                        D+
+                    </div>
+
+                    <span class="logo-text">
+                        Doe<span class="logo-accent">+</span>
+                   </span>
+                </a>
+            </div>
+
+            <!-- CENTER -->
+            <div class="navbar-center">
+
+                <a href="#"
+                   class="nav-link">
+
+                    Sobre nós
+                </a>
+
+                <a href="#"
+                   class="nav-link">
+
+                    Explorar ONGs
+
+                </a>
+
+                <a href="#"
+                   class="nav-link">
+
+                    Perguntas Frequentes
+
+                </a>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="navbar-right">
+
+                <!-- SEARCH -->
+                <div class="search-bar">
+
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+                    <input type="text"
+                           class="search-input"
+                           placeholder="Buscar ONGs...">
+
+                </div>
+
+                <!-- LOGIN -->
+                <a href="TelaEntrar.html"
+                   class="btn-link">
+                   Entrar
+                </a>
+
+                <!-- DROPDOWN -->
+                <div class="dropdown">
+
+                    <button class="btn-primary dropdown-toggle">
+                       Criar Conta
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="TelaCadastroUsuario.html">
+                            Sou Doador
+                        </a>
+
+                        <a href="#">
+                            Sou ONG
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- REGISTER -->
+    <section class="register-section">
+
+        <div class="container register-content">
+
+            <!-- LEFT -->
+            <div class="register-left">
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="register-right">
+
+                <!-- BADGE -->
+                <div class="register-badge">
+
+                    <i class="fa-regular fa-building"></i>
+
+                    <span>
+                        Para Instituições
+                    </span>
+
+                </div>
+
+                <!-- TITLE -->
+                <h1 class="register-title">
+
+                    Solicitação de Cadastro
+
+                </h1>
+
+                <!-- DESCRIPTION -->
+                <p class="register-description">
+
+                    Preencha os dados para solicitar o cadastro da sua ONG na plataforma.
+
+                </p>
+
+                <!-- PROGRESS -->
+                <div class="progress-content">
+
+                    <div class="progress-top">
+
+                        <span>
+                            Etapa 1 de 2
+                        </span>
+
+                        <span>
+                            Dados da ONG
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"></div>
+
+                    </div>
+
+                </div>
+                <!-- CARD -->
+                <div class="register-card">
+
+                    <form>
+
+                        <!-- NOME -->
+                        <div class="form-group">
+
+                            <label>
+                                Nome da Instituição
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-building"></i>
+
+                                <input type="text"
+                                       placeholder="Nome Fantasia / Razão Social" id="nomeFantasia">
+
+                            </div>
+
+                        </div>
+
+                        <!-- CNPJ -->
+                        <div class="form-group">
+
+                            <label>
+                                CNPJ
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-file-lines"></i>
+
+                                <input type="text"
+                                       placeholder="00.000.000/0000-00" id="cnpj">
+
+                            </div>
+
+                        </div>
+
+                        <!-- AREA -->
+                        <div class="form-group">
+
+                            <label>
+                                Área de Atuação Principal
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-globe"></i>
+
+                                <select id="areaAtuacao">
+
+                                    <option>
+                                        Selecione uma área...
+                                    </option>
+
+                                    <option>
+                                        Educação
+                                    </option>
+
+                                    <option>
+                                        Saúde
+                                    </option>
+
+                                    <option>
+                                        Meio Ambiente
+                                    </option>
+
+                                    <option>
+                                        Proteção Animal
+                                    </option>
+
+                                    <option>
+                                        Assistência Social
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+
+                            <label>
+                                E-mail Institucional
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input type="email"
+                                       placeholder="contato@suaong.org.br" id="emailOng">
+                            </div>
+                        </div>
+                        <!-- DESCRIÇÃO -->
+                        <div class="form-group">
+
+                            <label>
+                                Descrição do Projeto/Missão
+                            </label>
+
+                            <textarea placeholder="Descreva brevemente a missão e principais atividades da ONG..."></textarea>
+                        </div>
+						<button type="button"
+						        class="continue-button"
+						        onclick="salvarEtapaUm()">
+						
+						    Continuar para Dados do Gestor
+						
+						    <i class="fa-solid fa-arrow-right"></i>
+						
+						</button>							
+																						                   <!-- LOGIN INFO -->
+			                <p class="login-message">		
+			                    Sua ONG já foi cadastrada?		
+			                    <a href="#">		
+			                        Faça login
+			
+			                    </a>	
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+<script type="text/javascript" src="js/CadastroLoginOng.js"></script>
+</body>
+
+</html>

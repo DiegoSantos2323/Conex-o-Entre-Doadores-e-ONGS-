@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Doe+ | Conectando Doadores e ONGs</title>
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   <!-- Navbar -->
+   <nav class="navbar">
+       <div class="container navbar-content">
+           <div class="navbar-left">
+               <a href="/" class="logo">
+                   <div class="logo-icon">D+</div>
+                   <span class="logo-text">Doe<span class="logo-accent">+</span></span>
+               </a>
+           </div>
+           <div class="navbar-center">
+               <a href="#sobre" class="nav-link">Sobre nós</a>
+               <a href="#ongs" class="nav-link">Explorar ONGs</a>
+               <a href="#faq" class="nav-link">Perguntas Frequentes</a>
+           </div>
+           
+          <div class="navbar-right">
+               <div class="search-bar">
+                   <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                       <circle cx="11" cy="11" r="8"></circle>
+                       <path d="m21 21-4.35-4.35"></path>
+                   </svg>
+                   <input type="text" placeholder="Buscar ONGs..." class="search-input"   id="buscarOng" onkeyup="BuscarNomeOng(this.value)">        
+                      <div id="resultadoBusca" class="resultado-busca"></div>
+                             
+               </div>
+               
+               <a href="TelaEntrar.html" class="btn-link">Entrar</a>
+               <div class="dropdown">
+                   <button class="btn-primary dropdown-toggle">
+                       Criar Conta
+                       <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <polyline points="6 9 12 15 18 9"></polyline>
+                       </svg>
+                   </button>
+                   <div class="dropdown-menu">
+                       <a href="TelaCadastroUsuario.html"">Sou Doador</a>
+                       <a href="TelaCadastroOngEtapaUm.html">Sou uma ONG</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </nav>
+   <!-- Hero Section -->
+   <section class="hero">
+       <div class="hero-bg-decoration hero-bg-top"></div>
+       <div class="hero-bg-decoration hero-bg-bottom"></div>
+       <div class="container hero-content">
+           <div class="hero-text">
+               <h1 class="hero-title">
+                   Faça a Diferença: Conecte-se e Apoie Causas que <span class="text-accent">Importam</span>
+               </h1>
+               <p class="hero-description">
+                   Encontre ONGs e projetos sociais alinhados com os seus valores. Seja voluntário ou faça doações com facilidade e transparência.
+               </p>
+               <div class="hero-buttons">
+                   <a href="#ongs" class="btn-primary btn-large">
+                       Encontrar ONGs
+                       <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <line x1="5" y1="12" x2="19" y2="12"></line>
+                           <polyline points="12 5 19 12 12 19"></polyline>
+                       </svg>
+                   </a>
+                   <a href="#ongs" class="btn-outline btn-large">
+                       <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                       </svg>
+                       ONGs Perto de Você
+                   </a>
+               </div>
+               <div class="hero-community">
+                   <div class="avatar-group">
+                       <div class="avatar"></div>
+                       <div class="avatar"></div>
+                       <div class="avatar avatar-count">+1k</div>
+                   </div>
+                   <p>Junte-se à nossa comunidade de doadores.</p>
+               </div>
+           </div>
+           <div class="hero-image">
+               <div class="image-overlay"></div>
+               <img src="https://images.unsplash.com/photo-1758599668547-2b1192c10abb?w=1080&q=80" alt="Voluntários ajudando a comunidade">
+           </div>
+       </div>
+   </section>
+   <!-- Impact Stats Section -->
+   <section class="impact-stats">
+       <div class="container">
+           <div class="section-header text-center">
+               <h2 class="section-title">Nosso Impacto Coletivo</h2>
+               <p class="section-description">Juntos, estamos transformando vidas e construindo um futuro melhor</p>
+           </div>
+           <div class="stats-grid">
+               <div class="stat-card">
+                   <div class="stat-icon-wrapper stat-icon-green">
+                       <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#059669">
+                           <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                           <polyline points="17 6 23 6 23 12"></polyline>
+                       </svg>
+                   </div>
+                   <p class="stat-value stat-value-green">R$ 2,5 milhões</p>
+                   <p class="stat-label">Arrecadados</p>
+               </div>
+               <div class="stat-card">
+                   <div class="stat-icon-wrapper stat-icon-blue">
+                       <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#2563eb">
+                           <rect x="3" y="3" width="7" height="7"></rect>
+                           <rect x="14" y="3" width="7" height="7"></rect>
+                           <rect x="14" y="14" width="7" height="7"></rect>
+                           <rect x="3" y="14" width="7" height="7"></rect>
+                       </svg>
+                   </div>
+                   <p class="stat-value stat-value-blue">50+</p>
+                   <p class="stat-label">ONGs Ativas</p>
+               </div>
+               <div class="stat-card">
+                   <div class="stat-icon-wrapper stat-icon-purple">
+                       <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="#7c3aed">
+                           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                           <circle cx="9" cy="7" r="4"></circle>
+                           <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                           <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                       </svg>
+                   </div>
+                   <p class="stat-value stat-value-purple">15.000+</p>
+                   <p class="stat-label">Doadores</p>
+               </div>
+               <div class="stat-card">
+                   <div class="stat-icon-wrapper stat-icon-red">
+                       <svg class="stat-icon" viewBox="0 0 24 24" fill="#dc2626" stroke="#dc2626">
+                           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                       </svg>
+                   </div>
+                   <p class="stat-value stat-value-red">25.000+</p>
+                   <p class="stat-label">Vidas Impactadas</p>
+               </div>
+           </div>
+           <div class="impact-cta">
+               <p class="impact-cta-text">Faça parte dessa transformação! Cada doação conta.</p>
+               <div class="impact-cta-buttons">
+                   <a href="#ongs" class="btn-primary btn-large">Ver ONGs</a>
+                   <a href="#cadastro" class="btn-outline btn-large">Começar a Doar</a>
+               </div>
+           </div>
+       </div>
+   </section>
+   <!-- How It Works Section -->
+   <section class="how-it-works" id="sobre">
+       <div class="container">
+           <div class="section-header text-center">
+               <h2 class="section-title">Como Funciona o Doe+</h2>
+               <p class="section-description">Nossa plataforma simplifica a conexão entre quem quer ajudar e quem precisa de ajuda, garantindo segurança e impacto real.</p>
+           </div>
+           <div class="features-grid">
+               <div class="feature-card">
+                   <div class="feature-icon">
+                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path>
+                           <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"></path>
+                           <path d="m2 16 6 6"></path>
+                           <circle cx="16" cy="9" r="2.9"></circle>
+                           <circle cx="6" cy="5" r="3"></circle>
+                       </svg>
+                   </div>
+                   <h3 class="feature-title">Para Doadores</h3>
+                   <p class="feature-description">Descubra e doe para projetos que fazem a diferença na sua comunidade e no mundo.</p>
+               </div>
+               <div class="feature-card">
+                   <div class="feature-icon">
+                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <rect x="3" y="3" width="7" height="9"></rect>
+                           <rect x="14" y="3" width="7" height="5"></rect>
+                           <rect x="14" y="12" width="7" height="9"></rect>
+                           <rect x="3" y="16" width="7" height="5"></rect>
+                       </svg>
+                   </div>
+                   <h3 class="feature-title">Para ONGs</h3>
+                   <p class="feature-description">Cadastre-se para receber doações, engajar voluntários e ampliar o seu impacto.</p>
+               </div>
+               <div class="feature-card">
+                   <div class="feature-icon">
+                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                           <path d="m9 12 2 2 4-4"></path>
+                       </svg>
+                   </div>
+                   <h3 class="feature-title">Transparência</h3>
+                   <p class="feature-description">Acompanhe o impacto de cada contribuição sua com relatórios e atualizações constantes.</p>
+               </div>
+           </div>
+       </div>
+   </section>
+   <!-- Projects Section -->
+   <section class="projects" id="ongs">
+       <div class="container">
+           <div class="projects-header">
+               <div>
+                   <h2 class="section-title">Projetos em Destaque</h2>
+                   <p class="section-description">Conheça as iniciativas que estão precisando de apoio agora mesmo e escolha onde fazer a diferença.</p>
+               </div>
+               <a href="#explorar" class="link-accent">Ver todas as ONGs →</a>
+           </div>
+           <div class="projects-grid">
+               <!-- Project 1 -->
+               <div class="project-card">
+                   <div class="project-image">
+                       <img src="https://images.unsplash.com/photo-1569173675610-42c361a86e37?w=1080&q=80" alt="Educação para o Futuro">
+                       <span class="project-badge">Urgente</span>
+                   </div>
+                   <div class="project-content">
+                       <span class="project-ong">Instituto Educar</span>
+                       <h3 class="project-title">Educação para o Futuro</h3>
+                       <div class="project-stats">
+                           <span class="stat-raised">R$ 15.000</span>
+                           <span class="stat-goal">de R$ 20.000</span>
+                       </div>
+                       <div class="progress-bar">
+                           <div class="progress-fill" style="width: 75%"></div>
+                       </div>
+                       <a href="#projeto1" class="btn-outline btn-block">Apoiar Projeto</a>
+                   </div>
+               </div>
+               <!-- Project 2 -->
+               <div class="project-card">
+                   <div class="project-image">
+                       <img src="https://images.unsplash.com/photo-1616680213846-20aef5608480?w=1080&q=80" alt="Limpeza das Praias">
+                       <span class="project-badge">Urgente</span>
+                   </div>
+                   <div class="project-content">
+                       <span class="project-ong">Oceano Limpo</span>
+                       <h3 class="project-title">Limpeza das Praias Locais</h3>
+                       <div class="project-stats">
+                           <span class="stat-raised">R$ 3.000</span>
+                           <span class="stat-goal">de R$ 5.000</span>
+                       </div>
+                       <div class="progress-bar">
+                           <div class="progress-fill" style="width: 60%"></div>
+                       </div>
+                       <a href="#projeto2" class="btn-outline btn-block">Apoiar Projeto</a>
+                   </div>
+               </div>
+               <!-- Project 3 -->
+               <div class="project-card">
+                   <div class="project-image">
+                       <img src="https://images.unsplash.com/photo-1628717341663-0007b0ee2597?w=1080&q=80" alt="Alimento na Mesa">
+                       <span class="project-badge">Urgente</span>
+                   </div>
+                   <div class="project-content">
+                       <span class="project-ong">Ação Solidária</span>
+                       <h3 class="project-title">Alimento na Mesa</h3>
+                       <div class="project-stats">
+                           <span class="stat-raised">R$ 45.000</span>
+                           <span class="stat-goal">de R$ 50.000</span>
+                       </div>
+                       <div class="progress-bar">
+                           <div class="progress-fill" style="width: 90%"></div>
+                       </div>
+                       <a href="#projeto3" class="btn-outline btn-block">Apoiar Projeto</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   <!-- Stats Banner -->
+   <section class="stats-banner">
+       <div class="stats-pattern"></div>
+       <div class="container stats-container">
+           <div class="stats-header">
+               <h2 class="stats-title">O Impacto da Nossa Comunidade</h2>
+               <p class="stats-description">Juntos, estamos construindo um futuro melhor. Veja o que já alcançamos com a ajuda de doadores como você.</p>
+           </div>
+           <div class="stats-banner-grid">
+               <div class="banner-stat">
+                   <div class="banner-stat-icon">
+                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                           <circle cx="9" cy="7" r="4"></circle>
+                           <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                           <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                       </svg>
+                   </div>
+                   <div class="banner-stat-value">+10.000</div>
+                   <div class="banner-stat-label">Vidas Impactadas</div>
+               </div>
+               <div class="banner-stat">
+                   <div class="banner-stat-icon">
+                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
+                           <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path>
+                           <path d="m21 3 1 11h-2"></path>
+                           <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path>
+                           <path d="M3 4h8"></path>
+                       </svg>
+                   </div>
+                   <div class="banner-stat-value">+500</div>
+                   <div class="banner-stat-label">ONGs Parceiras</div>
+               </div>
+               <div class="banner-stat">
+                   <div class="banner-stat-icon">
+                       <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                       </svg>
+                   </div>
+                   <div class="banner-stat-value">R$ 2 Milhões</div>
+                   <div class="banner-stat-label">Arrecadados</div>
+               </div>
+           </div>
+       </div>
+   </section>
+   <!-- Footer -->
+   <footer class="footer">
+       <div class="container">
+           <div class="footer-grid">
+               <!-- Brand Column -->
+               <div class="footer-brand">
+                   <a href="/" class="logo">
+                       <div class="logo-icon">D+</div>
+                       <span class="logo-text-footer">Doe<span class="logo-accent">+</span></span>
+                   </a>
+                   <p class="footer-description">
+                       Conectando corações generosos a causas que transformam vidas. Facilitamos doações para ONGs verificadas em todo o Brasil.
+                   </p>
+                   <div class="social-links">
+                       <a href="#" class="social-link">
+                           <svg viewBox="0 0 24 24" fill="currentColor">
+                               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                           </svg>
+                       </a>
+                       <a href="#" class="social-link">
+                           <svg viewBox="0 0 24 24" fill="currentColor">
+                               <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                           </svg>
+                       </a>
+                       <a href="#" class="social-link">
+                           <svg viewBox="0 0 24 24" fill="currentColor">
+                               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                           </svg>
+                       </a>
+                       <a href="#" class="social-link">
+                           <svg viewBox="0 0 24 24" fill="currentColor">
+                               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                               <rect x="2" y="9" width="4" height="12"></rect>
+                               <circle cx="4" cy="4" r="2"></circle>
+                           </svg>
+                       </a>
+                   </div>
+               </div>
+               <!-- Links Column 1 -->
+               <div class="footer-links">
+                   <h4 class="footer-links-title">Plataforma</h4>
+                   <ul>
+                       <li><a href="#sobre">Sobre nós</a></li>
+                       <li><a href="#sobre">Como funciona</a></li>
+                       <li><a href="#ongs">Para ONGs</a></li>
+                       <li><a href="#ongs">Para Doadores</a></li>
+                       <li><a href="#transparencia">Transparência</a></li>
+                   </ul>
+               </div>
+               <!-- Links Column 2 -->
+               <div class="footer-links">
+                   <h4 class="footer-links-title">Recursos</h4>
+                   <ul>
+                       <li><a href="#blog">Blog</a></li>
+                       <li><a href="#ajuda">Central de Ajuda</a></li>
+                       <li><a href="#historias">Histórias de Sucesso</a></li>
+                       <li><a href="#diretrizes">Diretrizes da Comunidade</a></li>
+                   </ul>
+               </div>
+               <!-- Links Column 3 -->
+               <div class="footer-links">
+                   <h4 class="footer-links-title">Legal</h4>
+                   <ul>
+                       <li><a href="#termos">Termos de Uso</a></li>
+                       <li><a href="#privacidade">Política de Privacidade</a></li>
+                       <li><a href="#cookies">Política de Cookies</a></li>
+                       <li><a href="#contato">Contato</a></li>
+                   </ul>
+               </div>
+           </div>
+           <div class="footer-bottom">
+               <p>© 2026 Doe+. Todos os direitos reservados.</p>
+               <p class="footer-love">
+                   Feito com
+                   <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                   </svg>
+                   para um mundo melhor
+               </p>
+           </div>
+       </div>
+   </footer>
+      <script src="js/TelaInicial.js"></script>
+</body>
+</html>
+
