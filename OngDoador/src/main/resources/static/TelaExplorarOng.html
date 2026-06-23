@@ -2,86 +2,43 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Explorar ONGs • Doe+
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="css/TelaExplorarOngs.css"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar ONGs | Doe+</title>
+    <link rel="stylesheet" href="css/TelaExplorarOngs.css">
 </head>
 
 <body>
 
-<!-- ═══════════════ NAVBAR ═══════════════ -->
+    <!-- Cabeçalho -->
+    <header class="navbar">
+        <div class="container navbar-content">
 
-<header class="navbar">
+            <a href="#" class="logo">
+                <div class="logo-icon">D+</div>
+                <div class="logo-text">Doe<span class="logo-accent">+</span></div>
+            </a>
 
-    <div class="container navbar-content">
+            <nav class="navbar-center">
+                <a href="#" class="nav-link">Sobre nós</a>
+                <a href="#" class="nav-link">Explorar ONGs</a>
+                <a href="#" class="nav-link">Perguntas Frequentes</a>
+            </nav>
 
-        <a href="#" class="logo">
-
-            <div class="logo-icon">
-                D+
+            <div class="navbar-right">
+                <a href="#" class="btn-link">Entrar</a>
+                <a href="#" class="btn-primary">Criar Conta</a>
             </div>
-
-            <div class="logo-text">
-                Doe<span class="logo-accent">+</span>
-            </div>
-
-        </a>
-
-        <nav class="navbar-center">
-
-            <a href="#" class="nav-link">
-                Sobre nós
-            </a>
-
-            <a href="#" class="nav-link">
-                Explorar ONGs
-            </a>
-
-            <a href="#" class="nav-link">
-                Perguntas Frequentes
-            </a>
-
-        </nav>
-
-        <div class="navbar-right">
-
-            <a href="#" class="btn-link">
-                Entrar
-            </a>
-
-            <a href="#" class="btn-primary">
-                Criar Conta
-            </a>
 
         </div>
+    </header>
 
-    </div>
-
-</header>
-
-<!-- ═══════════════ HERO ═══════════════ -->
-
+   ```html
+<!-- Seção Hero -->
 <section class="hero">
-
     <div class="container">
 
-        <h1 class="hero-title">
-            Explorar ONGs
-        </h1>
+        <h1 class="hero-title">Explorar ONGs</h1>
 
         <p class="hero-description">
             Encontre a causa que mais combina com você
@@ -90,451 +47,146 @@
         <div class="explore-box">
 
             <div class="search-group">
-
-                <label>
-                    Buscar por nome ou palavra-chave
-                </label>
-
+                <label for="busca-ong">Buscar por nome ou palavra-chave</label>
                 <input
                     type="text"
+                    id="busca-ong"
                     placeholder="Digite o nome da ONG..."
                 >
-
             </div>
 
             <div class="search-group">
+                <label for="area">Filtrar por área</label>
 
-                <label>
-                    Filtrar por área
-                </label>
-
-                <select>
-
-                    <option>
-                        Todas as áreas
-                    </option>
-
-                    <option>
-                        Educação
-                    </option>
-
-                    <option>
-                        Meio Ambiente
-                    </option>
-
-                    <option>
-                        Direitos Humanos
-                    </option>
-
+                <select id="area">
+                    <option value="">Todas as áreas</option>
+                    <option value="educacao">Educação</option>
+                    <option value="meio-ambiente">Meio Ambiente</option>
+                    <option value="direitos-humanos">Direitos Humanos</option>
                 </select>
-
             </div>
 
         </div>
 
         <div class="cep-box">
 
-            <label>
+            <label for="cep">
                 Encontre ONGs próximas a você
             </label>
 
             <div class="cep-row">
-
                 <input
                     type="text"
+                    id="cep"
                     placeholder="Digite seu CEP"
                 >
 
                 <button class="btn-primary">
                     Buscar
                 </button>
-
             </div>
 
         </div>
 
-        <p class="results-text">
-            6 ONGs encontradas
-        </p>
+        <!-- Quantidade de resultados preenchida dinamicamente -->
+        <p class="results-text"></p>
 
     </div>
-
 </section>
 
-<!-- ═══════════════ ONGS ═══════════════ -->
-
+<!-- Lista de ONGs -->
 <section class="ongs">
-
     <div class="container">
 
-        <div class="ongs-grid">
+        <div class="ongs-grid" id="ongs-container">
 
-            <!-- CARD 1 -->
-
-            <div class="ong-card">
-
-                <div class="ong-img"></div>
-
-                <span class="tag">
-                    Educação
-                </span>
-
-                <h3>
-                    Instituto Educar
-                </h3>
-
-                <p class="location">
-                    São Paulo, SP
-                </p>
-
-                <p class="desc">
-                    Transformando o futuro através da educação de qualidade
-                </p>
-
-                <button class="btn-primary btn-block">
-                    Ver Detalhes
-                </button>
-
-            </div>
-
-            <!-- CARD 2 -->
-
-            <div class="ong-card">
-
-                <div class="ong-img"></div>
-
-                <span class="tag">
-                    Meio Ambiente
-                </span>
-
-                <h3>
-                    Oceano Limpo
-                </h3>
-
-                <p class="location">
-                    Rio de Janeiro, RJ
-                </p>
-
-                <p class="desc">
-                    Preservação dos oceanos e praias limpas
-                </p>
-
-                <button class="btn-primary btn-block">
-                    Ver Detalhes
-                </button>
-
-            </div>
-
-            <!-- CARD 3 -->
-
-            <div class="ong-card">
-
-                <div class="ong-img"></div>
-
-                <span class="tag">
-                    Direitos Humanos
-                </span>
-
-                <h3>
-                    Ação Solidária
-                </h3>
-
-                <p class="location">
-                    Brasília, DF
-                </p>
-
-                <p class="desc">
-                    Combate à fome e inclusão social
-                </p>
-
-                <button class="btn-primary btn-block">
-                    Ver Detalhes
-                </button>
-
-            </div>
+            <!--
+                Os cards das ONGs serão renderizados
+                dinamicamente aqui.
+            -->
 
         </div>
 
     </div>
-
 </section>
 
-<!-- ═══════════════ CAMPANHAS ═══════════════ -->
-
+<!-- Lista de Projetos -->
 <section class="projects">
-
     <div class="container">
 
-        <div class="projects-grid">
+        <div class="projects-grid" id="projects-container">
 
-            <!-- CARD 1 -->
-
-            <div class="project-card">
-
-                <div class="project-image"></div>
-
-                <div class="project-content">
-
-                    <span class="project-tag">
-                        Saúde
-                    </span>
-
-                    <h3 class="project-title">
-                        Saúde para Todos
-                    </h3>
-
-                    <p class="project-location">
-                        Belo Horizonte, MG
-                    </p>
-
-                    <p class="project-desc">
-                        Atendimento médico gratuito para comunidades carentes
-                    </p>
-
-                    <div class="project-stats">
-
-                        <span>
-                            R$ 8.500
-                        </span>
-
-                        <span>
-                            de R$ 15.000
-                        </span>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div
-                            class="progress-fill"
-                            style="width:55%"
-                        ></div>
-
-                    </div>
-
-                    <button class="btn-primary btn-block">
-                        Ver Detalhes
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 2 -->
-
-            <div class="project-card">
-
-                <div class="project-image"></div>
-
-                <div class="project-content">
-
-                    <span class="project-tag">
-                        Proteção Animal
-                    </span>
-
-                    <h3 class="project-title">
-                        Proteção Animal Brasil
-                    </h3>
-
-                    <p class="project-location">
-                        Curitiba, PR
-                    </p>
-
-                    <p class="project-desc">
-                        Resgate e cuidado de animais abandonados
-                    </p>
-
-                    <div class="project-stats">
-
-                        <span>
-                            R$ 12.000
-                        </span>
-
-                        <span>
-                            de R$ 18.000
-                        </span>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div
-                            class="progress-fill"
-                            style="width:70%"
-                        ></div>
-
-                    </div>
-
-                    <button class="btn-primary btn-block">
-                        Ver Detalhes
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- CARD 3 -->
-
-            <div class="project-card">
-
-                <div class="project-image"></div>
-
-                <div class="project-content">
-
-                    <span class="project-tag">
-                        Outros
-                    </span>
-
-                    <h3 class="project-title">
-                        Cultura Viva
-                    </h3>
-
-                    <p class="project-location">
-                        Salvador, BA
-                    </p>
-
-                    <p class="project-desc">
-                        Preservação da cultura popular e arte comunitária
-                    </p>
-
-                    <div class="project-stats">
-
-                        <span>
-                            R$ 6.700
-                        </span>
-
-                        <span>
-                            de R$ 10.000
-                        </span>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div
-                            class="progress-fill"
-                            style="width:65%"
-                        ></div>
-
-                    </div>
-
-                    <button class="btn-primary btn-block">
-                        Ver Detalhes
-                    </button>
-
-                </div>
-
-            </div>
+            <!--
+                Os cards dos projetos serão renderizados
+                dinamicamente aqui.
+            -->
 
         </div>
 
     </div>
-
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
-
+<!-- Rodapé -->
 <footer class="footer">
-
     <div class="container">
 
         <div class="footer-grid">
 
-            <!-- LOGO -->
-
             <div class="footer-brand">
 
                 <a href="#" class="logo footer-logo">
-
-                    <div class="logo-icon">
-                        D+
-                    </div>
+                    <div class="logo-icon">D+</div>
 
                     <div class="logo-text-footer">
                         Doe<span class="logo-accent">+</span>
                     </div>
-
                 </a>
 
                 <p class="footer-description">
-                    Conectando corações generosos
-                    a causas que transformam vidas.
-                    Facilitamos doações para ONGs
-                    verificadas em todo o Brasil.
+                    Conectando corações generosos a causas que transformam vidas.
+                    Facilitamos doações para ONGs verificadas em todo o Brasil.
                 </p>
 
             </div>
 
-            <!-- LINKS -->
-
             <div class="footer-links">
-
-                <h3 class="footer-title">
-                    Plataforma
-                </h3>
+                <h3 class="footer-title">Plataforma</h3>
 
                 <ul>
-
                     <li><a href="#">Sobre nós</a></li>
-
                     <li><a href="#">Como funciona</a></li>
-
                     <li><a href="#">Para ONGs</a></li>
-
                     <li><a href="#">Para Doadores</a></li>
-
                 </ul>
-
             </div>
 
             <div class="footer-links">
-
-                <h3 class="footer-title">
-                    Recursos
-                </h3>
+                <h3 class="footer-title">Recursos</h3>
 
                 <ul>
-
                     <li><a href="#">Blog</a></li>
-
                     <li><a href="#">Central de Ajuda</a></li>
-
                     <li><a href="#">Histórias</a></li>
-
                 </ul>
-
             </div>
 
             <div class="footer-links">
-
-                <h3 class="footer-title">
-                    Legal
-                </h3>
+                <h3 class="footer-title">Legal</h3>
 
                 <ul>
-
                     <li><a href="#">Termos</a></li>
-
                     <li><a href="#">Privacidade</a></li>
-
                     <li><a href="#">Contato</a></li>
-
                 </ul>
-
             </div>
 
         </div>
 
         <div class="footer-bottom">
-
-            <p>
-                © 2026 Doe+. Todos os direitos reservados.
-            </p>
-
+            <p>&copy; 2026 Doe+. Todos os direitos reservados.</p>
         </div>
 
     </div>
-
 </footer>
 
 </body>
