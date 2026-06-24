@@ -57,12 +57,12 @@
         <div class="filter-grid">
           <!-- Busca -->
           <div class="field col-2">
-            <label for="search">Buscar por nome ou palavra-chave</label>
+            <label for="search" >Buscar por nome ou palavra-chave</label>
             <div class="input-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
               </svg>
-              <input type="text" id="search" placeholder="Digite o nome da ONG..." oninput="filterONGs()" />
+              <input type="text" id="search" placeholder="Digite o nome da ONG..." onkeyup="BuscarNomeOng(this.value)" />
             </div>
           </div>
 
@@ -358,6 +358,6 @@
       </div>
     </div>
   </footer>
-
+<script type="text/javascript" src="js/TelaExplorarOng.js"></script>
 </body>
 </html>

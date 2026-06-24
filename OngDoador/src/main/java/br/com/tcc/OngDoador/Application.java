@@ -4,10 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-/**
- *
- * Spring Boot application starter class
- */
 @EntityScan("br.com.tcc.OngDoador.entity")
 @SpringBootApplication
 public class Application {

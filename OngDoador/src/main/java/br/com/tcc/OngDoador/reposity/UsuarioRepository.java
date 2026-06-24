@@ -12,6 +12,7 @@ import br.com.tcc.OngDoador.entity.UsuarioEntity;
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long>{
 
 	Optional<UsuarioEntity> findByEmail(String email);
-	
+	boolean existsByEmail(String email);
+	boolean existsByCpf(String cpf);
 	
 }

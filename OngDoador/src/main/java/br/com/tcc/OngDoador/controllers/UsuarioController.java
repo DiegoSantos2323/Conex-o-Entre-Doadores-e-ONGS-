@@ -3,6 +3,8 @@ package br.com.tcc.OngDoador.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,8 +51,15 @@ public class UsuarioController {
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
 	@CrossOrigin("*")
-	public UsuarioEntity Salvar(@RequestBody UsuarioEntity entity) {
+	public UsuarioEntity Salvar( @RequestBody @Valid UsuarioEntity entity) {
 		entity.setSenha(encoder.encode(entity.getSenha()));//criptografando a senha;
+		
+		if(usuarioRepository.existsByEmail(entity.getEmail())) {
+		    throw new RuntimeException("E-mail já cadastrado.");
+		}
+		if(usuarioRepository.existsByCpf(entity.getCpf())) {
+		    throw new RuntimeException("CPF já cadastrado.");
+		}
 		return usuarioRepository.save(entity);
 	}//Salvar
 	

@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
@@ -25,19 +28,49 @@ public class UsuarioEntity implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Long id;
+	
+	@NotBlank(message = "Por favor, informe seu nome completo.")
+	@Size(min = 3, max = 100 ,
+	message = "O nome completo deve conter entre 3 e 100 caracteres.")
 	private String nomeCompleto;
-	private String cepUsuario;
-	private String cidade;
-	private String estado;
-	private String bairro;
-	private String logradouro;
-	private String numero;
-	private boolean doadorAnonimo;
+	
+	@NotBlank(message = "Por favor, informe o CPF.")
 	private String cpf;
+	
+	@NotBlank(message = "Por favor, informe o e-mail.")
+	@Email(message = "Por favor, informe um e-mail válido.")
 	private String email;
+	
+	@NotBlank(message = "Por favor, informe uma senha.")
+	@Size(min = 8 ,max = 30, message = "A senha deve conter entre 8 e 30 caracteres.")		
 	private String senha;
+	
+	@NotBlank(message = "Por favor, informe o CEP.")
+	private String cepUsuario;
+	
+	@NotBlank
+	(message = "Por favor, informe a cidade.")
+	private String cidade;
+	
+	@NotBlank
+	(message = "Por favor, informe o estado.")
+	private String estado;
+	
+	@NotBlank
+	(message = "Por favor, informe o bairro.")
+	private String bairro;
+	
+	@NotBlank
+	(message = "Por favor, informe o logradouro.")
+	private String logradouro;
+	
+	@NotBlank
+	private String numero;
+	
+	private boolean doadorAnonimo;
+	
+	
 	
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnore
