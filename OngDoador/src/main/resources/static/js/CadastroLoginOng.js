@@ -1,5 +1,5 @@
-const API_SALVAR_ONG = "http://localhost:8001/ong/salvar";
-const API_LOGIN_ONG = "http://localhost:8001/ong/login";
+const API_SALVAR_ONG = "http://localhost:8000/ong/salvar";
+const API_LOGIN_ONG = "http://localhost:8000/ong/login";
 
 function salvarEtapaUm() {
 

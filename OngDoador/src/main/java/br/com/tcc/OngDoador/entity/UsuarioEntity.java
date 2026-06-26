@@ -71,7 +71,6 @@ public class UsuarioEntity implements Serializable{
 	private boolean doadorAnonimo;
 	
 	
-	
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnore
 	private List<DoacaoEntity> doacao;
