@@ -51,7 +51,9 @@ async function cadastroDeOng() {
             cpfGestor: document.getElementById('cpfGestor').value,
             cargoGestor: document.getElementById('cargoGestor').value,
             emailGestor: document.getElementById('emailGestor').value,
-            telefoneGestor: document.getElementById('telefoneGestor').value
+            telefoneGestor: document.getElementById('telefoneGestor').value,
+			senhaOng: document.getElementById('senhaOng').value
+			
         };
 
         if (validaCNPJ(cadastroOng.cnpj) == false) {

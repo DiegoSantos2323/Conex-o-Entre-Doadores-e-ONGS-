@@ -83,7 +83,7 @@ public class OngController {
 		return ongRepository.findByNomeFantasiaContainingIgnoreCase( nomeFantasia);
 	}//buscar por nome
 	
-	@GetMapping("/login")
+	@GetMapping("/loginOng")
 	@CrossOrigin("*")
 	public ResponseEntity<OngEntity> login(@RequestBody OngEntity ongLogin){
 		
@@ -93,8 +93,8 @@ public class OngController {
 		if(ong.isPresent()) {
 			OngEntity OngEncontrada = ong.get();
 			
-			if(encoder.matches(ongLogin.getEmailOng(),
-					OngEncontrada.getEmailOng())) {
+			if(encoder.matches(ongLogin.getSenhaOng(),
+					OngEncontrada.getSenhaOng())) {
 				return ResponseEntity.ok(OngEncontrada);
 			}
 		}

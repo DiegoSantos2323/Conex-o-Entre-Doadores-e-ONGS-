@@ -30,7 +30,7 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
@@ -86,8 +86,8 @@ public class UsuarioController {
 		return null;
 	}//Atualizar
 	
-	@GetMapping("/login")
-
+	@GetMapping("/loginUsuario")
+	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<UsuarioEntity> login(@RequestBody UsuarioEntity usuarioLogin){
 		
 		Optional<UsuarioEntity> usuario = 
@@ -103,6 +103,5 @@ public class UsuarioController {
 		}
 		return ResponseEntity.status(401).build();
 	}
-	
 	
 }

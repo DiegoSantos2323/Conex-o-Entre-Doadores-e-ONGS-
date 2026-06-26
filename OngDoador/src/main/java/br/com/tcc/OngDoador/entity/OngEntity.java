@@ -27,7 +27,7 @@ public class OngEntity implements Serializable {
 	private String areaAtuacao;
 	private String emailOng;
 	private String descricao;
-
+	private String senhaOng;
 	
 	@OneToMany(mappedBy = "ong")
 	private List<DoacaoEntity> doacoes;
@@ -97,6 +97,14 @@ public class OngEntity implements Serializable {
 
 	public void setCampanhas(List<CampanhaEntity> campanhas) {
 		this.campanhas = campanhas;
+	}
+
+	public String getSenhaOng() {
+		return senhaOng;
+	}
+
+	public void setSenhaOng(String senhaOng) {
+		this.senhaOng = senhaOng;
 	}
 
 
