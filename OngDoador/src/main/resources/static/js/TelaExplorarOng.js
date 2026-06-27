@@ -1,4 +1,4 @@
-const API_BUSCAR_NOME_ONG = "http://localhost:8001/ong/buscarnome";
+const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
 
 async function BuscarNomeOng(nome){
 
@@ -25,3 +25,19 @@ async function BuscarNomeOng(nome){
 	console.log("Busca funcionando")
 
 }
+
+
+
+async function abc(){
+
+		const usuario = JSON.parse(
+		    localStorage.getItem("usuarioLogado")
+		);
+		
+		console.log(usuario);
+
+		
+}
+
+
+

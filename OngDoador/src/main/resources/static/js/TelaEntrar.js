@@ -1,7 +1,7 @@
-const API_BUSCAR_NOME_ONG = "http://localhost:8001/ong/buscarnome";
+const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
 
-const API_LOGIN_ONG = "http://localhost:8001/ong/loginOng";
-const API_LOGIN_USUARIO = "http://localhost:8001/usuario/loginUsuario";
+const API_LOGIN_ONG = "http://localhost:8000/ong/loginOng";
+const API_LOGIN_USUARIO = "http://localhost:8000/usuario/loginUsuario";
 
 let tipoLogin="";
 
@@ -51,14 +51,26 @@ async function login(){
 	});
 
 	if(response.ok){
-		alert("Login realizado com sucesso");
-		
-		if(tipoLogin === "DOADOR"){
-		        window.location.href = "";
-				
-		    }else if(tipoLogin === "ONG"){
-		        window.location.href = "";
-		    }
+
+	    const usuarioLogado = await response.json();
+
+	    console.log(usuarioLogado);
+
+	    localStorage.setItem(
+	        "usuarioLogado",
+	        JSON.stringify(usuarioLogado)
+	    );
+
+	    alert("Login realizado com sucesso");
+
+	    if(tipoLogin === "DOADOR"){
+			
+	        window.location.href = "TelaPerfilUsuario.html";
+			
+	    }else if(tipoLogin === "ONG"){
+			
+	        window.location.href = "TelaPrincipalGestorOng.html";
+	    }
 	}else{
 		alert("Email ou senha inválidos.");
 	}
@@ -92,8 +104,6 @@ async function BuscarNomeOng(nome){
 
 	console.log("Busca funcionando");
 }
-
-
 
 
 //ajuda do chat para efeitos no html
