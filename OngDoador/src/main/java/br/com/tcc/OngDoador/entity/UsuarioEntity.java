@@ -46,7 +46,7 @@ public class UsuarioEntity implements Serializable{
 	@Size(min = 8 ,max = 30, message = "A senha deve conter entre 8 e 30 caracteres.")		
 	private String senha;
 	
-	@NotBlank(message = "Por favor, informe o CEP.")
+	
 	private String cepUsuario;
 	
 	@NotBlank

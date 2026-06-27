@@ -25,3 +25,19 @@ async function BuscarNomeOng(nome){
 	console.log("Busca funcionando")
 
 }
+
+
+
+async function abc(){
+
+		const usuario = JSON.parse(
+		    localStorage.getItem("usuarioLogado")
+		);
+		
+		console.log(usuario);
+
+		
+}
+
+
+

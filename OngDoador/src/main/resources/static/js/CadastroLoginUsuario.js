@@ -17,10 +17,22 @@ async function cadastrar() {
         cpf: document.getElementById("cpf").value
     };
 
+	
     if (!validaCPF(usuario.cpf)) {
         alert("CPF INVÁLIDO");
         return;
     }
+
+    console.log("Objeto enviado:");
+    console.log(usuario);
+
+    console.log("JSON enviado:");
+    console.log(JSON.stringify(usuario));
+
+    console.log("Senha:");
+    console.log(usuario.senha);
+    console.log("Tamanho da senha:");
+    console.log(usuario.senha.length);
 
     const response = await fetch(API_SALVAR_USUARIO, {
         method: "POST",
@@ -35,43 +47,13 @@ async function cadastrar() {
         limparFormulario();
         window.location.href = "TelaEntrar.html";
     } else {
+
+        const erro = await response.text();
+
+        console.log("Erro retornado pelo backend:");
+        console.log(erro);
+
         alert("Erro ao cadastrar usuário!");
-    }
-	
-}
-
-async function logar() {
-
-    const usuario = {
-        email: document.getElementById("email").value,
-        senha: document.getElementById("senha").value
-    };
-
-    const response = await fetch(API_LOGIN_USUARIO, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(usuario)
-    });
-
-    if (response.ok) {
-
-        const doador = await response.json();
-
-        localStorage.setItem(
-            "usuarioLogado",
-            JSON.stringify(doador)
-        );
-
-        alert("Login realizado com sucesso!");
-
-        limparFormulario();
-
-        window.location.href = "TelaInicio.html";
-
-    } else {
-        alert("Email ou senha inválidos!");
     }
 }
 
