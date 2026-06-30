@@ -1,32 +1,17 @@
 async function CarregarPerfil(){
 	
-	const usurio = JSON.parse(
-		localStorage.getItem("usuarioLogado")
+	const usuario = JSON.parse(	localStorage.getItem("usuarioLogado")
 	);
+	document.getElementById('nomeUsuario').innerText = usuario.nomeCompleto;
+	document.getElementById('emailUsuario').innerText = usuario.email;
+	document.getElementById('nomeMenu').innerText = usuario.nomeCompleto;	
+}
+
+function Sair(){
+
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "TelaInicio.html";
+
+}
 	
-	const btnEntrar =
-	        document.getElementById("btnEntrar");
-
-	    const btnCriarConta =
-	        document.getElementById("btnCriarConta");
-
-	    const btnPerfil =
-	        document.getElementById("btnPerfil");
-
-	    if (usuario) {
-
-	        btnEntrar.hidden = true;
-	        btnCriarConta.hidden = true;
-	        btnPerfil.hidden = false;
-
-	    } else {
-
-	        btnEntrar.hidden = false;
-	        btnCriarConta.hidden = false;
-	        btnPerfil.hidden = true;
-	    }
-	}
-
-	window.onload = verificarLogin;
-	
-
+window.onload= CarregarPerfil;

@@ -23,16 +23,13 @@ async function login(){
 
 	if(tipoLogin == "DOADOR"){
 		api = API_LOGIN_USUARIO;
-
 		dados = {
 			email: email,
 			senha: senha
 		};
-
 	}else if(tipoLogin == "ONG"){
 
 		api = API_LOGIN_ONG;
-
 		dados = {
 			emailOng: email,
 			senha: senha
@@ -53,9 +50,7 @@ async function login(){
 	if(response.ok){
 
 	    const usuarioLogado = await response.json();
-
 	    console.log(usuarioLogado);
-
 	    localStorage.setItem(
 	        "usuarioLogado",
 	        JSON.stringify(usuarioLogado)
@@ -63,12 +58,10 @@ async function login(){
 
 	    alert("Login realizado com sucesso");
 
-	    if(tipoLogin === "DOADOR"){
-			
+	    if(tipoLogin === "DOADOR"){	
 	        window.location.href = "TelaPerfilUsuario.html";
 			
 	    }else if(tipoLogin === "ONG"){
-			
 	        window.location.href = "TelaPrincipalGestorOng.html";
 	    }
 	}else{
@@ -79,7 +72,6 @@ async function login(){
 async function BuscarNomeOng(nome){
 
 	const resultadoBusca = document.getElementById("resultadoBusca");
-
 	if(nome.length < 2){
 		resultadoBusca.innerHTML = "";
 		return;
@@ -89,9 +81,7 @@ async function BuscarNomeOng(nome){
 	const dados = await response.json();
 
 	console.log(dados);
-
 	resultadoBusca.innerHTML = "";
-
 	dados.forEach(ong => {
 
 		resultadoBusca.innerHTML += `
@@ -99,7 +89,6 @@ async function BuscarNomeOng(nome){
 				${ong.nomeFantasia}
 			</div>
 		`;
-
 	});
 
 	console.log("Busca funcionando");

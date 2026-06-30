@@ -60,6 +60,8 @@ public class UsuarioController {
 		if(usuarioRepository.existsByCpf(entity.getCpf())) {
 		    throw new RuntimeException("CPF já cadastrado.");
 		}
+		System.out.println("Senha recebida: " + entity.getSenha());
+		System.out.println("Tamanho: " + entity.getSenha().length());
 		return usuarioRepository.save(entity);
 	}//Salvar
 	
@@ -86,7 +88,7 @@ public class UsuarioController {
 		return null;
 	}//Atualizar
 	
-	@GetMapping("/loginUsuario")
+	@PostMapping("/loginUsuario")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<UsuarioEntity> login(@RequestBody UsuarioEntity usuarioLogin){
 		

@@ -18,9 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "Usuario")
 public class UsuarioEntity implements Serializable{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	 public UsuarioEntity() {
 	    }
@@ -35,15 +33,19 @@ public class UsuarioEntity implements Serializable{
 	message = "O nome completo deve conter entre 3 e 100 caracteres.")
 	private String nomeCompleto;
 	
-	@NotBlank(message = "Por favor, informe o CPF.")
+	@NotBlank(
+			message = "Por favor, informe o CPF.")
 	private String cpf;
 	
-	@NotBlank(message = "Por favor, informe o e-mail.")
-	@Email(message = "Por favor, informe um e-mail válido.")
+	@NotBlank(
+			message = "Por favor, informe o e-mail.")
+	@Email(
+			message = "Por favor, informe um e-mail válido.")
 	private String email;
 	
 	@NotBlank(message = "Por favor, informe uma senha.")
-	@Size(min = 8 ,max = 30, message = "A senha deve conter entre 8 e 30 caracteres.")		
+	@Size(
+			min = 8 ,max = 60, message = "A senha deve conter entre 8 e 30 caracteres.")		
 	private String senha;
 	
 	

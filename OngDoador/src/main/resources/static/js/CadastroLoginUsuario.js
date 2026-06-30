@@ -1,13 +1,12 @@
 const API_SALVAR_USUARIO = "http://localhost:8000/usuario/salvar";
 const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
-const API_LOGIN_USUARIO = "http://localhost:8000/usuario/login";
 
 async function cadastrar() {
 
     const usuario = {
         nomeCompleto: document.getElementById("nome").value,
         email: document.getElementById("email").value,
-        cep: document.getElementById("cep").value,
+        cepUsuario: document.getElementById("cep").value,
         cidade: document.getElementById("cidade").value,
         estado: document.getElementById("estado").value,
         bairro: document.getElementById("bairro").value,
@@ -22,18 +21,6 @@ async function cadastrar() {
         alert("CPF INVÁLIDO");
         return;
     }
-
-    console.log("Objeto enviado:");
-    console.log(usuario);
-
-    console.log("JSON enviado:");
-    console.log(JSON.stringify(usuario));
-
-    console.log("Senha:");
-    console.log(usuario.senha);
-    console.log("Tamanho da senha:");
-    console.log(usuario.senha.length);
-
     const response = await fetch(API_SALVAR_USUARIO, {
         method: "POST",
         headers: {
@@ -47,12 +34,7 @@ async function cadastrar() {
         limparFormulario();
         window.location.href = "TelaEntrar.html";
     } else {
-
-        const erro = await response.text();
-
-        console.log("Erro retornado pelo backend:");
-        console.log(erro);
-
+     
         alert("Erro ao cadastrar usuário!");
     }
 }
