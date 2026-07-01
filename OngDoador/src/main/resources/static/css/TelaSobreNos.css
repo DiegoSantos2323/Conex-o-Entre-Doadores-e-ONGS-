@@ -1,3 +1,219 @@
+.user-dropdown-item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-dropdown-item svg{
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    flex-shrink: 0;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background: #fff;
+}
+
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+/* ======================================================
+   MENU DO USUÁRIO
+====================================================== */
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+#menuVisitante,
+#menuUsuario{
+    align-items:center;
+    gap:1rem;
+}
+
+#menuVisitante{
+    display:flex;
+}
+
+#menuUsuario{
+    display:flex;
+}
+
+/* Faz o atributo hidden funcionar sempre */
+[hidden]{
+    display:none !important;
+}
+.user-menu-wrap{
+    position:relative;
+}
+
+.user-btn{
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+
+    padding:.5rem 1rem;
+
+    background:#fff;
+    border:none;
+    border-radius:999px;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.user-btn:hover{
+    background:#f3f4f6;
+}
+
+.user-avatar{
+    width:38px;
+    height:38px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#48D1CC;
+    color:#fff;
+    font-weight:bold;
+}
+
+.user-btn svg{
+    width:18px;
+    height:18px;
+}
+
+/* Menu Dropdown do Usuário */
+.user-menu-wrap { 
+  position: relative; 
+}
+
+.user-btn { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  padding: 6px 14px; 
+  background: none; 
+  border: none; 
+  border-radius: 999px; 
+  cursor: pointer; 
+  transition: background 0.2s; 
+}
+
+.user-btn:hover { 
+  background: #f3f4f6; 
+}
+
+.user-btn svg { 
+  width: 16px; 
+  height: 16px; 
+  color: #6b7280; 
+}
+
+.user-avatar { 
+  width: 32px; 
+  height: 32px; 
+  border-radius: 50%; 
+  background: #48D1CC; 
+  color: #fff; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: 700; 
+  font-size: 0.875rem; 
+}
+
+.user-btn span { 
+  font-size: 0.875rem; 
+  font-weight: 600; 
+  color: #374151; 
+}
+
+.user-dropdown { 
+  display: none; 
+  position: absolute; 
+  top: calc(100% + 8px); 
+  right: 0; 
+  width: 220px; 
+  background: #fff; 
+  border: 1px solid #f3f4f6; 
+  border-radius: 14px; 
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1); 
+  padding: 6px; 
+  z-index: 100; 
+}
+
+.user-dropdown.open { 
+  display: block; 
+}
+
+.user-dropdown-item { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  padding: 10px 12px; 
+  border-radius: 8px; 
+  font-size: 0.875rem; 
+  font-weight: 500; 
+  color: #374151; 
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s; 
+}
+
+.user-dropdown-item:hover,
+.user-dropdown-item:visited,
+.user-dropdown-item:link {
+    text-decoration: none;
+}
+.user-dropdown-item:hover { 
+  background: #f9fafb; 
+  color: #48D1CC; 
+}
+
+.user-dropdown-item svg { 
+  width: 16px; 
+  height: 16px; 
+}
+
+.user-dropdown-item.principal { 
+  color: #48D1CC; 
+  font-weight: 700; 
+}
+
+.user-dropdown-item.principal:hover { 
+  background: #eafaf9; 
+}
+
+.user-dropdown-item.danger { 
+  color: #ef4444; 
+}
+
+.user-dropdown-item.danger:hover { 
+  background: #fef2f2; 
+}
+
+.dropdown-divider { 
+  border-top: 1px solid #f3f4f6; 
+  margin: 4px 0; 
+}
+
+
 /* ── Dropdown Criar Conta ── */
 .register-wrap {
   position: relative;

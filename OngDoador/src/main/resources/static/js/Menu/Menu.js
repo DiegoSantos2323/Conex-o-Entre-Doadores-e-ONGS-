@@ -1,6 +1,7 @@
 function CarregarMenu(){
 
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
 	
     if(usuario){
         document.getElementById("menuVisitante").hidden = true;
@@ -12,13 +13,18 @@ function CarregarMenu(){
         document.getElementById("menuUsuario").hidden = true;
 
     }
+	const menuVisitante = document.getElementById("menuVisitante");
+	const menuUsuario = document.getElementById("menuUsuario");
+console.log(menuVisitante);
+	console.log(menuUsuario);
 }
 
-function Sair(){
+function Sair() {
 
     localStorage.removeItem("usuarioLogado");
 
-    window.location.href = "TelaInicio.html";
+    document.getElementById("userDropdown")?.classList.remove("open");
 
+    window.location.href = "TelaInicio.html";
 }
 window.onload = CarregarMenu;

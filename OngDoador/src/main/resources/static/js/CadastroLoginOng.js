@@ -1,5 +1,6 @@
 const API_SALVAR_ONG = "http://localhost:8000/ong/salvar";
-const API_LOGIN_ONG = "http://localhost:8000/ong/login";
+const API_SALVAR_GESTOR = "http://localhost:8000/gestor/salvar";
+
 
 function salvarEtapaUm() {
 
@@ -8,37 +9,35 @@ function salvarEtapaUm() {
         cnpj: document.getElementById('cnpj').value,
         areaAtuacao: document.getElementById('areaAtuacao').value,
         emailOng: document.getElementById('emailOng').value,
-        descricao: document.querySelector('textarea').value
-    };
+		descricao: document.querySelector("textarea").value
+	 };
 
-    if (
-        dadosOng.nomeFantasia == "" ||
-        dadosOng.cnpj == "" ||
-        dadosOng.areaAtuacao == "" ||
-        dadosOng.emailOng == ""
-    ) {
+    if ( 
+		dadosOng.nomeFantasia === "" ||
+        dadosOng.cnpj ==="" ||
+        dadosOng.areaAtuacao === "" ||
+        dadosOng.emailOng ===""
+       
+    ){
         alert("Preencha todos os campos obrigatórios!");
-    } else {
+    }
+	else{
         localStorage.setItem("dadosOng", JSON.stringify(dadosOng));
+		
         window.location.href = "TelaCadastroOngEtapaDois.html";
     }
 }
 
-
-/* ===================================
-   ETAPA 2
-=================================== */
+//Tonim, esta função irá fazer duas chamadas(1 pra ong e 1 pra gestor) de apis para salvar o dados do gestor, esta função pega o dados salvos na etapa 1.
 
 async function cadastroDeOng() {
-
     const dadosSalvos = JSON.parse(localStorage.getItem("dadosOng"));
 
-    if (dadosSalvos == null) {
+    if (dadosSalvos === null) {
         alert("Dados da etapa 1 não encontrados!");
         window.location.href = "TelaCadastroOngEtapaUm.html";
-
+	return;
     } else {
-
         const cadastroOng = {
 
             nomeFantasia: dadosSalvos.nomeFantasia,
@@ -46,7 +45,6 @@ async function cadastroDeOng() {
             areaAtuacao: dadosSalvos.areaAtuacao,
             emailOng: dadosSalvos.emailOng,
             descricao: dadosSalvos.descricao,
-
             nomeGestor: document.getElementById('nomeGestor').value,
             cpfGestor: document.getElementById('cpfGestor').value,
             cargoGestor: document.getElementById('cargoGestor').value,
@@ -54,89 +52,67 @@ async function cadastroDeOng() {
             telefoneGestor: document.getElementById('telefoneGestor').value,
 			senhaOng: document.getElementById('senhaOng').value
 			
-        };
+        };	
+		//aqui fa validações.
+			if(cadastroOng.senhaOng.trim() === ""){
+			    alert("Informe uma senha.");
+			    return;
+			}	
+		    if (validaCNPJ(cadastroOng.cnpj) == false) {
+		        alert("CNPJ inválido!");
+				return;
+		    } else if (validaCpfOng(cadastroOng.cpfGestor) == false) {
 
-        if (validaCNPJ(cadastroOng.cnpj) == false) {
-
-            alert("CNPJ inválido!");
-
-        } else if (validaCNPJ(cadastroOng.cpfGestor) == false) {
-
-            alert("CPF inválido!");
-
-        } else {
-
-            const response = await fetch(API_SALVAR_ONG, {
-
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify(cadastroOng)
-            });
-
-            if (response.ok) {
-
-                alert("ONG cadastrada com sucesso!");
-
-                localStorage.removeItem("dadosOng");
-
-                limparFormulario();
-
-                window.location.href = "TelaEntrar.html";
-
-            } else {
-                alert("Erro ao cadastrar ONG!");
-            }
-        }
-    }
-}
-
-async function logar() {
-
-    const emailOng = document.getElementById("emailOng").value;
-    const emailGestor = document.getElementById("emailGestor").value;
-
-    if (emailOng == "" || emailGestor == "") {
-
-        alert("Preencha os campos de login!");
-
-    } else {
-
-        const loginOng = {
-            emailOng: emailOng,
-            emailGestor: emailGestor
-        };
-
-        const response = await fetch(API_LOGIN_ONG, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(loginOng)
-        });
-
-        if (response.ok) {
-
-            const ong = await response.json();
-
-            if (ong != null) {
-
-                localStorage.setItem("ongLogada", JSON.stringify(ong));
-
-            } else {
-               
-			 alert("Erro ao processar dados do login!");
-            }
-        } else {
-           
-		 alert("Email ou senha inválidos!");
-        }
+		        alert("CPF inválido!");
+		return;
+		    }	
+		const response = await fetch(API_SALVAR_ONG, {
+		    method: "POST",
+		    headers: { "Content-Type": "application/json" 
+		         },
+ 
+		    body: JSON.stringify({
+		        nomeFantasia: cadastroOng.nomeFantasia,
+		        cnpj: cadastroOng.cnpj,
+		        areaAtuacao: cadastroOng.areaAtuacao,
+		        emailOng: cadastroOng.emailOng,
+		        descricao: cadastroOng.descricao,
+		        senhaOng: cadastroOng.senhaOng
+		    })
+			});
+			
+		if (response.ok) {
+	    const ongSalva = await response.json();
 		
-    }
+	    const gestor = {
+        nomeGestor: cadastroOng.nomeGestor,
+        cpf: cadastroOng.cpfGestor,
+        emailGestor: cadastroOng.emailGestor,
+        telefone: cadastroOng.telefoneGestor,
+		cargoGestor: cadastroOng.cargoGestor,
+        ong: {
+            id: ongSalva.id
+        }
+
+    };
+
+    const responseGestor = await fetch(API_SALVAR_GESTOR, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(gestor)
+    });
+
+    if (responseGestor.ok) {
+        alert("ONG cadastrada com sucesso!");
+        localStorage.removeItem("dadosOng");
+        window.location.href = "TelaEntrar.html";
+   }
 }
+
+}
+
 
 function validaCpfOng(cpf) {
 
@@ -259,18 +235,4 @@ function validaCNPJ(cnpj) {
     }
     return true;
 }
-
-function limparFormulario() {
-
-    document.getElementById('nomeFantasia').value = "";
-    document.getElementById('cnpj').value = "";
-    document.getElementById('areaAtuacao').value = "";
-    document.getElementById('emailOng').value = "";
-    document.querySelector('textarea').value = "";
-
-    document.getElementById('nomeGestor').value = "";
-    document.getElementById('cpfGestor').value = "";
-    document.getElementById('cargoGestor').value = "";
-    document.getElementById('emailGestor').value = "";
-    document.getElementById('telefoneGestor').value = "";
 }

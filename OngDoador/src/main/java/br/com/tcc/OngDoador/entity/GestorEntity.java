@@ -22,13 +22,13 @@ public class GestorEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String nome;
+	private String nomeGestor;
 	private String cpf;
 	private String emailGestor;
 	private String telefone;
-	private boolean isMaster;
-	private String senha;
-	private Boolean senhaTemporaria;
+	private String cargoGestor;
+
+
 	
 	@OneToOne
 	@JoinColumn(name = "ongID")
@@ -41,14 +41,6 @@ public class GestorEntity implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getCpf() {
@@ -75,13 +67,6 @@ public class GestorEntity implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public boolean isMaster() {
-		return isMaster;
-	}
-
-	public void setMaster(boolean isMaster) {
-		this.isMaster = isMaster;
-	}
 
 	public OngEntity getOng() {
 		return ong;
@@ -91,21 +76,23 @@ public class GestorEntity implements Serializable {
 		this.ong = ong;
 	}
 
-	public String getSenha() {
-		return senha;
+	public String getCargoGestor() {
+		return cargoGestor;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setCargoGestor(String cargoGestor) {
+		this.cargoGestor = cargoGestor;
 	}
 
-	public Boolean getSenhaTemporaria() {
-		return senhaTemporaria;
+	public String getNomeGestor() {
+		return nomeGestor;
 	}
 
-	public void setSenhaTemporaria(Boolean senhaTemporaria) {
-		this.senhaTemporaria = senhaTemporaria;
+	public void setNomeGestor(String nomeGestor) {
+		this.nomeGestor = nomeGestor;
 	}
+
+
 
 	
 	

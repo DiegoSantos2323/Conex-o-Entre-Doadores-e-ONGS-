@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Ong")
@@ -35,6 +36,10 @@ public class OngEntity implements Serializable {
 	@OneToMany(mappedBy = "ong")
 	private List<CampanhaEntity> campanhas;
 
+	@OneToOne(mappedBy = "ong")
+	private GestorEntity gestor;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -106,6 +111,7 @@ public class OngEntity implements Serializable {
 	public void setSenhaOng(String senhaOng) {
 		this.senhaOng = senhaOng;
 	}
+
 
 
 	

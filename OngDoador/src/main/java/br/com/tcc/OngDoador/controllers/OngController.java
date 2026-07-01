@@ -50,7 +50,12 @@ public class OngController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@CrossOrigin("*")
 	public OngEntity Salvar(@RequestBody OngEntity entity) {
-		return ongRepository.save(entity);
+
+	    entity.setSenhaOng(
+	        encoder.encode(entity.getSenhaOng())
+	    );
+
+	    return ongRepository.save(entity);
 	}//salvar
 	
 	@DeleteMapping("deletar/{id}")
@@ -83,7 +88,7 @@ public class OngController {
 		return ongRepository.findByNomeFantasiaContainingIgnoreCase( nomeFantasia);
 	}//buscar por nome
 	
-	@GetMapping("/loginOng")
+	@PostMapping("/loginOng")
 	@CrossOrigin("*")
 	public ResponseEntity<OngEntity> login(@RequestBody OngEntity ongLogin){
 		

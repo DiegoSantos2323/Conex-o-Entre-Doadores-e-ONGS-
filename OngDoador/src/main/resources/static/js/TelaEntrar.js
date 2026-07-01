@@ -32,7 +32,7 @@ async function login(){
 		api = API_LOGIN_ONG;
 		dados = {
 			emailOng: email,
-			senha: senha
+			senhaOng: senha
 		};
 	}else{
 		alert("Selecione o Tipo de Login");
@@ -93,6 +93,13 @@ async function BuscarNomeOng(nome){
 
 	console.log("Busca funcionando");
 }
+
+
+
+
+
+
+
 
 
 //ajuda do chat para efeitos no html
