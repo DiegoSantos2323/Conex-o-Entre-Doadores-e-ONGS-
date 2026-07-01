@@ -25,19 +25,30 @@ public class CampanhaEntity implements Serializable{
 	private Long id;
 	
 	private String nomeCampanha;
-	private String causa;
-	private String descricao;
-	private float metaMensal;
+
 	private LocalDate dataInicio;
+
 	private LocalDate dataFim;
-	
+
+	private String status;
+
+	private Integer vidasImpactadas;
+
+	private String descricao;
+
+	private String comDoacaoConseguimos;
+
+	private Float arrecadado;
+
+	private Float metaMensal;
+
+	private Float progresso;
+
 	@ManyToOne
 	@JoinColumn(name = "ongID")
 	private OngEntity ong;
 	//Uma ong pode criar N campanhas
 
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -52,14 +63,6 @@ public class CampanhaEntity implements Serializable{
 
 	public void setNomeCampanha(String nomeCampanha) {
 		this.nomeCampanha = nomeCampanha;
-	}
-
-	public String getCausa() {
-		return causa;
-	}
-
-	public void setCausa(String causa) {
-		this.causa = causa;
 	}
 
 	public String getDescricao() {
@@ -100,6 +103,50 @@ public class CampanhaEntity implements Serializable{
 
 	public void setDataInicio(LocalDate dataInicio) {
 		this.dataInicio = dataInicio;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Integer getVidasImpactadas() {
+		return vidasImpactadas;
+	}
+
+	public void setVidasImpactadas(Integer vidasImpactadas) {
+		this.vidasImpactadas = vidasImpactadas;
+	}
+
+	public String getComDoacaoConseguimos() {
+		return comDoacaoConseguimos;
+	}
+
+	public void setComDoacaoConseguimos(String comDoacaoConseguimos) {
+		this.comDoacaoConseguimos = comDoacaoConseguimos;
+	}
+
+	public Float getArrecadado() {
+		return arrecadado;
+	}
+
+	public void setArrecadado(Float arrecadado) {
+		this.arrecadado = arrecadado;
+	}
+
+	public Float getProgresso() {
+		return progresso;
+	}
+
+	public void setProgresso(Float progresso) {
+		this.progresso = progresso;
+	}
+
+	public void setMetaMensal(Float metaMensal) {
+		this.metaMensal = metaMensal;
 	}
 	
 
