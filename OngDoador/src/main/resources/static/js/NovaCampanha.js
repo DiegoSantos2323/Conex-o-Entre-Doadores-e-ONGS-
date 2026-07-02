@@ -1,111 +1,67 @@
-window.onload = function(){
+const API_SALVAR_CAMPANHA = "http://localhost:8000/campanha/salvar";
 
+async function cadastrarCampanha(){
 
-    const botaoSalvar = document.getElementById("btnSalvarCampanha");
+    const campanha = {
 
+        nomeCampanha: document.getElementById("titulo").value,
 
-    botaoSalvar.addEventListener("click", function(event){
+        dataInicio: document.getElementById("startDate").value,
 
+        dataFim: document.getElementById("endDate").value,
 
-        event.preventDefault();
+        status: document.getElementById("status").value,
 
+        vidasImpactadas: document.getElementById("impactLives").value,
 
-        const campanha = {
+        descricao: document.getElementById("about").value,
 
+        comDoacaoConseguimos: document.getElementById("impactDesc").value,
 
-            nomeCampanha: document.getElementById("titulo").value,
+        arrecadado: document.getElementById("raised").value,
 
-            dataInicio: document.getElementById("startDate").value,
+        metaMensal: document.getElementById("goal").value
 
-            dataFim: document.getElementById("endDate").value,
+    };
 
-            status: document.getElementById("status").value,
+    const response = await fetch(API_SALVAR_CAMPANHA, {
 
-            vidasImpactadas: document.getElementById("impactLives").value,
+        method:"POST",
 
-            descricao: document.getElementById("about").value,
+        headers:{
 
-            comDoacaoConseguimos: document.getElementById("impactDesc").value,
+            "Content-Type":"application/json"
 
-            arrecadado: document.getElementById("raised").value,
+        },
 
-            metaMensal: document.getElementById("goal").value,
-
-            progresso: document.getElementById("previaPerc").innerText.replace("%","")
-
-        };
-
-
-
-        console.log("Dados da campanha:");
-        console.log(campanha);
-
-
-
-        // salva temporariamente no navegador
-        localStorage.setItem("campanha", JSON.stringify(campanha));
-
-
-
-        fetch("http://localhost:8000/campanha/salvar", {
-
-
-            method:"POST",
-
-
-            headers:{
-
-
-                "Content-Type":"application/json"
-
-
-            },
-
-
-            body: JSON.stringify(campanha)
-
-
-        })
-
-
-        .then(resposta => resposta.json())
-
-
-        .then(dados => {
-
-
-            console.log("Campanha salva no banco:");
-            console.log(dados);
-
-
-            alert("Campanha criada com sucesso!");
-
-
-
-            // vai para tela principal das campanhas
-            window.location.href = "TelaCampanhasPrincipal.html";
-
-
-
-        })
-
-
-        .catch(erro=>{
-
-
-            console.log("Erro:");
-            console.log(erro);
-
-
-            alert("Erro ao salvar campanha");
-
-
-        });
-
-
+        body: JSON.stringify(campanha)
 
     });
 
+    if(response.ok){
 
+        alert("Campanha cadastrada com sucesso!");
 
-};
+        limparFormulario();
+		
+        window.location.href = "TelaCampanhasPrincipal.html";
+    }else{
+
+        alert("Erro ao cadastrar campanha!");
+
+    }
+
+}
+
+function limparFormulario(){
+	
+    document.getElementById("titulo").value = "";
+    document.getElementById("startDate").value = "";
+    document.getElementById("endDate").value = "";
+    document.getElementById("status").value = "";
+    document.getElementById("impactLives").value = "";
+    document.getElementById("about").value = "";
+    document.getElementById("impactDesc").value = "";
+    document.getElementById("raised").value = "";
+    document.getElementById("goal").value = "";
+}

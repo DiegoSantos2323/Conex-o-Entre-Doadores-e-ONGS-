@@ -1,6 +1,7 @@
 package br.com.tcc.OngDoador.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -29,7 +30,10 @@ public class OngEntity implements Serializable {
 	private String emailOng;
 	private String descricao;
 	private String senhaOng;
-	
+	private String logo;
+	private LocalDate dataFundacao;
+	private String telefone;
+
 	@OneToMany(mappedBy = "ong")
 	private List<DoacaoEntity> doacoes;
 	
@@ -110,6 +114,38 @@ public class OngEntity implements Serializable {
 
 	public void setSenhaOng(String senhaOng) {
 		this.senhaOng = senhaOng;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public LocalDate getDataFundacao() {
+		return dataFundacao;
+	}
+
+	public void setDataFundacao(LocalDate dataFundacao) {
+		this.dataFundacao = dataFundacao;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public GestorEntity getGestor() {
+		return gestor;
+	}
+
+	public void setGestor(GestorEntity gestor) {
+		this.gestor = gestor;
 	}
 
 
