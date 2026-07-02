@@ -1,71 +1,146 @@
-console.log("NovaCampanha.js carregou");
-
+const API_BUSCAR_CAMPANHAS = "http://localhost:8000/campanha/listartodos";
+const API_DELETAR_CAMPANHA = "http://localhost:8000/campanha/deletar";
 
 document.addEventListener("DOMContentLoaded", function(){
 
+    carregarCampanhas();
 
-    const botaoSalvar = document.getElementById("btnSalvarCampanha");
+});
+
+async function carregarCampanhas(){
+
+    const lista = document.querySelector(".campanha-list");
+
+    const response = await fetch(API_BUSCAR_CAMPANHAS);
+
+    const campanhas = await response.json();
+
+    lista.innerHTML = "";
+
+    campanhas.forEach(campanha => {
+
+        lista.innerHTML += `
+
+        <div class="campanha-card">
+
+            <div class="campanha-header">
+
+                <div class="campanha-esquerda">
+
+                    <div class="icone-coracao">
+					
+                        ♡
+                    </div>
+
+                    <div class="campanha-info">
+
+                        <h2>
+
+                            ${campanha.nomeCampanha}
+
+                            <span class="status">
+
+                                🟢 ${campanha.status}
+
+                            </span>
+
+                        </h2>
+
+                        <p>
+
+                        📅 ${campanha.dataInicio} - ${campanha.dataFim}
+
+                        • ${campanha.vidasImpactadas} vidas
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="botoes">
+
+                    <button class="editar">
+
+                        ✏ Editar
+
+                    </button>
+
+                    <button 
+                    class="deletar"
+                    onclick="deletarCampanha(${campanha.id})">
+					
+                      🗑 Excluir
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="progresso-area">
+
+                <div class="valores">
+
+                    <span>
+
+                    R$ ${campanha.arrecadado} arrecadados
+
+                    </span>
+					
+                    <span>
+					
+                    Meta: R$ ${campanha.metaMensal}
+					
+                    </span>
+
+                </div>
+
+                <div class="barra">
+
+                    <div class="barra-preenchida"
+					
+                    style="width:${campanha.progresso || 0}%">
+
+                    </div>
+                </div>		
+            </div>
+     </div>
 
 
-    if(botaoSalvar){
+        `;
 
+    });
 
-        botaoSalvar.addEventListener("click", function(event){
+}
 
+async function deletarCampanha(id){
 
-            event.preventDefault();
+    const confirmar = confirm("Deseja excluir essa campanha?");
 
+    if(confirmar){
 
-            const campanha = {
+        const response = await fetch(
+            `${API_DELETAR_CAMPANHA}/${id}`,
+            {
 
+                method:"DELETE"
 
-                nomeCampanha: document.getElementById("titulo").value,
+            }
+        );
 
-                dataInicio: document.getElementById("startDate").value,
+        if(response.ok){
 
-                dataFim: document.getElementById("endDate").value,
+            alert("Campanha excluída com sucesso!");
 
-                status: document.getElementById("status").value,
+            carregarCampanhas();
 
-                vidasImpactadas: document.getElementById("impactLives").value,
+        }else{
 
-                descricao: document.getElementById("about").value,
+            alert("Erro ao excluir campanha");
 
-                comDoacaoConseguimos: document.getElementById("impactDesc").value,
-
-                arrecadado: document.getElementById("raised").value,
-
-                metaMensal: document.getElementById("goal").value,
-
-
-            };
-
-
-            console.log("Campanha criada:");
-            console.log(campanha);
-
-
-
-            // salva no navegador
-            localStorage.setItem(
-                "campanha",
-                JSON.stringify(campanha)
-            );
-
-
-
-            alert("Campanha criada com sucesso!");
-
-
-
-            // vai para tela principal
-            window.location.href = "TelaCampanhasPrincipal.html";
-
-
-        });
-
+        }
 
     }
 
-
-});
+}
