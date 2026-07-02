@@ -38,7 +38,6 @@ async function login(){
 		alert("Selecione o Tipo de Login");
 		return;
 	}
-
 	const response = await fetch(api,{
 		method:"POST",
 		headers:{
@@ -50,6 +49,7 @@ async function login(){
 	if(response.ok){
 
 	    const usuarioLogado = await response.json();
+		
 	    console.log(usuarioLogado);
 	    localStorage.setItem(
 	        "usuarioLogado",

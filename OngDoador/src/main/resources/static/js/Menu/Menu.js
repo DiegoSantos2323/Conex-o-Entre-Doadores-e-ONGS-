@@ -13,6 +13,7 @@ function CarregarMenu(){
         document.getElementById("menuUsuario").hidden = true;
 
     }
+	
 	const menuVisitante = document.getElementById("menuVisitante");
 	const menuUsuario = document.getElementById("menuUsuario");
 console.log(menuVisitante);

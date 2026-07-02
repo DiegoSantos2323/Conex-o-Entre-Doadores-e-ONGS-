@@ -28,28 +28,24 @@ public class CampanhaController  {
 	
 	@GetMapping("/listartodos")
 	@ResponseStatus(HttpStatus.OK)
-	@CrossOrigin("*")
 	public List<CampanhaEntity> ListarTodos(){
 		return repository.findAll();
 	}//listar todos
 	
 	@GetMapping("/listarporid/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	@CrossOrigin("*")
 	public Optional<CampanhaEntity> ListarPorId(@PathVariable Long id){
 		return repository.findById(id);
 	}//listar por id
 
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
-	@CrossOrigin("*")
 	public CampanhaEntity Salvar(@RequestBody CampanhaEntity entity) {
 		return repository.save(entity);
 	}//salvar
 	
 	@DeleteMapping("/deletar/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@CrossOrigin("*")
 	public String deletar(@PathVariable Long id) {
 		if(repository.existsById(id)) {
 			repository.deleteById(id);
@@ -60,7 +56,6 @@ public class CampanhaController  {
 	
 	@PutMapping("/atualizar/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	@CrossOrigin("*")
 	public CampanhaEntity Atualizar(@RequestBody CampanhaEntity entity, @PathVariable Long id ) {
 		if(repository.existsById(id)) {
 			entity.setId(id);

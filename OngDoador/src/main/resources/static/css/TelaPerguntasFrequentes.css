@@ -139,78 +139,7 @@ body {
 
 a { text-decoration: none; }
 
-/* ─────────────────────────────────────
-   NAVBAR
-───────────────────────────────────── */
-.navbar {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #f3f4f6;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
 
-.navbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo { display: flex; align-items: center; gap: 8px; }
-
-.logo-circle {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: #48D1CC;
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 1rem;
-}
-
-.logo-circle.small { width: 32px; height: 32px; font-size: 0.85rem; }
-
-.logo-text { font-size: 1.4rem; font-weight: 800; color: #111827; }
-.logo-text.white { color: #fff; }
-.logo-text em { color: #48D1CC; font-style: normal; }
-
-.nav-links { display: flex; align-items: center; gap: 32px; }
-
-.nav-links a {
-  color: #6b7280; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active { color: #48D1CC; }
-
-.nav-actions { display: flex; align-items: center; gap: 16px; }
-
-.btn-login {
-  color: #6b7280; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.2s;
-}
-
-/* ── Reset ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Inter', Arial, sans-serif;
-  background: #f9fafb;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-a { text-decoration: none; }
 
 /* ─────────────────────────────────────
    NAVBAR
@@ -224,14 +153,17 @@ a { text-decoration: none; }
   z-index: 50;
 }
 
-.navbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.container{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 24px;
+}
+
+.navbar-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
 }
 
 .nav-logo {

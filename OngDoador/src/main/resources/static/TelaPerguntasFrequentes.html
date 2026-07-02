@@ -10,7 +10,7 @@
 
   <!-- ═══════════ NAVBAR ═══════════ -->
   <nav class="navbar">
-    <div class="navbar-inner">
+    <div class="container navbar-content">
 
       <a href="TelaInicio.html" class="nav-logo">
         <div class="logo-circle">D+</div>
@@ -24,7 +24,7 @@
         <a href="TelaPerguntasFrequentes.html" class="active">Perguntas Frequentes</a>
       </div>
 
-      <div class="nav-actions">
+      <div class="navbar-right">
         <div class="search-wrap">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
@@ -32,30 +32,44 @@
           <input type="text" placeholder="Buscar ONGs..." />
         </div>
                     <!-- MENU VISITANTE -->
-			<div id="menuVisitante" hidden>
-			    <a href="TelaEntrar.html" class="btn-link">Entrar</a>	
-			    <div class="dropdown">
-			        <button class="btn-primary dropdown-toggle">
-			            Criar Conta
-			
-			            <svg class="chevron-icon"
-			                 viewBox="0 0 24 24"
-			                 fill="none"
-			                 stroke="currentColor">
-			
-			                <polyline points="6 9 12 15 18 9"></polyline>
-			            </svg>
-			        </button>			
-			        <div class="dropdown-menu">
-			            <a href="TelaCadastroUsuario.html">Sou Doador</a>
-			            <a href="TelaCadastroOngEtapaUm.html">Sou uma ONG</a>
-			        </div>
-			    </div>
-			
-			</div>
+		<div id="menuVisitante" class="user-menu-wrap">
+
+    <a href="TelaEntrar.html" class="btn-link">
+        Entrar
+    </a>
+
+    <div class="register-wrap">
+
+        <button
+            class="btn-primary dropdown-toggle"
+            onclick="toggleDropdown()">
+
+            Criar Conta
+
+            <svg
+                id="chevron"
+                class="chevron-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor">
+
+                <polyline points="6 9 12 15 18 9"></polyline>
+
+            </svg>
+
+        </button>
+
+        <div class="dropdown-menu">
+            <a href="TelaCadastroUsuario.html">Sou Doador</a>
+            <a href="TelaCadastroOngEtapaUm.html">Sou uma ONG</a>
+        </div>
+
+    </div>
+
+</div>
 			<!-- MENU USUÁRIO -->
 			
-			 <div class="user-menu-wrap" >
+			 <div id="menuUsuario" class="user-menu-wrap" hidden>
 	          <button class="user-btn" onclick="toggleUserMenu()">
 	            <div class="user-avatar" id="avatarMenu">J</div>
 	
@@ -371,7 +385,7 @@
 	      document.getElementById('userDropdown').classList.toggle('open');
 	    }
 	    document.addEventListener('click', function(e) {
-	      const wrap = document.querySelector('.user-menu-wrap');
+	    	const wrap = document.getElementById("menuUsuario");
 	      if (wrap && !wrap.contains(e.target))
 	        document.getElementById('userDropdown').classList.remove('open');
 	    });
