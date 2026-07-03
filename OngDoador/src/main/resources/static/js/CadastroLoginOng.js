@@ -16,14 +16,12 @@ function salvarEtapaUm() {
 		dadosOng.nomeFantasia === "" ||
         dadosOng.cnpj ==="" ||
         dadosOng.areaAtuacao === "" ||
-        dadosOng.emailOng ===""
-       
+        dadosOng.emailOng ==="" 
     ){
         alert("Preencha todos os campos obrigatórios!");
     }
 	else{
         localStorage.setItem("dadosOng", JSON.stringify(dadosOng));
-		
         window.location.href = "TelaCadastroOngEtapaDois.html";
     }
 }

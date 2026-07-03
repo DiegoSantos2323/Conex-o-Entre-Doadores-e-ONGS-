@@ -1,11 +1,3 @@
-.teste{
-    background:#fff;
-    border:none;
-    border-radius:999px;
-
-    cursor:pointer;
-    transition:.3s;
-}
 
 /* Menu Dropdown do Usuário */
 .user-menu-wrap{
@@ -199,36 +191,48 @@ a { text-decoration: none; }
     color:#48D1CC;
 }
 
-.navbar-center{
-    display:none;
-    gap:2rem;
+.navbar-center {
+    display: none;
+    gap: 2rem;
 }
 
-@media(min-width:768px){
+@media (min-width: 768px) {
 
-    .navbar-center{
-        display:flex;
+    .navbar-center {
+        display: flex;
     }
 
 }
 
-.nav-link{
-    color:#6b7280;
-    text-decoration:none;
-    font-weight:500;
-    transition:.3s;
+.nav-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .3s;
 }
 
-.nav-link:hover{
-    color:#48D1CC;
+.nav-link:hover {
+    color: #48D1CC;
 }
 
-.navbar-right{
-    display:none;
-    align-items:center;
-    gap:1rem;
+
+/* =====================================================
+   NAVBAR - LADO DIREITO
+===================================================== */
+
+.navbar-right {
+    display: none;
+    align-items: center;
+    gap: 1rem;
 }
 
+@media (min-width: 768px) {
+
+    .navbar-right {
+        display: flex;
+    }
+
+}
 @media(min-width:768px){
 
     .navbar-right{
@@ -269,41 +273,51 @@ a { text-decoration: none; }
     box-shadow:0 0 0 3px rgba(72,209,204,.1);
 }
 
-.btn-link{
-    color:#6b7280;
-    text-decoration:none;
-    font-weight:500;
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .3s;
 }
 
-.btn-link:hover{
-    color:#48D1CC;
+.btn-link:hover {
+    color: #48D1CC;
 }
 
-.btn-primary{
-    display:inline-flex;
-    align-items:center;
-    gap:.25rem;
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
 
-    padding:.625rem 1.25rem;
+    padding: .625rem 1.25rem;
 
-    background:#48D1CC;
-    color:#fff;
+    background: #48D1CC;
+    color: #fff;
 
-    border:none;
-    border-radius:9999px;
+    border: none;
+    border-radius: 9999px;
 
-    cursor:pointer;
-    font-size:.875rem;
-    font-weight:500;
+    font-size: .875rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: background .3s;
 }
 
-.btn-primary:hover{
-    background:#3bb3b0;
+.btn-primary:hover {
+    background: #3bb3b0;
 }
 
-.chevron-icon{
-    width:16px;
-    height:16px;
+.chevron-icon {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
 }
 
 .dropdown-menu {

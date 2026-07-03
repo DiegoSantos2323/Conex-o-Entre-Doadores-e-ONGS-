@@ -100,9 +100,7 @@ body{
 }
 
 /* Menu Dropdown do Usuário */
-.user-menu-wrap { 
-  position: relative; 
-}
+
 
 .user-btn { 
   display: flex; 
