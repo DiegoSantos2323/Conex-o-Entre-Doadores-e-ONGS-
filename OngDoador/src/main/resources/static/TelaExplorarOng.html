@@ -17,6 +17,7 @@
                    <span class="logo-text">Doe<span class="logo-accent">+</span></span>
                </a>
            </div>
+           
            <div class="navbar-center">
                <a href="TelaSobreNos.html" class="nav-link">Sobre nós</a>
                <a href="TelaExplorarOng.html" class="nav-link">Explorar ONGs</a>
@@ -93,8 +94,7 @@
 	        </div>
     </div>
 </div>
-           </div>
-       </div>
+         
    </nav>
 
   <!-- ═══════════ CONTEÚDO ═══════════ -->
@@ -166,176 +166,13 @@
 
         <!-- Contador -->
         <div class="results-count">
-          <p id="resultsCount">6 ONGs encontradas</p>
+          <p id="resultsCount"></p>
         </div>
 
       </div>
 
       <!-- Grid de ONGs -->
-      <div class="ong-grid" id="ongGrid">
-
-        <!-- Card 1 -->
-        <div class="ong-card" data-name="Instituto Educar" data-area="Educação" data-desc="Transformando o futuro através da educação de qualidade">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1569173675610-42c361a86e37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80" alt="Instituto Educar" />
-            <span class="area-badge">Educação</span>
-          </div>
-          <div class="card-body">
-            <h3>Instituto Educar</h3>
-            <div class="card-location">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              São Paulo, SP
-            </div>
-            <p class="card-desc">Transformando o futuro através da educação de qualidade</p>
-            <div class="card-footer">
-              <div class="progress-labels">
-                <span>R$ 15.000</span>
-                <span class="muted">de R$ 20.000</span>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
-              <a href="ong-detalhes.html" class="btn-ver">Ver Detalhes</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="ong-card" data-name="Oceano Limpo" data-area="Meio Ambiente" data-desc="Preservação dos oceanos e praias limpas">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1616680213846-20aef5608480?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80" alt="Oceano Limpo" />
-            <span class="area-badge">Meio Ambiente</span>
-          </div>
-          <div class="card-body">
-            <h3>Oceano Limpo</h3>
-            <div class="card-location">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              Rio de Janeiro, RJ
-            </div>
-            <p class="card-desc">Preservação dos oceanos e praias limpas</p>
-            <div class="card-footer">
-              <div class="progress-labels">
-                <span>R$ 3.000</span>
-                <span class="muted">de R$ 5.000</span>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
-              <a href="ong-detalhes.html" class="btn-ver">Ver Detalhes</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="ong-card" data-name="Ação Solidária" data-area="Direitos Humanos" data-desc="Combate à fome e inclusão social">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1628717341663-0007b0ee2597?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80" alt="Ação Solidária" />
-            <span class="area-badge">Direitos Humanos</span>
-          </div>
-          <div class="card-body">
-            <h3>Ação Solidária</h3>
-            <div class="card-location">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              Brasília, DF
-            </div>
-            <p class="card-desc">Combate à fome e inclusão social</p>
-            <div class="card-footer">
-              <div class="progress-labels">
-                <span>R$ 45.000</span>
-                <span class="muted">de R$ 50.000</span>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
-              <a href="ong-detalhes.html" class="btn-ver">Ver Detalhes</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="ong-card" data-name="Saúde para Todos" data-area="Saúde" data-desc="Atendimento médico gratuito para comunidades carentes">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80" alt="Saúde para Todos" />
-            <span class="area-badge">Saúde</span>
-          </div>
-          <div class="card-body">
-            <h3>Saúde para Todos</h3>
-            <div class="card-location">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              Belo Horizonte, MG
-            </div>
-            <p class="card-desc">Atendimento médico gratuito para comunidades carentes</p>
-            <div class="card-footer">
-              <div class="progress-labels">
-                <span>R$ 8.500</span>
-                <span class="muted">de R$ 15.000</span>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:57%"></div></div>
-              <a href="ong-detalhes.html" class="btn-ver">Ver Detalhes</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="ong-card" data-name="Proteção Animal Brasil" data-area="Proteção Animal" data-desc="Resgate e cuidado de animais abandonados">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80" alt="Proteção Animal Brasil" />
-            <span class="area-badge">Proteção Animal</span>
-          </div>
-          <div class="card-body">
-            <h3>Proteção Animal Brasil</h3>
-            <div class="card-location">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              Curitiba, PR
-            </div>
-            <p class="card-desc">Resgate e cuidado de animais abandonados</p>
-            <div class="card-footer">
-              <div class="progress-labels">
-                <span>R$ 12.000</span>
-                <span class="muted">de R$ 18.000</span>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:67%"></div></div>
-              <a href="ong-detalhes.html" class="btn-ver">Ver Detalhes</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="ong-card" data-name="Cultura Viva" data-area="Outros" data-desc="Preservação da cultura popular e arte comunitária">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80" alt="Cultura Viva" />
-            <span class="area-badge">Outros</span>
-          </div>
-          <div class="card-body">
-            <h3>Cultura Viva</h3>
-            <div class="card-location">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              Salvador, BA
-            </div>
-            <p class="card-desc">Preservação da cultura popular e arte comunitária</p>
-            <div class="card-footer">
-              <div class="progress-labels">
-                <span>R$ 6.700</span>
-                <span class="muted">de R$ 10.000</span>
-              </div>
-              <div class="progress-bar"><div class="progress-fill" style="width:67%"></div></div>
-              <a href="ong-detalhes.html" class="btn-ver">Ver Detalhes</a>
-            </div>
-          </div>
-        </div>
-
+    
         <!-- Estado vazio -->
         <div class="empty-state" id="emptyState" style="display:none;">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
