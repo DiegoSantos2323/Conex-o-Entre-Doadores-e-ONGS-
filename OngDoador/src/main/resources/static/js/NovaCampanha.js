@@ -1,57 +1,57 @@
 const API_SALVAR_CAMPANHA = "http://localhost:8000/campanha/salvar";
+const API_BUSCAR_ONG_POR_ID= "http://localhost:8000/ong/listarporid";
+
 
 async function cadastrarCampanha(){
+	
+//'usuarioLogado' porque foi a chave que salva os dadosOng no login.
+	const ongLogada  = JSON.parse(localStorage.getItem("usuarioLogado"));
+	   if (ongLogada == null) {
+	       alert("Nenhuma ONG logada.");
+	       return;
+	   }
 
-    const campanha = {
+	   const responseOng = await fetch(`${API_BUSCAR_ONG_POR_ID}/${ongLogada.id}`);
+	   if (!responseOng.ok) {
+	       alert("Erro ao localizar a ONG.");
+	       return;
+	   }
 
-        nomeCampanha: document.getElementById("titulo").value,
+	   const ong = await responseOng.json();
+	   const campanha = {
 
-        dataInicio: document.getElementById("startDate").value,
+	       nomeCampanha: document.getElementById("titulo").value,
+	       dataInicio: document.getElementById("startDate").value,
+	       dataFim: document.getElementById("endDate").value,
+	       status: document.getElementById("status").value,
+	       vidasImpactadas: document.getElementById("impactLives").value,
+	       descricao: document.getElementById("about").value,
+	       comDoacaoConseguimos: document.getElementById("impactDesc").value,
+	       arrecadado: document.getElementById("raised").value,
+	       metaMensal: document.getElementById("goal").value,
+	       ong: ong
 
-        dataFim: document.getElementById("endDate").value,
-
-        status: document.getElementById("status").value,
-
-        vidasImpactadas: document.getElementById("impactLives").value,
-
-        descricao: document.getElementById("about").value,
-
-        comDoacaoConseguimos: document.getElementById("impactDesc").value,
-
-        arrecadado: document.getElementById("raised").value,
-
-        metaMensal: document.getElementById("goal").value
-
-    };
-
+	   };
+	   
     const response = await fetch(API_SALVAR_CAMPANHA, {
-
         method:"POST",
-
         headers:{
-
             "Content-Type":"application/json"
-
         },
-
         body: JSON.stringify(campanha)
 
     });
 
     if(response.ok){
-
-        alert("Campanha cadastrada com sucesso!");
-
+       alert("Campanha cadastrada com sucesso!");
         limparFormulario();
-		
         window.location.href = "TelaCampanhasPrincipal.html";
     }else{
-
         alert("Erro ao cadastrar campanha!");
-
     }
-
+	
 }
+
 
 function limparFormulario(){
 	
