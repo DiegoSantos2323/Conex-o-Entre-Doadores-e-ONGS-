@@ -3,7 +3,7 @@ const API_SALVAR_GESTOR = "http://localhost:8000/gestor/salvar";
 
 
 function salvarEtapaUm() {
-
+//função que pega todos os dados do formulario na primeira etapa e gua em LocalStorage.set em Json.
 	const dadosOng = {
 		nomeFantasia: document.getElementById('nomeFantasia').value,
 		cnpj: document.getElementById('cnpj').value,
@@ -13,6 +13,7 @@ function salvarEtapaUm() {
 	};
 
 	if (
+		//validações se é vazio e com operador "ou"
 		dadosOng.nomeFantasia === "" ||
 		dadosOng.cnpj === "" ||
 		dadosOng.areaAtuacao === "" ||
