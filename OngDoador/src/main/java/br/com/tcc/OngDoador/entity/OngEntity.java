@@ -39,6 +39,9 @@ public class OngEntity implements Serializable {
 	
 	@OneToMany(mappedBy = "ong")
 	private List<CampanhaEntity> campanhas;
+	
+	@OneToMany(mappedBy = "ong")
+	private List<EnderecoOngEntity> enderecos;
 
 	@OneToOne(mappedBy = "ong")
 	private GestorEntity gestor;
@@ -148,8 +151,16 @@ public class OngEntity implements Serializable {
 		this.gestor = gestor;
 	}
 
+	public List<EnderecoOngEntity> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<EnderecoOngEntity> enderecos) {
+		this.enderecos = enderecos;
+	}
 
 
+	
 	
 	
 	

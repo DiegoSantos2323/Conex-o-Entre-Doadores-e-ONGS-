@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Gestor")
 public class GestorEntity implements Serializable {
@@ -27,11 +29,10 @@ public class GestorEntity implements Serializable {
 	private String emailGestor;
 	private String telefone;
 	private String cargoGestor;
-
-
 	
 	@OneToOne
 	@JoinColumn(name = "ongID")
+	@JsonIgnore
 	private OngEntity ong;
 	//Uma ong tem 1 gestor
 

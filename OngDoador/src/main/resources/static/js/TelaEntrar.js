@@ -3,124 +3,112 @@ const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
 const API_LOGIN_ONG = "http://localhost:8000/ong/loginOng";
 const API_LOGIN_USUARIO = "http://localhost:8000/usuario/loginUsuario";
 
-let tipoLogin="";
+let tipoLogin = "";
 
-document.getElementById('tipoDoador').onclick = function(){
-	tipoLogin="DOADOR";
+/* =========================
+   SELEÇÃO LOGIN
+========================= */
+
+document.getElementById('tipoDoador').onclick = function () {
+    tipoLogin = "DOADOR";
 };
 
-document.getElementById('tipoOng').onclick = function(){
-	tipoLogin="ONG";
+document.getElementById('tipoOng').onclick = function () {
+    tipoLogin = "ONG";
 };
 
-async function login(){
 
-	const email = document.getElementById('email').value;
-	const senha = document.getElementById('senha').value;
+/* =========================
+   LOGIN
+========================= */
 
-	let api = "";
-	let dados;
+async function login() {
 
-	if(tipoLogin == "DOADOR"){
-		api = API_LOGIN_USUARIO;
-		dados = {
-			email: email,
-			senha: senha
-		};
-	}else if(tipoLogin == "ONG"){
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
 
-		api = API_LOGIN_ONG;
-		dados = {
-			emailOng: email,
-			senhaOng: senha
-		};
-	}else{
-		alert("Selecione o Tipo de Login");
-		return;
-	}
+    let api = "";
+    let dados = null;
 
-	const response = await fetch(api,{
-		method:"POST",
-		headers:{
-			"Content-Type":"application/json"
-		},
-		body: JSON.stringify(dados)
-	});
+    if (tipoLogin == "DOADOR") {
 
-	if(response.ok){
+        api = API_LOGIN_USUARIO;
 
-	    const usuarioLogado = await response.json();
-	    console.log(usuarioLogado);
-	    localStorage.setItem(
-	        "usuarioLogado",
-	        JSON.stringify(usuarioLogado)
-	    );
+        dados = {
+            email: email,
+            senha: senha
+        };
 
-	    alert("Login realizado com sucesso");
+    } else if (tipoLogin == "ONG") {
 
-	    if(tipoLogin === "DOADOR"){	
-	        window.location.href = "TelaPerfilUsuario.html";
-			
-	    }else if(tipoLogin === "ONG"){
-	        window.location.href = "TelaPrincipalGestorOng.html";
-	    }
-	}else{
-		alert("Email ou senha inválidos.");
-	}
-}
+        api = API_LOGIN_ONG;
 
-async function BuscarNomeOng(nome){
+        dados = {
+            emailOng: email,
+            senhaOng: senha
+        };
 
-	const resultadoBusca = document.getElementById("resultadoBusca");
-	if(nome.length < 2){
-		resultadoBusca.innerHTML = "";
-		return;
-	}
+    } else {
 
-	const response = await fetch(`${API_BUSCAR_NOME_ONG}/${nome}`);
-	const dados = await response.json();
+        alert("Selecione o Tipo de Login");
+        return;
+    }
 
-	console.log(dados);
-	resultadoBusca.innerHTML = "";
-	dados.forEach(ong => {
+    const response = await fetch(api, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    });
 
-		resultadoBusca.innerHTML += `
-			<div class="item-ong">
-				${ong.nomeFantasia}
-			</div>
-		`;
-	});
+    if (!response.ok) {
+        alert("Email ou senha inválidos.");
+        return;
+    }
 
-	console.log("Busca funcionando");
+    // pega resposta como JSON direto
+    const usuario = await response.json();
+
+    if (usuario != null) {
+
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+
+        if (tipoLogin == "DOADOR") {
+            window.location.href = "TelaPrincipalDoador.html";
+        } else {
+            window.location.href = "TelaPrincipalGestorOng.html";
+        }
+
+    } else {
+        alert("Erro ao processar login.");
+    }
 }
 
 
+/* =========================
+   BUSCAR ONG
+========================= */
 
+async function BuscarNomeOng(nome) {
 
+    const resultadoBusca = document.getElementById("resultadoBusca");
 
+    if (nome.length < 2) {
+        resultadoBusca.innerHTML = "";
+        return;
+    }
 
+    const response = await fetch(`${API_BUSCAR_NOME_ONG}/${nome}`);
+    const dados = await response.json();
 
+    resultadoBusca.innerHTML = "";
 
-
-//ajuda do chat para efeitos no html
-function efeitosnoHTML(){
-
-	// HTML: id="tipoDoador"
-	const tipoDoador = document.getElementById("tipoDoador");
-
-	// HTML: id="tipoOng"
-	const tipoOng = document.getElementById("tipoOng");
-
-	tipoDoador.addEventListener("click", function() {
-	    tipoDoador.classList.add("ativo");
-	    tipoOng.classList.remove("ativo");
-	});
-
-	tipoOng.addEventListener("click", function() {
-
-	    tipoOng.classList.add("ativo");
-	    tipoDoador.classList.remove("ativo");
-	});
+    dados.forEach(ong => {
+        resultadoBusca.innerHTML += `
+            <div class="item-ong">
+                ${ong.nomeFantasia}
+            </div>
+        `;
+    });
 }
-
-window.onload = efeitosnoHTML;
