@@ -25,14 +25,14 @@ document.getElementById("tipoDoador").onclick = function () {
 //se como doador ou como ong
 document.getElementById("tipoOng").onclick = function () {
     tipoLogin = "ONG";
->>>>>>> branch 'master' of https://github.com/DiegoSantos2323/Conex-o-Entre-Doadores-e-ONGS-.git
+
 };
 
-<<<<<<< HEAD
+
 document.getElementById('tipoOng').onclick = function () {
     tipoLogin = "ONG";
 };
-=======
+
 async function login() {
 >>>>>>> branch 'master' of https://github.com/DiegoSantos2323/Conex-o-Entre-Doadores-e-ONGS-.git
 
