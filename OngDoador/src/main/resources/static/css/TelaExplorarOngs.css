@@ -1,16 +1,11 @@
-.teste{
-    background:#fff;
-    border:none;
-    border-radius:999px;
-
-    cursor:pointer;
-    transition:.3s;
-}
 
 /* Menu Dropdown do Usuário */
 .user-menu-wrap{
     position: relative;
     display: inline-block;
+}
+[hidden]{
+    display:none !important;
 }
 
 .user-btn { 
@@ -139,81 +134,190 @@ body {
 
 a { text-decoration: none; }
 
-/* ─────────────────────────────────────
+/* ======================================================
    NAVBAR
-───────────────────────────────────── */
-.navbar {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #f3f4f6;
-  position: sticky;
-  top: 0;
-  z-index: 50;
+====================================================== */
+
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: #fff;
+    border-bottom: 1px solid #f3f4f6;
 }
 
-.navbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.navbar-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
 }
 
-.nav-logo { display: flex; align-items: center; gap: 8px; }
-
-.logo-circle {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: #48D1CC;
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 1rem;
+.navbar-left{
+    display:flex;
+    align-items:center;
 }
 
-.logo-circle.small { width: 32px; height: 32px; font-size: 0.85rem; }
-
-.logo-text { font-size: 1.4rem; font-weight: 800; color: #111827; }
-.logo-text.white { color: #fff; }
-.logo-text em { color: #48D1CC; font-style: normal; }
-
-.nav-links { display: flex; align-items: center; gap: 32px; }
-
-.nav-links a {
-  color: #6b7280; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.2s;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    text-decoration:none;
 }
 
-.nav-links a:hover,
-.nav-links a.active { color: #48D1CC; }
+.logo-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#48D1CC;
+    color:#fff;
 
-.nav-actions { display: flex; align-items: center; gap: 16px; }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-.btn-login {
-  color: #6b7280; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.2s;
+    font-size:1.25rem;
+    font-weight:bold;
 }
 
-.btn-login:hover { color: #48D1CC; }
-
-/* ── Dropdown Criar Conta ── */
-.register-wrap { position: relative; }
-
-.btn-register {
-  display: flex; align-items: center; gap: 6px;
-  padding: 10px 20px;
-  background: #48D1CC; color: #fff;
-  border: none; border-radius: 999px;
-  font-weight: 600; font-size: 0.875rem;
-  cursor: pointer; transition: background 0.2s;
+.logo-text{
+    font-size:1.5rem;
+    font-weight:bold;
+    color:#111827;
 }
 
-.btn-register:hover { background: #3bb3b0; }
+.logo-accent{
+    color:#48D1CC;
+}
 
-.btn-register svg {
-  width: 16px; height: 16px;
-  transition: transform 0.2s;
+.navbar-center {
+    display: none;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+
+    .navbar-center {
+        display: flex;
+    }
+
+}
+
+.nav-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .3s;
+}
+
+.nav-link:hover {
+    color: #48D1CC;
+}
+
+
+/* =====================================================
+   NAVBAR - LADO DIREITO
+===================================================== */
+
+.navbar-right {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+
+    .navbar-right {
+        display: flex;
+    }
+
+}
+@media(min-width:768px){
+
+    .navbar-right{
+        display:flex;
+    }
+
+}
+
+.search-bar{
+    position:relative;
+}
+
+.search-icon{
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:16px;
+    height:16px;
+
+    color:#9ca3af;
+}
+
+.search-input{
+    width:256px;
+    padding:.5rem 1rem .5rem 2.5rem;
+
+    border:1px solid #d1d5db;
+    border-radius:9999px;
+
+    font-size:.875rem;
+    outline:none;
+}
+
+.search-input:focus{
+    border-color:#48D1CC;
+    box-shadow:0 0 0 3px rgba(72,209,204,.1);
+}
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .3s;
+}
+
+.btn-link:hover {
+    color: #48D1CC;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+
+    padding: .625rem 1.25rem;
+
+    background: #48D1CC;
+    color: #fff;
+
+    border: none;
+    border-radius: 9999px;
+
+    font-size: .875rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: background .3s;
+}
+
+.btn-primary:hover {
+    background: #3bb3b0;
+}
+
+.chevron-icon {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
 }
 
 .dropdown-menu {

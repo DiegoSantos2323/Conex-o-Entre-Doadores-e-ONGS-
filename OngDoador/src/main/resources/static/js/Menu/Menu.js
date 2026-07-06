@@ -27,9 +27,17 @@ function CarregarMenu() {
         menuVisitante.hidden = false;
         menuUsuario.hidden = true;
     }
+<<<<<<< HEAD
 
     console.log("Menu visitante:", menuVisitante);
     console.log("Menu usuário:", menuUsuario);
+=======
+	
+	const menuVisitante = document.getElementById("menuVisitante");
+	const menuUsuario = document.getElementById("menuUsuario");
+console.log(menuVisitante);
+	console.log(menuUsuario);
+>>>>>>> branch 'master' of https://github.com/DiegoSantos2323/Conex-o-Entre-Doadores-e-ONGS-.git
 }
 
 window.onload = CarregarMenu;

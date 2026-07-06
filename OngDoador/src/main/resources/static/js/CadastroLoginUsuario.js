@@ -3,6 +3,7 @@ const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
 
 async function cadastrar() {
 
+	//variável que irá armazenar todos os dadods do formulário .
     const usuario = {
         nomeCompleto: document.getElementById("nome").value,
         email: document.getElementById("email").value,
@@ -21,6 +22,7 @@ async function cadastrar() {
         alert("CPF INVÁLIDO");
         return;
     }
+	//pega a api de Salvar usuario e tranforma em Json
     const response = await fetch(API_SALVAR_USUARIO, {
         method: "POST",
         headers: {
@@ -29,18 +31,19 @@ async function cadastrar() {
         body: JSON.stringify(usuario)
     });
 
+	//se está tudo certo recebe msg e vaia para a tela de login
     if (response.ok) {
         alert("Usuário cadastrado com sucesso!");
         limparFormulario();
         window.location.href = "TelaEntrar.html";
     } else {
-     
+   //se não algum erro  
         alert("Erro ao cadastrar usuário!");
     }
 }
 
 async function buscarCep(cep) {
-
+//função de buscar via cep
     const response = await fetch(
         `https://viacep.com.br/ws/${cep.value}/json/`
     );
@@ -85,6 +88,7 @@ async function BuscarNomeOng(nome) {
     console.log("Busca funcionando");
 }
 
+//função que valida ccpf
 function validaCPF(cpf) {
 
     let soma = 0;

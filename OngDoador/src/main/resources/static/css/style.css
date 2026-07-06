@@ -98,9 +98,13 @@ body{
     width:18px;
     height:18px;
 }
+
 .user-menu-wrap { 
   position: relative; 
 }
+
+
+/* Menu Dropdown do Usuário */
 
 .user-btn { 
   display: flex; 

@@ -1,16 +1,7 @@
-.teste{
-    background:#fff;
-    border:none;
-    border-radius:999px;
-
-    cursor:pointer;
-    transition:.3s;
-}
 
 /* Menu Dropdown do Usuário */
-.user-menu-wrap{
-    position: relative;
-    display: inline-block;
+.user-menu-wrap { 
+  position: relative; 
 }
 
 .user-btn { 
@@ -67,6 +58,7 @@
   padding: 6px; 
   z-index: 100; 
 }
+
 
 .user-dropdown.open { 
   display: block; 
@@ -139,78 +131,7 @@ body {
 
 a { text-decoration: none; }
 
-/* ─────────────────────────────────────
-   NAVBAR
-───────────────────────────────────── */
-.navbar {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #f3f4f6;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
 
-.navbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo { display: flex; align-items: center; gap: 8px; }
-
-.logo-circle {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: #48D1CC;
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 1rem;
-}
-
-.logo-circle.small { width: 32px; height: 32px; font-size: 0.85rem; }
-
-.logo-text { font-size: 1.4rem; font-weight: 800; color: #111827; }
-.logo-text.white { color: #fff; }
-.logo-text em { color: #48D1CC; font-style: normal; }
-
-.nav-links { display: flex; align-items: center; gap: 32px; }
-
-.nav-links a {
-  color: #6b7280; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active { color: #48D1CC; }
-
-.nav-actions { display: flex; align-items: center; gap: 16px; }
-
-.btn-login {
-  color: #6b7280; font-weight: 500;
-  font-size: 0.95rem; transition: color 0.2s;
-}
-
-/* ── Reset ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Inter', Arial, sans-serif;
-  background: #f9fafb;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-a { text-decoration: none; }
 
 /* ─────────────────────────────────────
    NAVBAR
@@ -224,14 +145,17 @@ a { text-decoration: none; }
   z-index: 50;
 }
 
-.navbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.container{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 24px;
+}
+
+.navbar-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
 }
 
 .nav-logo {
@@ -273,11 +197,10 @@ a { text-decoration: none; }
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+    display: flex;
+    gap: 30px;
+   
 }
-
 .nav-links a {
   color: #6b7280;
   font-weight: 500;
@@ -324,74 +247,102 @@ a { text-decoration: none; }
   box-shadow: 0 0 0 3px rgba(72,209,204,0.2);
 }
 
-.btn-login {
-  color: #6b7280;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color 0.2s;
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .3s;
 }
 
-.btn-login:hover { color: #48D1CC; }
-
-.btn-register {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
-  background: #48D1CC;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: background 0.2s;
+.btn-link:hover {
+    color: #48D1CC;
 }
 
-.btn-register:hover { background: #3bb3b0; }
+.btn-primary{
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
 
-.btn-register svg {
-  width: 16px;
-  height: 16px;
+    padding: .625rem 1.25rem;
+
+    background: #48D1CC;
+    color: #fff;
+
+    border: none;
+    border-radius: 9999px;
+
+    font-size: .875rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: background .3s;
 }
 
-/* ── Dropdown Criar Conta ── */
-.register-wrap { position: relative; }
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  width: 180px;
-  background: #fff;
-  border: 1px solid #f3f4f6;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  padding: 6px;
-  z-index: 100;
+.btn-primary:hover {
+    background: #3bb3b0;
 }
 
-.dropdown-menu.open { display: block; }
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  transition: background 0.15s, color 0.15s;
+.chevron-icon {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
 }
 
-.dropdown-menu a:hover {
-  background: #f9fafb;
-  color: #48D1CC;
+/* ======================================================
+   DROPDOWN CRIAR CONTA
+====================================================== */
+
+.dropdown{
+    position:relative;
+    display:inline-block;
 }
 
-#chevron { transition: transform 0.2s; }
-#chevron.rotated { transform: rotate(180deg); }
+.dropdown-menu{
+    position:absolute;
+    top:calc(100% + 5px);
+    right:0;
 
+    width:190px;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    display:none;
+    overflow:hidden;
+
+    z-index:9999;
+}
+
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
+.dropdown-menu a{
+    display:block;
+
+    padding:14px 18px;
+
+    color:#374151;
+    text-decoration:none;
+    font-size:.9rem;
+
+    transition:.2s;
+}
+
+.dropdown-menu a:hover{
+    background:#f9fafb;
+    color:#48D1CC;
+}
 /* ─────────────────────────────────────
    PAGE
 ───────────────────────────────────── */
@@ -421,14 +372,7 @@ a { text-decoration: none; }
   line-height: 1.6;
 }
 
-/* ─────────────────────────────────────
-   CONTAINER
-───────────────────────────────────── */
-.container {
-  max-width: 768px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+
 
 /* ─────────────────────────────────────
    SEARCH CARD
