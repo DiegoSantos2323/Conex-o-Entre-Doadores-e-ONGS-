@@ -32,16 +32,23 @@ async function cadastrarCampanha(){
 	       ong: ong
 
 	   };
-	   
+	   console.log("ONG LOGADA:", ongLogada);
+	   console.log("ONG BUSCADA:", ong);
+	   console.log("CAMPANHA:", campanha);
+	   console.log(JSON.stringify(campanha, null, 2));
+	   console.log(campanha);
+	   console.log(JSON.stringify(campanha));
     const response = await fetch(API_SALVAR_CAMPANHA, {
         method:"POST",
         headers:{
             "Content-Type":"application/json"
         },
         body: JSON.stringify(campanha)
-
+		
     });
 
+	const texto = await response.text();
+	console.log(texto);
     if(response.ok){
        alert("Campanha cadastrada com sucesso!");
         limparFormulario();
