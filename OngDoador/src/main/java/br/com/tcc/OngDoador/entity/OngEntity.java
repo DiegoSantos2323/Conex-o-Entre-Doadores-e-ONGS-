@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "Ong")
 public class OngEntity implements Serializable {
@@ -38,7 +40,11 @@ public class OngEntity implements Serializable {
 	private List<DoacaoEntity> doacoes;
 	
 	@OneToMany(mappedBy = "ong")
+	@JsonIgnore
 	private List<CampanhaEntity> campanhas;
+	
+	@OneToMany(mappedBy = "ong")
+	private List<EnderecoOngEntity> enderecos;
 
 	@OneToOne(mappedBy = "ong")
 	private GestorEntity gestor;
@@ -148,8 +154,16 @@ public class OngEntity implements Serializable {
 		this.gestor = gestor;
 	}
 
+	public List<EnderecoOngEntity> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<EnderecoOngEntity> enderecos) {
+		this.enderecos = enderecos;
+	}
 
 
+	
 	
 	
 	

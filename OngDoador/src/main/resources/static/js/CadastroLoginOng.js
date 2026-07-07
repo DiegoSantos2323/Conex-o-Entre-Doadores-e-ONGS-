@@ -69,7 +69,6 @@ function salvarEtapaUm() {
 				headers: {
 					"Content-Type": "application/json"
 				},
-	
 				body: JSON.stringify({
 					nomeFantasia: cadastroOng.nomeFantasia,
 					cnpj: cadastroOng.cnpj,

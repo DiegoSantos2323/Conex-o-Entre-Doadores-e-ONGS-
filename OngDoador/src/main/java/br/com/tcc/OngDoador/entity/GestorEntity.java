@@ -9,31 +9,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> branch 'master' of https://github.com/DiegoSantos2323/Conex-o-Entre-Doadores-e-ONGS-.git
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Gestor")
 public class GestorEntity implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nomeGestor;
 	private String cpf;
 	private String emailGestor;
 	private String telefone;
 	private String cargoGestor;
 
-
-	
 	@OneToOne
 	@JoinColumn(name = "ongID")
+	@JsonIgnore
 	private OngEntity ong;
-	//Uma ong tem 1 gestor
+	// Uma ONG tem 1 gestor
 
 	public Long getId() {
 		return id;
@@ -41,6 +44,14 @@ public class GestorEntity implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNomeGestor() {
+		return nomeGestor;
+	}
+
+	public void setNomeGestor(String nomeGestor) {
+		this.nomeGestor = nomeGestor;
 	}
 
 	public String getCpf() {
@@ -67,6 +78,13 @@ public class GestorEntity implements Serializable {
 		this.telefone = telefone;
 	}
 
+	public String getCargoGestor() {
+		return cargoGestor;
+	}
+
+	public void setCargoGestor(String cargoGestor) {
+		this.cargoGestor = cargoGestor;
+	}
 
 	public OngEntity getOng() {
 		return ong;
@@ -76,24 +94,4 @@ public class GestorEntity implements Serializable {
 		this.ong = ong;
 	}
 
-	public String getCargoGestor() {
-		return cargoGestor;
-	}
-
-	public void setCargoGestor(String cargoGestor) {
-		this.cargoGestor = cargoGestor;
-	}
-
-	public String getNomeGestor() {
-		return nomeGestor;
-	}
-
-	public void setNomeGestor(String nomeGestor) {
-		this.nomeGestor = nomeGestor;
-	}
-
-
-
-	
-	
 }
