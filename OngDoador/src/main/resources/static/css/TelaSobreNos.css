@@ -12,15 +12,20 @@
 }
 
 body{
-    font-family:'Inter', Arial, sans-serif;
-    line-height:1.6;
+  font-family: apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+    
+  background: #f9fafb;
     color:#1f2937;
-    background:#f9fafb;
+     line-height:1.6;
+
+    min-height:100vh;
 
     display:flex;
     flex-direction:column;
-    min-height:100vh;
 }
+
 
 /* ======================================================
    MENU DO USUÁRIO
@@ -265,33 +270,38 @@ a { text-decoration: none; }
     background: #fff;
     border-bottom: 1px solid #f3f4f6;
 }
+.container{
+  max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
 
 .navbar-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+      width:100%;
+    max-width:1440px;
 
-    max-width:1280px;
+    height:88px;
+
     margin:0 auto;
-    padding:0 24px;
 
-    height:80px;
+    padding:0 2rem;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-    display:flex;
+ display:flex;
     align-items:center;
-    gap:.5rem;
-    text-decoration:none;
+    gap:.75rem;
 }
 
 .logo-icon{
     display:flex;
     justify-content:center;
     align-items:center;
-
-    width:40px;
-    height:40px;
 
     border-radius:50%;
 
@@ -300,6 +310,11 @@ a { text-decoration: none; }
 
     font-size:1.25rem;
     font-weight:bold;
+      width:44px;
+    height:44px;
+
+    font-size:1rem;
+    font-weight:700;
 }
 
 .logo-text{

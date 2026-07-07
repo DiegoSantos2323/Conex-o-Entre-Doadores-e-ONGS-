@@ -1,7 +1,8 @@
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
+
+  
 }
 html{
     scroll-behavior:smooth;
@@ -21,6 +22,9 @@ body{
 
     display:flex;
     flex-direction:column;
+    margin-left: 250px;
+    
+    
 }
 
 a{
@@ -37,6 +41,7 @@ input{
     font-family:inherit;
 }
 
+
 /* ===================================
    NAVBAR
 =================================== */
@@ -44,9 +49,11 @@ input{
 .navbar{
     width:100%;
 
+
     position:sticky;
     top:0;
     z-index:1000;
+    
 
     background:#ffffff;
 
@@ -113,18 +120,23 @@ input{
 =================================== */
 
 .nav-links{
+	
     display:flex;
     align-items:center;
     gap:2rem;
+    
 }
 
 .nav-links a{
-    color:#6b7280;
-
+   
+font-family:-apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
     font-size:0.92rem;
     font-weight:500;
-
+ color:#6b7280;
     transition:0.3s;
+   
 }
 
 .nav-links a:hover{
