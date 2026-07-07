@@ -45,16 +45,18 @@ public class CampanhaController  {
 
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
-	public CampanhaEntity Salvar(@RequestBody CampanhaEntity entity) {
+	public String Salvar(@RequestBody CampanhaEntity entity) {
 
 	    Long idOng = entity.getOng().getId();
-
 	    Optional<OngEntity> ong = ongRepository.findById(idOng);
+
 	    if (ong.isPresent()) {
 	        entity.setOng(ong.get());
-	        return repository.save(entity);
+	        repository.save(entity);
+	        return "Campanha salva com sucesso!";
 	    }
-	    return null;
+
+	    return "ONG não encontrada!";
 	}//salvar
 	
 	@DeleteMapping("/deletar/{id}")
