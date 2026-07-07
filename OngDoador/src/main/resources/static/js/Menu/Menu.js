@@ -1,56 +1,44 @@
 function CarregarMenu() {
 
-    const usuarioStorage = localStorage.getItem("usuarioLogado");
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
     const menuVisitante = document.getElementById("menuVisitante");
     const menuUsuario = document.getElementById("menuUsuario");
 
-    if (usuarioStorage != null && usuarioStorage != "null" && usuarioStorage != "undefined") {
+    if (usuario) {
 
-        const usuario = JSON.parse(usuarioStorage);
+        if (menuVisitante) {
+            menuVisitante.hidden = true; }
+       
 
-        if (usuario && usuario.nomeCompleto) {
+        if (menuUsuario) {
+            menuUsuario.hidden = false; }
 
-            menuVisitante.hidden = true;
-            menuUsuario.hidden = false;
-
-            document.getElementById("nomeMenu").innerText = usuario.nomeCompleto;
-
-        } else {
-
-            menuVisitante.hidden = false;
-            menuUsuario.hidden = true;
+        const nomeMenu = document.getElementById("nomeMenu");
+        if (nomeMenu) {
+            nomeMenu.innerText = usuario.nomeCompleto;
         }
+
+        const avatarMenu = document.getElementById("avatarMenu");
+  
 
     } else {
 
-        menuVisitante.hidden = false;
-        menuUsuario.hidden = true;
+        if (menuVisitante) {
+            menuVisitante.hidden = false;
+        }
+
+        if (menuUsuario) {
+            menuUsuario.hidden = true;
+        }
     }
-<<<<<<< HEAD
-
-    console.log("Menu visitante:", menuVisitante);
-    console.log("Menu usuário:", menuUsuario);
-=======
-	
-	const menuVisitante = document.getElementById("menuVisitante");
-	const menuUsuario = document.getElementById("menuUsuario");
-console.log(menuVisitante);
-	console.log(menuUsuario);
->>>>>>> branch 'master' of https://github.com/DiegoSantos2323/Conex-o-Entre-Doadores-e-ONGS-.git
 }
-
-window.onload = CarregarMenu;
 
 function Sair() {
 
     localStorage.removeItem("usuarioLogado");
-
-    const dropdown = document.getElementById("userDropdown");
-
-    if (dropdown != null) {
-        dropdown.classList.remove("open");
-    }
-
+    document.getElementById("userDropdown")?.classList.remove("open");
     window.location.href = "TelaInicio.html";
 }
+
+window.onload = CarregarMenu;
