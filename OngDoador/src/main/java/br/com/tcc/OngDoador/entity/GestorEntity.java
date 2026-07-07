@@ -9,8 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+<<<<<<< HEAD
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+=======
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+>>>>>>> branch 'master' of https://github.com/DiegoSantos2323/Conex-o-Entre-Doadores-e-ONGS-.git
 @Entity
 @Table(name = "Gestor")
 public class GestorEntity implements Serializable {
@@ -29,8 +34,6 @@ public class GestorEntity implements Serializable {
 	private String emailGestor;
 	private String telefone;
 	private String cargoGestor;
-
-
 	
 	@OneToOne
 	@JoinColumn(name = "ongID")
