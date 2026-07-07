@@ -18,19 +18,17 @@ function CarregarMenu() {
         if (nomeMenu) {
             nomeMenu.innerText = usuario.nomeCompleto;
         }
-
-        const avatarMenu = document.getElementById("avatarMenu");
-  
+		
+     const avatarMenu = document.getElementById("avatarMenu");
 
     } else {
-
+		
         if (menuVisitante) {
-            menuVisitante.hidden = false;
-        }
-
-        if (menuUsuario) {
-            menuUsuario.hidden = true;
-        }
+            menuVisitante.hidden = false; }
+      
+         if (menuUsuario) {
+            menuUsuario.hidden = true; }
+      
     }
 }
 

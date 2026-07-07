@@ -25,12 +25,6 @@ async function salvarOng() {
         console.log("ONG logada:");
         console.log(ongLogada);
 
-
-
-        // ============================
-        // PEGAR LOGO
-        // ============================
-
         let arquivoLogo = document.getElementById("logo").files[0];
 
         let nomeLogo = "";
@@ -41,14 +35,6 @@ async function salvarOng() {
             nomeLogo = arquivoLogo.name;
 
         }
-
-
-
-        // ============================
-        // SALVAR DADOS DA ONG
-        // ============================
-
-
         const dadosOng = {
 
 

@@ -62,7 +62,6 @@ async function login() {
             "usuarioLogado",
             JSON.stringify(dadosLogin)
         );
-
         alert("Login realizado com sucesso!");
 
         if (tipoLogin === "DOADOR") {
