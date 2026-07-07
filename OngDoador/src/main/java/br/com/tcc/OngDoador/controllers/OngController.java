@@ -106,6 +106,29 @@ public class OngController {
 		return ResponseEntity.status(401).build();
 	}
 	
+	@PostMapping("/salvarDados")
+	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
+	public OngEntity SalvarDados(@RequestBody OngEntity entity) {
+
+	    OngEntity ong = ongRepository.findById(entity.getId()).orElse(null);
+
+	    if (ong != null) {
+
+	        ong.setDescricao(entity.getDescricao());
+	        ong.setDataFundacao(entity.getDataFundacao());
+	        ong.setTelefone(entity.getTelefone());
+	        ong.setLogo(entity.getLogo());
+
+	        return ongRepository.save(ong);
+
+	    } else {
+
+	        return null;
+
+	    }
+	}
+	
 	
 }
 	

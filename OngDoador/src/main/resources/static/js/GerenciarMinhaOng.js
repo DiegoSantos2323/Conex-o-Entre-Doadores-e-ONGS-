@@ -1,51 +1,244 @@
-const API_ATUALIZAR_ONG = "http://localhost:8000/ong/atualizar";
+const API_SALVAR_DADOS_ONG = "http://localhost:8000/ong/salvarDados";
+const API_SALVAR_ENDERECO = "http://localhost:8000/enderecoong/salvar";
 
-document.addEventListener("DOMContentLoaded", function () {
 
-    const botaoSalvar = document.getElementById("btnSalvarOng");
+console.log("GerenciarMinhaOng.js carregado");
 
-    botaoSalvar.addEventListener("click", async function (event) {
 
-        event.preventDefault();
+async function salvarOng() {
+
+
+    try {
+
 
         const ongLogada = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-        ongLogada.descricao = document.getElementById("summary").value;
-        ongLogada.dataFundacao = document.getElementById("foundedAt").value;
-        ongLogada.telefone = document.getElementById("phone").value;
-        ongLogada.emailOng = document.getElementById("email").value;
 
-        const response = await fetch(`${API_ATUALIZAR_ONG}/${ongLogada.id}`, {
+        if (ongLogada == null) {
 
-            method: "PUT",
+            alert("Nenhuma ONG logada.");
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+            return;
+        }
 
-            body: JSON.stringify(ongLogada)
 
-        });
+        console.log("ONG logada:");
+        console.log(ongLogada);
 
-        if (response.ok) {
 
-            const ongAtualizada = await response.json();
-''
-            localStorage.setItem(
-                "usuarioLogado",
-                JSON.stringify(ongAtualizada)
-            );
 
-            alert("Dados da ONG atualizados com sucesso!");
+        // ============================
+        // PEGAR LOGO
+        // ============================
 
-            window.location.href = "TelaPrincipalGestorOng.html";
+        let arquivoLogo = document.getElementById("logo").files[0];
 
-        } else {
+        let nomeLogo = "";
 
-            alert("Erro ao atualizar a ONG.");
+
+        if (arquivoLogo) {
+
+            nomeLogo = arquivoLogo.name;
 
         }
 
-    });
 
-});
+
+        // ============================
+        // SALVAR DADOS DA ONG
+        // ============================
+
+
+        const dadosOng = {
+
+
+            id: ongLogada.id,
+
+
+            dataFundacao: document.getElementById("foundedAt").value,
+
+
+            telefone: document.getElementById("phone").value,
+
+
+            logo: nomeLogo
+
+
+        };
+
+
+
+        console.log("Dados ONG enviados:");
+        console.log(dadosOng);
+
+
+
+        const responseOng = await fetch(
+
+            API_SALVAR_DADOS_ONG,
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify(dadosOng)
+
+            }
+
+        );
+
+
+
+        if (!responseOng.ok) {
+
+
+            const erro = await responseOng.text();
+
+
+            console.log("Erro ONG:");
+            console.log(erro);
+
+
+            alert("Erro ao salvar dados da ONG!");
+
+            return;
+
+        }
+
+
+
+        const ongAtualizada = await responseOng.json();
+
+
+
+        localStorage.setItem(
+
+            "usuarioLogado",
+
+            JSON.stringify(ongAtualizada)
+
+        );
+
+
+
+        console.log("ONG salva:");
+        console.log(ongAtualizada);
+
+
+
+
+
+        // ============================
+        // SALVAR ENDEREÇO
+        // ============================
+
+
+
+        const endereco = {
+
+
+            cepOng: document.getElementById("cep").value,
+
+
+            estado: document.getElementById("state").value,
+
+
+            cidade: document.getElementById("city").value,
+
+
+            bairro: document.getElementById("neighborhood").value,
+
+
+            logradouro: document.getElementById("street").value,
+
+
+            numero: document.getElementById("number").value,
+
+
+            complemento: document.getElementById("complement").value,
+
+
+            ong: {
+
+                id: ongAtualizada.id
+
+            }
+
+
+        };
+
+
+
+        console.log("Endereço enviado:");
+        console.log(endereco);
+
+
+
+
+        const responseEndereco = await fetch(
+
+            API_SALVAR_ENDERECO,
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify(endereco)
+
+            }
+
+        );
+
+
+
+
+        if (!responseEndereco.ok) {
+
+
+            const erroEndereco = await responseEndereco.text();
+
+
+            console.log("Erro endereço:");
+            console.log(erroEndereco);
+
+
+            alert("Erro ao salvar endereço!");
+
+            return;
+
+        }
+
+
+
+        alert("Dados da ONG salvos com sucesso!");
+
+
+
+        window.location.href = "TelaPrincipalGestorOng.html";
+
+
+
+    } catch (erro) {
+
+
+        console.error("Erro:", erro);
+
+
+        alert("Erro inesperado. Veja o console.");
+
+    }
+
+
+}
