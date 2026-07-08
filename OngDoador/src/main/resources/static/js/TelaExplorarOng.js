@@ -1,6 +1,6 @@
 const API_LISTAR_CAMPANHAS = "http://localhost:8000/campanha/listartodos";
 
-async function carregarCampanhas() {
+async function Campanhas() {
 		
     const response = await fetch(API_LISTAR_CAMPANHAS);
 	
@@ -40,11 +40,11 @@ async function carregarCampanhas() {
 
 		                <div class="progress-bar">
 		                    <div class="progress-fill" style="width:${porcentagem}%"></div>
-		                </div>
-
-		                <button class="btn-ver" onclick="TelaPagamento.html(${campanha.id})">
-		                    Ver Detalhes
-		                </button>
+		                </div>	
+						<button class="btn-ver"
+						        onclick="abrirCampanha(${campanha.id})">
+						    Ver Detalhes
+						</button>
 		            </div>
 		        </div>
 		    </div>
@@ -52,4 +52,11 @@ async function carregarCampanhas() {
     });
 }
 
-window.addEventListener("load", carregarCampanhas);
+function abrirCampanha(id){
+
+    localStorage.setItem("idCampanha", id);
+    window.location.href = "TelaOng.html";
+}
+
+
+window.addEventListener("load", Campanhas);
