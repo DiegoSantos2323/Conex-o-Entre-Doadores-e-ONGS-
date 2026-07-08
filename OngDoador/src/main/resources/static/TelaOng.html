@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instituto Educar – Doe+</title>
-  <link rel="stylesheet" href="css/TelaDoacao.css" />
+  <link rel="stylesheet" href="css/TelaOng.css" />
 </head>
 <body>
 
@@ -289,53 +289,60 @@
     </div>
   </footer>
 
-  <script>
-    /* ── Navbar dropdown ── */
-    function toggleUserMenu() {
-      document.getElementById('userDropdown').classList.toggle('open');
-    }
-    document.addEventListener('click', function(e) {
-      const wrap = document.querySelector('.user-menu-wrap');
-      if (wrap && !wrap.contains(e.target))
-        document.getElementById('userDropdown').classList.remove('open');
-    });
+<script>
+  // Função para abrir/fechar o menu do Usuário
+  function toggleUserMenu() {
+    document.getElementById('userDropdown').classList.toggle('open');
+  }
 
-    /* ── Seleção de valor ── */
-    let valorSelecionado = 50;
+  // Função para abrir/fechar o menu do Visitante (Criar Conta) no clique se preferir
+  // Mas atualmente seu CSS já faz ele abrir com o Mouse (Hover)
 
-    function selecionarValor(val, btn) {
-      valorSelecionado = val;
-      document.querySelectorAll('.valor-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('outroValorWrap').style.display = 'none';
+  // Fecha os dropdowns ao clicar fora deles
+  document.addEventListener('click', function(e) {
+    // Para o menu do usuário logado
+    const wrapUsuario = document.getElementById("menuUsuario");
+    if (wrapUsuario && !wrapUsuario.contains(e.target)) {
+      document.getElementById('userDropdown').classList.remove('open');
     }
+  });
 
-    function mostrarOutroValor(btn) {
-      document.querySelectorAll('.valor-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('outroValorWrap').style.display = 'flex';
-      document.getElementById('outroValorInput').focus();
-    }
+  /* ── Seleção de valor ── */
+  let valorSelecionado = 50;
 
-    function atualizarValorCustom() {
-      const v = parseFloat(document.getElementById('outroValorInput').value.replace(/\D/g,'')) || 0;
-      valorSelecionado = v;
-    }
+  function selecionarValor(val, btn) {
+    valorSelecionado = val;
+    document.querySelectorAll('.valor-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('outroValorWrap').style.display = 'none';
+  }
 
-    /* ── Doação anônima ── */
-    let anonimo = false;
-    function toggleAnonimo() {
-      anonimo = !anonimo;
-      const check = document.getElementById('anonimoCheck');
-      if (anonimo) {
-        check.classList.add('checked');
-        check.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
-      } else {
-        check.classList.remove('checked');
-        check.innerHTML = '';
-      }
+  function mostrarOutroValor(btn) {
+    document.querySelectorAll('.valor-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('outroValorWrap').style.display = 'flex';
+    document.getElementById('outroValorInput').focus();
+  }
+
+  function actualizarValorCustom() {
+    const v = parseFloat(document.getElementById('outroValorInput').value.replace(/\D/g,'')) || 0;
+    valorSelecionado = v;
+  }
+
+  /* ── Doação anônima ── */
+  let anonimo = false;
+  function toggleAnonimo() {
+    anonimo = !anonimo;
+    const check = document.getElementById('anonimoCheck');
+    if (anonimo) {
+      check.classList.add('checked');
+      check.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+    } else {
+      check.classList.remove('checked');
+      check.innerHTML = '';
     }
-  </script>
+  }
+</script>
 
 <script type="text/javascript" src="js/Menu/Menu.js"></script>
 <script src="js/TelaOng.js"></script>

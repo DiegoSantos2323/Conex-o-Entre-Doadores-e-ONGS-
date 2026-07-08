@@ -39,4 +39,4 @@ function Sair() {
     window.location.href = "TelaInicio.html";
 }
 
-window.onload = CarregarMenu;
+window.addEventListener("load", CarregarMenu);
