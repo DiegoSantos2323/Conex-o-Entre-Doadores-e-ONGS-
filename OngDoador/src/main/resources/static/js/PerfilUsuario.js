@@ -15,4 +15,4 @@ function Sair(){
 
 }
 	
-window.onload= CarregarPerfil;
+window.addEventListener("load", CarregarPerfil);

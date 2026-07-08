@@ -8,13 +8,14 @@ function CarregarMenu() {
     if (usuario) {
 
         if (menuVisitante) {
-            menuVisitante.hidden = true; }
-       
-
+            menuVisitante.hidden = true; 
+			}
+ 
         if (menuUsuario) {
             menuUsuario.hidden = false; }
 
         const nomeMenu = document.getElementById("nomeMenu");
+		
         if (nomeMenu) {
             nomeMenu.innerText = usuario.nomeCompleto;
         }
@@ -27,8 +28,7 @@ function CarregarMenu() {
             menuVisitante.hidden = false; }
       
          if (menuUsuario) {
-            menuUsuario.hidden = true; }
-      
+            menuUsuario.hidden = true; }  
     }
 }
 
@@ -39,4 +39,4 @@ function Sair() {
     window.location.href = "TelaInicio.html";
 }
 
-window.onload = CarregarMenu;
+window.addEventListener("load", CarregarMenu);

@@ -652,7 +652,12 @@ footer { background: #111827; color: #d1d5db; padding: 64px 24px 32px; border-to
 .footer-col ul li { margin-bottom: 12px; }
 .footer-col ul li a { color: #9ca3af; font-size: 0.9rem; transition: color 0.2s; }
 .footer-col ul li a:hover { color: #48D1CC; }
-.footer-bottom { border-top: 1px solid #1f2937; padding-top: 24px; display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem; color: #6b7280; }
+.footer-bottom { 
+    border-top: 1px solid #1f2937; 
+    padding-top: 24px; 
+    display: flex; 
+    flex-direction: row; /* Corrigido aqui */
+}
 .heart { color: #ef4444; }
 
 /* ─────────────────────────────────────
