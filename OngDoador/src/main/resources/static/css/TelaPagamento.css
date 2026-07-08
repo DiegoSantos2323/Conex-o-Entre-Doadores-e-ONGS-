@@ -1,4 +1,393 @@
+/* ─────────────────────────────────────
+   TELA / CARD DE SUCESSO
+───────────────────────────────────── */
+.sucesso-card {
+  background: #fff;
+  border: 1px solid #f3f4f6;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.sucesso-header {
+  background: linear-gradient(to right, #48D1CC, #3bb3b0);
+  padding: 40px 32px;
+  text-align: center;
+  color: #fff;
+}
+
+.sucesso-icon {
+  width: 80px; 
+  height: 80px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.sucesso-icon svg { 
+  width: 44px; 
+  height: 44px; 
+  color: #fff; 
+}
+
+.sucesso-header h2 { 
+  font-size: 1.6rem; 
+  font-weight: 800; 
+  margin-bottom: 6px; 
+}
+
+.sucesso-header p { 
+  font-size: 0.9rem; 
+  opacity: 0.85; 
+}
+
+/* ── Estrutura Interna do Comprovante ── */
+.comprovante-body { 
+  padding: 28px 28px 32px; 
+}
+
+.comprovante-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.comprovante-header-left {
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+  font-weight: 700; 
+  color: #111827; 
+  font-size: 0.95rem;
+}
+
+.comprovante-header-left svg { 
+  width: 18px; 
+  height: 18px; 
+  color: #48D1CC; 
+}
+
+.comp-id {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #9ca3af;
+  background: #f3f4f6;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.comp-linhas { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.comp-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f9fafb;
+  font-size: 0.875rem;
+}
+
+.comp-linha.last { 
+  border-bottom: none; 
+}
+
+.comp-linha span:first-child { 
+  color: #9ca3af; 
+}
+
+.comp-linha span:last-child { 
+  font-weight: 600; 
+  color: #111827; 
+}
+
+.comp-valor { 
+  color: #48D1CC !important; 
+  font-size: 1rem !important; 
+}
+
+.comp-status { 
+  color: #16a34a !important; 
+}
+
+/* ── Notas de Privacidade & Botões de Ação Final ── */
+.aviso-anonimo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f9fafb;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 16px 0 20px;
+}
+
+.aviso-anonimo svg { 
+  width: 16px; 
+  height: 16px; 
+  color: #9ca3af; 
+  flex-shrink: 0; 
+  margin-top: 1px; 
+}
+
+.aviso-anonimo p { 
+  font-size: 0.78rem; 
+  color: #9ca3af; 
+  line-height: 1.5; 
+}
+
+.btn-baixar {
+  width: 100%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 8px;
+  padding: 13px;
+  border: 2px solid #48D1CC;
+  color: #48D1CC;
+  background: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 14px;
+}
+
+.btn-baixar:hover { 
+  background: #eafaf9; 
+}
+
+.btn-baixar svg { 
+  width: 16px; 
+  height: 16px; 
+}
+
+.comp-actions { 
+  display: flex; 
+  gap: 12px; 
+}
+
+.btn-outline-ong {
+  flex: 1; 
+  padding: 13px;
+  border: 2px solid #e5e7eb; 
+  color: #6b7280;
+  border-radius: 12px; 
+  font-weight: 600; 
+  font-size: 0.875rem;
+  text-align: center; 
+  transition: all 0.2s;
+}
+
+.btn-outline-ong:hover { 
+  background: #f9fafb; 
+}
+
+.btn-explorar-mais {
+  flex: 1; 
+  padding: 13px;
+  background: #48D1CC; 
+  color: #fff;
+  border-radius: 12px; 
+  font-weight: 700; 
+  font-size: 0.875rem;
+  text-align: center; 
+  transition: background 0.2s;
+  box-shadow: 0 3px 10px rgba(72,209,204,0.3);
+}
+
+.btn-explorar-mais:hover { 
+  background: #3bb3b0; 
+}
+/* ─────────────────────────────────────
+   QR CODE
+───────────────────────────────────── */
+.qr-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.qr-code {
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  border: 4px solid #111827;
+  border-radius: 14px;
+  padding: 10px;
+  display: grid;
+  gap: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.qr-cell { 
+  border-radius: 2px; 
+}
+
+.qr-dark { 
+  background: #111827; 
+}
+
+.qr-light { 
+  background: #fff; 
+}
+
+/* ─────────────────────────────────────
+   CÓDIGO PIX (COPIA E COLA)
+───────────────────────────────────── */
+.ou-divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ou-divisor::before,
+.ou-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.ou-divisor span {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pix-code-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  word-break: break-all;
+}
+
+.pix-code-box code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.btn-copiar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px;
+  background: #48D1CC;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(72,209,204,0.3);
+}
+
+.btn-copiar svg { 
+  width: 18px; 
+  height: 18px; 
+}
+
+.btn-copiar:hover { 
+  background: #3bb3b0; 
+}
+
+.btn-copiar.copiado { 
+  background: #22c55e; 
+  box-shadow: 0 3px 10px rgba(34,197,94,0.3); 
+}
+/* ─────────────────────────────────────
+   BANNER PIX
+───────────────────────────────────── */
+.pix-banner {
+  background: #eafaf9;
+  border: 2px solid #ccfbf1;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pix-banner-icon {
+  width: 48px; 
+  height: 48px;
+  background: #48D1CC;
+  border-radius: 12px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pix-banner-icon svg { 
+  width: 26px; 
+  height: 26px; 
+  color: #fff; 
+}
+
+.pix-banner-info { 
+  flex: 1; 
+}
+
+.pix-banner-title { 
+  font-weight: 700; 
+  color: #0f766e; 
+  font-size: 0.95rem; 
+}
+
+.pix-banner-sub { 
+  font-size: 0.78rem; 
+  color: #48D1CC; 
+  margin-top: 2px; 
+}
+
+.pix-banner-valor { 
+  font-size: 1.5rem; 
+  font-weight: 800; 
+  color: #48D1CC; 
+  flex-shrink: 0; 
+}
+
+/* ─────────────────────────────────────
+   CARD PADRÃO
+───────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #f3f4f6;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.qr-instrucao {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 24px;
+}
 /* ── Reset ── */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {

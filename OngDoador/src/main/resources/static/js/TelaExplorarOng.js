@@ -52,6 +52,8 @@ async function Campanhas() {
     });
 }
 
+
+
 function abrirCampanha(id){
 
     localStorage.setItem("idCampanha", id);

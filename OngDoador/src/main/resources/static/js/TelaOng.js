@@ -39,7 +39,23 @@ async function carregarCampanha(){
 
     document.getElementById("campanha-progresso-porcentagem").innerHTML =
     porcentagem.toFixed(0) + "% da meta alcançada";
-
 }
 
+
+function abrirModalPagamento(){
+
+    document.getElementById("pixNomeOng").innerHTML =
+    campanhaAtual.ong.nomeFantasia;
+
+    document.getElementById("pixValor").innerHTML =
+    "R$ " + valorSelecionado.toFixed(2);
+
+    document.getElementById("modalPagamento").hidden = false;
+}
+
+function fecharModal(){
+
+    document.getElementById("modalPagamento").hidden = true;
+
+}
 window.addEventListener("load", carregarCampanha);
