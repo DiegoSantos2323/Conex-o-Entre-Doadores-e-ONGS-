@@ -44,9 +44,11 @@ public class OngEntity implements Serializable {
 	private List<CampanhaEntity> campanhas;
 	
 	@OneToMany(mappedBy = "ong")
+	@JsonIgnore
 	private List<EnderecoOngEntity> enderecos;
 
 	@OneToOne(mappedBy = "ong")
+	@JsonIgnore
 	private GestorEntity gestor;
 	
 	

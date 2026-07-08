@@ -71,4 +71,15 @@ public class EnderecoOngController {
 	}//atualizar
 	
 	
+	@GetMapping("/buscarPorOng/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
+	public EnderecoOngEntity BuscarPorOng(@PathVariable Long id){
+
+	    return repository.findByOngId(id);
+
+	}
+	
+	
+	
 }

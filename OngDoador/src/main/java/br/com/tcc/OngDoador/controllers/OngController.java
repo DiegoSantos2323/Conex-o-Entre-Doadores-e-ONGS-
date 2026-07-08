@@ -115,7 +115,6 @@ public class OngController {
 
 	    if (ong != null) {
 
-	        ong.setDescricao(entity.getDescricao());
 	        ong.setDataFundacao(entity.getDataFundacao());
 	        ong.setTelefone(entity.getTelefone());
 	        ong.setLogo(entity.getLogo());
@@ -128,6 +127,16 @@ public class OngController {
 
 	    }
 	}
+	
+	@GetMapping("/buscar/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin("*")
+	public OngEntity Buscar(@PathVariable Long id) {
+
+	    return ongRepository.findById(id).orElse(null);
+
+	}
+	
 	
 	
 }

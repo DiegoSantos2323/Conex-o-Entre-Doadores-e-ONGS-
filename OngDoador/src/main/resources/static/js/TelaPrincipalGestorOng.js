@@ -1,215 +1,143 @@
-window.onload = function(){
+const API_BUSCAR_ENDERECO_ONG = "http://localhost:8000/enderecoong/buscarPorOng";
 
-// ABRIR E FECHAR DROPDOWN
 
-let botaoUsuario = document.getElementById("btnUsuario");
+// Carregar dados da ONG logada
+window.onload = function () {
 
-let dropdown = document.getElementById("userDropdown");
 
+    const ong = JSON.parse(localStorage.getItem("usuarioLogado"));
 
 
-botaoUsuario.onclick = function(){
+    if (ong == null) {
 
-
-
-    if(dropdown.style.display == "block"){
-
-
-        dropdown.style.display = "none";
-
-
-    }else{
-
-
-        dropdown.style.display = "block";
-
-    }
-
-};
-
-// BUSCAR USUÁRIO LOGADO
-
-fetch("http://localhost:8001/usuario/listarporid/1")
-
-
-.then(function(resposta){
-
-
-    return resposta.json();
-
-})
-
-.then(function(usuario){
-
-    console.log(usuario);
-
-    // Nome do usuário no topo
-
-    let nomeUsuario = document.querySelector(".user-btn span");
-
-    nomeUsuario.innerHTML = usuario.nomeCompleto;
-
-    // Primeira letra do avatar
-
-    let avatar = document.querySelector(".user-avatar");
-
-
-    avatar.innerHTML = usuario.nomeCompleto.charAt(0);
-
-
-    // MENU FIXO DA ONG
-
-    dropdown.innerHTML = `
-
-    <a href="TelaPrincipalGestorOng.html" 
-    class="user-dropdown-item">
-
-        <span>⌗</span>
-
-        Principal
-
-    </a>
-
-    <a href="TelaGerenciarMinhaOng.html"
-    class="user-dropdown-item">
-
-
-        <span>♙</span>
-
-        Gerenciar ONG
-
-
-    </a>
-
-
-    <a href="campanhas.html"
-    class="user-dropdown-item">
-
-
-        <span>⚑</span>
-
-        Campanhas
-
-    </a>
-
-    <a href="relatorios.html"
-    class="user-dropdown-item">
-
-
-        <span>▤</span>
-
-        Relatórios
-
-
-    </a>
-
-    <a href="saques.html"
-    class="user-dropdown-item">
-
-
-        <span>▣</span>
-
-        Saques / Conta Bancária
-
-    </a>
-
-    <hr>
-
-    <a href="ajuda.html"
-    class="user-dropdown-item">
-
-
-        <span>?</span>
-
-        Central de Ajuda
-
-    </a>
-
-    <a href="configuracoes.html"
-    class="user-dropdown-item">
-
-
-        <span>⚙</span>
-
-        Configurações
-
-    </a>
-
-    <hr>
-
-    <a href="login.html"
-    class="user-dropdown-item danger">
-
-
-        <span>→</span>
-
-        Sair
-
-
-    </a>
-
-
-    `;
-
-
-})
-
-
-.catch(function(erro){
-
-    console.log("Erro ao buscar usuário:", erro);
-
-});
-
-// FECHAR CLICANDO FORA
-
-document.addEventListener("click", function(event){
-
-
-    let areaUsuario = document.querySelector(".user-menu-wrap");
-
-
-
-    if(areaUsuario && !areaUsuario.contains(event.target)){
-
-
-        dropdown.style.display = "none";
-
-    }
-
-
-});
-
-// ===============================
-// PREVIEW DA LOGO
-// ===============================
-
-
-function previewLogo(event){
-
-    let arquivo = event.target.files[0];
-
-
-    if(!arquivo){
-
+        alert("Nenhuma ONG logada.");
 
         return;
 
     }
 
-    let leitor = new FileReader();
 
 
-    leitor.onload = function(e){
+    // Nome da ONG
 
-        document.getElementById("logoImg").src = e.target.result;
+    document.getElementById("nomeOng").innerHTML = ong.nomeFantasia;
 
-        document.getElementById("logoPreview").style.display = "block";
+
+
+    // Descrição curta do topo
+
+    document.getElementById("descricaoOng").innerHTML = ong.descricao;
+
+
+
+    // Resumo da ONG (somente descrição)
+
+    document.getElementById("descricaoResumo").innerHTML = ong.descricao;
+
+
+
+
+    // Dados da ONG no topo
+
+    if (document.getElementById("dadosOngHero")) {
+
+
+        document.getElementById("dadosOngHero").innerHTML =
+
+            "CNPJ: " + ong.cnpj +
+            "<br>Email: " + ong.emailOng +
+            "<br>Telefone: " + ong.telefone +
+            "<br>Área de atuação: " + ong.areaAtuacao +
+            "<br>Fundada em: " + ong.dataFundacao;
 
     }
 
-    leitor.readAsDataURL(arquivo);
 
-}
+
+    // Buscar endereço
+
+    BuscarEnderecoOng(ong.id);
+
+
+};
+
+
+
+
+// Buscar endereço da ONG
+
+async function BuscarEnderecoOng(id) {
+
+
+    const response = await fetch(`${API_BUSCAR_ENDERECO_ONG}/${id}`);
+
+
+
+    if (response.ok) {
+
+
+        const endereco = await response.json();
+
+
+
+        // Endereço no topo
+
+        document.getElementById("enderecoHero").innerHTML =
+
+            endereco.logradouro + ", " +
+            endereco.numero + " - " +
+            endereco.cidade + "/" +
+            endereco.estado;
+
+
+
+
+        // Card localização
+
+        if (document.getElementById("localizacao")) {
+
+
+            document.getElementById("localizacao").innerHTML =
+
+                endereco.logradouro + ", " +
+                endereco.numero +
+                "<br>" +
+                endereco.bairro +
+                " - " +
+                endereco.cidade +
+                "/" +
+                endereco.estado +
+
+                "<br><br>" +
+
+                "CEP: " + endereco.cepOng +
+
+                "<br>Estado: " + endereco.estado +
+
+                "<br>Cidade: " + endereco.cidade +
+
+                "<br>Bairro: " + endereco.bairro +
+
+                "<br>Logradouro: " + endereco.logradouro +
+
+                "<br>Número: " + endereco.numero +
+
+                "<br>Complemento: " + endereco.complemento;
+
+
+        }
+
+
+
+        console.log("Endereço carregado");
+
+
+    } else {
+
+
+        alert("Erro ao carregar endereço da ONG");
+
+
+    }
 
 }

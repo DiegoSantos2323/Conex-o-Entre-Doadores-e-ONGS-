@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Principal – Doe+</title>
   <link rel="stylesheet" href="css/TelaPrincipalGestorOng.css" />
-  <script type="text/javascript" src="js/TelaPrincipalGestorOng.js"></script>
+  <script type="text/javascript" src="js/TelaPrincipalGestorOng.js" defer ></script>
 </head>
 <body>
 
@@ -66,21 +66,21 @@
         <!-- Nome e info -->
         <div class="hero-info">
           <div class="hero-name-row">
-            <h1>Instituto Educar</h1>
+            <h1 id="nomeOng"></h1>
             <span class="badge-verified">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               Verificada
             </span>
           </div>
-          <p class="hero-summary">
-            Transformando o futuro de crianças e adolescentes em situação de vulnerabilidade através da educação de qualidade.
+          <p class="hero-summary" id="descricaoOng"></p>
+            
           </p>
           <div class="hero-address">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
-            Rua das Flores, 123, Centro, São Paulo - SP
+         <p id="dadosOngHero"></p>
           </div>
         </div>
 
@@ -133,9 +133,8 @@
               </div>
               <h2>Resumo da ONG</h2>
             </div>
-            <p class="card-text">
-              Transformando o futuro de crianças e adolescentes em situação de vulnerabilidade através da educação de qualidade, reforço escolar e atividades extracurriculares. Nossa missão é garantir que cada criança tenha acesso a uma educação digna e de qualidade, independentemente de sua condição social.
-            </p>
+      <p class="card-text" id="descricaoResumo"></p>
+
           </div>
         </div>
 
@@ -179,7 +178,35 @@
               </div>
               <h2>Localização</h2>
             </div>
-            <p class="card-text">Rua das Flores, 123, Centro, São Paulo - SP</p>
+            <p class="card-text" id="localizacao"></p>
+
+					<p>
+					CEP: <span id="cepOng"></span>
+					</p>
+					
+					<p>
+					Estado: <span id="estadoOng"></span>
+					</p>
+					
+					<p>
+					Cidade: <span id="cidadeOng"></span>
+					</p>
+					
+					<p>
+					Bairro: <span id="bairroOng"></span>
+					</p>
+					
+					<p>
+					Logradouro: <span id="logradouroOng"></span>
+					</p>
+					
+					<p>
+					Número: <span id="numeroOng"></span>
+					</p>
+					
+					<p>
+					Complemento: <span id="complementoOng"></span>
+					</p>
           </div>
 
         </div>

@@ -14,4 +14,6 @@ public interface OngRepository extends JpaRepository<OngEntity, Long>{
 	List<OngEntity> findByNomeFantasiaContainingIgnoreCase(String nomeFantasia);
 	
 	Optional<OngEntity> findByEmailOng(String emailOng);
+	
+	
 }

@@ -7,4 +7,6 @@ import br.com.tcc.OngDoador.entity.EnderecoOngEntity;
 @Repository
 public interface EnderecoOngRepository extends JpaRepository<EnderecoOngEntity, Long>{
 
+	EnderecoOngEntity findByOngId(Long id);
+	
 }
