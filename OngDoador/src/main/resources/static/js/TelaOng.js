@@ -3,12 +3,7 @@ const API_LISTAR_CAMPANHA_ID = "http://localhost:8000/campanha/listarporid";
 async function carregarCampanha(){
 
     const idCampanha = localStorage.getItem("idCampanha");
-	if(idCampanha == null){
 
-	    alert("Campanha não encontrada.");
-
-	    return;
-	}
     const response = await fetch(API_LISTAR_CAMPANHA_ID + "/" + idCampanha);
 
     if(!response.ok){
