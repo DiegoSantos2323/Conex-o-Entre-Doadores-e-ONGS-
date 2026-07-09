@@ -1,9 +1,7 @@
 const API_SALVAR_DADOS_ONG = "http://localhost:8000/ong/salvarDados";
 const API_SALVAR_ENDERECO = "http://localhost:8000/enderecoong/salvar";
 
-// =========================
 // SALVAR DADOS DA ONG
-// =========================
 
 async function salvarOng() {
 
@@ -59,9 +57,7 @@ async function salvarOng() {
         JSON.stringify(ongAtualizada)
     );
 
-    // =========================
     // SALVAR ENDEREÇO
-    // =========================
 
     const endereco = {
 
@@ -111,3 +107,9 @@ async function salvarOng() {
     window.location.href = "TelaPrincipalGestorOng.html";
 
 }
+
+window.onload = function () {
+
+    CarregarMenuOng();
+
+};

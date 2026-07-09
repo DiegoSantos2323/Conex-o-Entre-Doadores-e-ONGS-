@@ -22,6 +22,7 @@ public class EnderecoOngEntity implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+
 	private String cepOng;
 	private String estado;
 	private String cidade;

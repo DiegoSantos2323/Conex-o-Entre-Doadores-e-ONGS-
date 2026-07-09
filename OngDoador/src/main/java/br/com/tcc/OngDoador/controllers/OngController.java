@@ -127,16 +127,7 @@ public class OngController {
 
 	    }
 	}
-	
-	@GetMapping("/buscar/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	@CrossOrigin("*")
-	public OngEntity Buscar(@PathVariable Long id) {
-
-	    return ongRepository.findById(id).orElse(null);
-
-	}
-	
+		
 	
 	
 }

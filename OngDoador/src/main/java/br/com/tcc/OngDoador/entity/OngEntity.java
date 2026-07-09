@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
@@ -29,7 +31,13 @@ public class OngEntity implements Serializable {
 	private String nomeFantasia;
 	private String cnpj;
 	private String areaAtuacao;
+	
+	@NotBlank(
+			message = "Por favor, informe o e-mail.")
+	@Email(
+			message = "Por favor, informe um e-mail válido.")
 	private String emailOng;
+	
 	private String descricao;
 	private String senhaOng;
 	private String logo;

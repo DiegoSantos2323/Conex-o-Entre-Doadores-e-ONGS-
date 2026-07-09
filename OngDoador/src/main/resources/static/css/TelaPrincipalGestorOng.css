@@ -455,3 +455,20 @@ footer {
   .hero-name-row h1 { font-size: 1.6rem; }
   .stat-value { font-size: 1.1rem; }
 }
+
+#dadosOngHero {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#dadosOngHero span {
+    color: rgba(255,255,255,0.95);
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+#dadosOngHero strong {
+    font-weight: 600;
+}

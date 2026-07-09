@@ -144,3 +144,10 @@ async function deletarCampanha(id){
     }
 
 }
+
+window.onload = function () {
+
+    CarregarMenuOng();
+
+};
+

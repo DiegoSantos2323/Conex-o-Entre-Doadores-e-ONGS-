@@ -40,3 +40,21 @@ function Sair() {
 }
 
 window.addEventListener("load", CarregarMenu);
+
+//menuOng
+
+function CarregarMenuOng() {
+
+    const ong = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+    if (ong == null) {
+        return;
+    }
+
+    const nomeUsuario = document.getElementById("nomeUsuario");
+
+    if (nomeUsuario) {
+        nomeUsuario.innerText = ong.nomeFantasia;
+    }
+
+}

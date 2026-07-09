@@ -59,7 +59,6 @@ async function cadastrarCampanha(){
 	
 }
 
-
 function limparFormulario(){
 	
     document.getElementById("titulo").value = "";
@@ -72,3 +71,10 @@ function limparFormulario(){
     document.getElementById("raised").value = "";
     document.getElementById("goal").value = "";
 }
+
+window.onload = function () {
+
+    CarregarMenuOng();
+
+};
+
