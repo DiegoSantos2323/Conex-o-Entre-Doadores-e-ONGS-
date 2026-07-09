@@ -25,3 +25,15 @@ async function BuscarNomeOng(nome){
 	console.log("Busca funcionando")
 
 }
+
+
+async function carregarDadosHero() {
+
+	document.querySelector(".hero-image img").src =
+	    "img/b29a93ae-398b-445f-a033-a220cc1eb121.jpg";
+
+    }
+
+
+
+window.addEventListener("load", carregarDadosHero);
