@@ -1,13 +1,91 @@
-@keyframes aparecer{
-    from{
-        opacity:0;
-        transform:scale(.95);
-    }
+.modal-esquerda h2,
+.modal-esquerda p,
+.modal-esquerda span {
+    width: 100%; /* Os textos continuam ocupando o espaço normal */
+}
+.modal-conteudo button, 
+.pix-code-box {
+    width: 100%;
+    max-width: 220px; /* 🎯 A mágica acontece aqui: trava no mesmo tamanho do QR Code */
+    box-sizing: border-box;
+}
+.modal-esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os textos e os blocos dos botões à esquerda */
+    width: 100%;
+}
 
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+.modal-direita {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qr-wrap {
+    width: 260px;   /* Aumentado de 220px para 260px */
+    height: 260px;  /* Aumentado de 220px para 260px */
+    background: #fff;
+    border: 2px solid #eef2f7;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+.modal-conteudo button, 
+.pix-code-box {
+    width: 100% !important;
+    max-width: 280px !important; /* Aumentado aqui também para alinhar perfeitamente */
+    box-sizing: border-box;
+}
+#pixValor{
+    font-size:40px;
+    font-weight:700;
+    color:#27c4bb;
+}
+.pix-seguro{
+    margin-top:20px;
+    color:#6b7280;
+    font-size:14px;
+}	
+/* Botões do modal */
+.modal-conteudo {
+    width: 720px; /* Reduzido levemente para abraçar melhor o layout de 220px */
+    max-width: 92%;
+    padding: 35px;
+    border-radius: 20px;
+    background: #fff; /* Garantindo o fundo branco do card */
+    position: relative; /* Para a contagem do botão fechar funcionar */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    gap: 40px;
+}
+/* Copiar PIX */
+#btnCopiar{
+    background:#fff;
+    color:#16b6ad;
+    border:2px solid #16b6ad;
+}
+
+#btnCopiar:hover{
+    background:#16b6ad;
+    color:#fff;
+}
+
+
+
+/* Confirmar pagamento */
+.btn-confirmar{
+    background:#16b6ad;
+    color:#fff;
+}
+
+.btn-confirmar:hover{
+    background:#11968f;
 }
 .modal-fechar{
     position:absolute;
@@ -31,28 +109,191 @@
 }
 /* Fundo escuro */
 
-.modal-pagamento{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:rgba(0,0,0,.55);
-    z-index:9999;
+/* ======================================================
+   MODAL PAGAMENTO (VERSÃO FINAL - SEM REPETIÇÕES)
+====================================================== */
 
-    justify-content:center;
-    align-items:center;
-
-    overflow-y:auto;
-    padding:30px;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-/* Modal aberto */
-.modal-pagamento.ativo{
-    display:flex;
+.modal[hidden] {
+    display: none !important;
 }
 
+/* Caixa branca única do modal */
+.modal-conteudo {
+    position: relative;
+    width: 760px;
+    max-width: 92%;
+    padding: 35px;
+    border-radius: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    animation: abrirModal .25s ease;
+}
+
+/* Coluna da Esquerda */
+.modal-esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.modal-esquerda h2,
+.modal-esquerda p,
+.modal-esquerda span {
+    width: 100%;
+}
+
+/* Coluna da Direita */
+.modal-direita {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🎯 TAMANHO DO QR CODE AUMENTADO (280px) */
+.qr-wrap {
+    width: 280px !important;   
+    height: 280px !important;  
+    background: #fff;
+    border: 2px solid #eef2f7;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+/* Força a imagem de dentro do QR Code a crescer junto */
+.qr-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    display: block;
+}
+
+/* 🎯 ALINHAMENTO PERFEITO: Botões e Caixa de Texto acompanham os 280px */
+.modal-conteudo button, 
+.pix-code-box {
+    width: 100% !important;
+    max-width: 280px !important; 
+    box-sizing: border-box;
+}
+
+.pix-code-box {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    margin: 20px 0 5px 0;
+    word-break: break-all;
+}
+
+#pixValor {
+    font-size: 40px;
+    font-weight: 700;
+    color: #27c4bb;
+}
+
+.pix-seguro {
+    margin-top: 20px;
+    color: #6b7280;
+    font-size: 14px;
+}	
+
+/* Botões do modal */
+.modal-conteudo button {
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+#btnCopiar {
+    background: #fff;
+    color: #16b6ad;
+    border: 2px solid #16b6ad;
+}
+
+#btnCopiar:hover {
+    background: #16b6ad;
+    color: #fff;
+}
+
+.btn-confirmar {
+    background: #16b6ad;
+    color: #fff;
+}
+
+.btn-confirmar:hover {
+    background: #11968f;
+}
+
+/* Botão Fechar (X) */
+.fechar {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    z-index: 10;
+}
+
+.fechar:hover {
+    color: #000;
+}
+
+@keyframes abrirModal {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fechar{
+
+    position:absolute;
+
+    top:18px;
+    right:22px;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#888;
+}
+
+.fechar:hover{
+    color:#000;
+}
 /* Caixa branca */
 .modal-conteudo{
     position:relative;

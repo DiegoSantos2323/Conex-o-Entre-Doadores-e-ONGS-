@@ -1,5 +1,8 @@
 const API_LISTAR_CAMPANHA_ID = "http://localhost:8000/campanha/listarporid";
 
+let campanhaAtual = null;
+let valorSelecionado = 0;
+
 async function carregarCampanha(){
 
     const idCampanha = localStorage.getItem("idCampanha");
@@ -12,6 +15,8 @@ async function carregarCampanha(){
     }
 
     const dados = await response.json();
+
+    campanhaAtual = dados;
 
     document.getElementById("ong-logo").src = dados.ong.logo;
     document.getElementById("ong-nome").innerHTML = dados.ong.nomeFantasia;
@@ -40,9 +45,11 @@ async function carregarCampanha(){
     document.getElementById("campanha-progresso-porcentagem").innerHTML =
     porcentagem.toFixed(0) + "% da meta alcançada";
 }
-
-
 function abrirModalPagamento(){
+
+    if(campanhaAtual == null){
+        return;
+    }
 
     document.getElementById("pixNomeOng").innerHTML =
     campanhaAtual.ong.nomeFantasia;
@@ -54,8 +61,63 @@ function abrirModalPagamento(){
 }
 
 function fecharModal(){
-
     document.getElementById("modalPagamento").hidden = true;
+}
+
+function selecionarValor(val, btn) {
+
+    valorSelecionado = val;
+
+    document.querySelectorAll(".valor-btn").forEach(b => b.classList.remove("active"));
+    
+    btn.classList.add("active");
+
+    document.getElementById("outroValorWrap").style.display = "none";
+}
+
+function copiarCodigo(){
+
+let codigo =
+document.getElementById("pixCode");
+
+codigo.select();
+codigo.setSelectionRange(0,99999);
+
+navigator.clipboard.writeText(
+codigo.value
+);
+
+alert("Código PIX copiado!");
 
 }
+
+function copiarPix(){
+
+    const codigo = document.getElementById("pixCode").textContent;
+
+    navigator.clipboard.writeText(codigo);
+
+    alert("Código PIX copiado!");
+
+}
+
+
+async function abrirModalPagamento(valor){
+
+    valorSelecionado = valor;
+
+    const response = await fetch(
+        `http://localhost:8000/pix/gerar?valor=${valor.toFixed(2)}`
+    );
+
+    const data = await response.json();
+
+    document.getElementById("pixNomeOng").innerHTML =   campanhaAtual.ong.nomeFantasia;
+    document.getElementById("pixValor").innerHTML =   "R$ " + valor.toFixed(2);
+    document.getElementById("pixCode").textContent =   data.payload;
+    document.getElementById("qrCode").innerHTML =    `<img src="data:image/png;base64,${data.qrCodeBase64}" alt="QR Code PIX">`;
+    document.getElementById("modalPagamento").hidden = false;
+
+}
+
 window.addEventListener("load", carregarCampanha);
