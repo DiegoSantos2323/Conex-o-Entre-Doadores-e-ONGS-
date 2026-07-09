@@ -141,85 +141,103 @@
     </div>
   </div>
 				
-			<div class="main-content">
-    <div class="main-inner">
-      <div class="main-grid">
+		<div class="main-content">
+  <div class="main-inner">
+    <div class="main-grid">
+      
+      <div class="col-left">
         
-        <div class="col-left">
-          
-          <div class="card">
-            <h2 id="campanha-titulo"></h2>
-            <div class="card-text">
-              <p id="campanha-descricao"></p>
+        <div class="card">
+          <h2 id="campanha-titulo"></h2>
+          <div class="card-text">
+            <p id="campanha-descricao"></p>
+            <p>
+              <strong>Com a sua doação, nós conseguimos:</strong>
+            </p>
+            <p id="campanha-doacao-conseguimos"></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="h2-sm">Transparência</h2>
+          <div class="transp-grid">
+            <div class="transp-item">
+              <span class="transp-label">Arrecadado este mês</span>
+              <span class="transp-value teal" id="campanha-valor-arrecadado"></span>
+            </div>
+            <div class="transp-item">
+              <span class="transp-label">Meta mensal</span>
+              <span class="transp-value dark" id="campanha-meta-mensal"></span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="campanha-progresso-barra"></div>
+          </div>
+          <p class="progress-label" id="campanha-progresso-porcentagem"></p>
+        </div>
+
+      </div> 
+
+      <div class="col-right">
+        <div class="donation-widget">
+
+          <div id="widgetVisitante" hidden>
+              <h3>Faça login para doar ❤️</h3>
               <p>
-                <strong>Com a sua doação, nós conseguimos:</strong>
+                  Para realizar uma doação é necessário estar logado como doador.
+                  Assim garantimos a segurança da transação e o registro da sua contribuição.
               </p>
-              <p id="campanha-doacao-conseguimos"></p>
-            </div>
+              <a href="TelaEntrar.html" class="btn-continuar">Entrar</a>
+              <a href="TelaCadastroUsuario.html" class="btn-secundario">Criar Conta</a>
           </div>
 
-          <div class="card">
-            <h2 class="h2-sm">Transparência</h2>
-            <div class="transp-grid">
-              <div class="transp-item">
-                <span class="transp-label">Arrecadado este mês</span>
-                <span class="transp-value teal" id="campanha-valor-arrecadado"></span>
+          <div id="formularioDoacao">
+              <h3 class="widget-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+                Faça sua doação
+              </h3>
+
+              <p class="widget-step">1. Escolha o valor</p>
+
+              <div class="valor-grid" id="valorGrid">
+                <button class="valor-btn" onclick="selecionarValor(10, this)">R$ 10,00</button>
+                <button class="valor-btn" onclick="selecionarValor(20, this)">R$ 20,00</button>
+                <button class="valor-btn active" onclick="selecionarValor(50, this)">R$ 50,00</button>
+                <button class="valor-btn" onclick="selecionarValor(100, this)">R$ 100,00</button>
+                <button class="valor-btn outro" onclick="mostrarOutroValor(this)">Outro valor</button>
               </div>
-              <div class="transp-item">
-                <span class="transp-label">Meta mensal</span>
-                <span class="transp-value dark" id="campanha-meta-mensal"></span>
+
+              <div class="outro-valor-wrap" id="outroValorWrap" style="display:none;">
+                <span class="prefix-rs">R$</span>
+                <input type="text" id="outroValorInput" placeholder="0,00" oninput="atualizarValorCustom()" />
               </div>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill" id="campanha-progresso-barra"></div>
-            </div>
-            <p class="progress-label" id="campanha-progresso-porcentagem"></p>
+
+              <div class="anonimo-box" onclick="toggleAnonimo()">
+                <div class="anonimo-check" id="anonimoCheck"></div>
+                <div class="anonimo-text">
+                  <span class="anonimo-title">Ocultar meu nome publicamente</span>
+                  <span class="anonimo-sub">Seu nome não aparecerá na lista pública de doadores, mas será registrado no sistema para segurança e transparência.</span>
+                </div>
+              </div>
+
+             <a href="#" class="btn-continuar" id="btnContinuar" onclick="abrirModalPagamento(valorSelecionado); return false;">
+                Doar
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+
+              <p class="widget-footer">Pagamento na próxima etapa</p>
           </div>
 
-        </div> <div class="col-right">
-          <div class="donation-widget">
+        </div>
+      </div> 
 
-            <h3 class="widget-title">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-              </svg>
-              Faça sua doação
-            </h3>
-
-            <p class="widget-step">1. Escolha o valor</p>
-
-            <div class="valor-grid" id="valorGrid">
-              <button class="valor-btn" onclick="selecionarValor(10, this)">R$ 10,00</button>
-              <button class="valor-btn" onclick="selecionarValor(20, this)">R$ 20,00</button>
-              <button class="valor-btn active" onclick="selecionarValor(50, this)">R$ 50,00</button>
-              <button class="valor-btn" onclick="selecionarValor(100, this)">R$ 100,00</button>
-              <button class="valor-btn outro" onclick="mostrarOutroValor(this)">Outro valor</button>
-            </div>
-
-            <div class="outro-valor-wrap" id="outroValorWrap" style="display:none;">
-              <span class="prefix-rs">R$</span>
-              <input type="text" id="outroValorInput" placeholder="0,00" oninput="atualizarValorCustom()" />
-            </div>
-
-            <div class="anonimo-box" onclick="toggleAnonimo()">
-              <div class="anonimo-check" id="anonimoCheck"></div>
-              <div class="anonimo-text">
-                <span class="anonimo-title">Ocultar meu nome publicamente</span>
-                <span class="anonimo-sub">Seu nome não aparecerá na lista pública de doadores, mas será registrado no sistema para segurança e transparência.</span>
-              </div>
-            </div>
-
-           <a href="#" class="btn-continuar" id="btnContinuar" onclick="abrirModalPagamento(valorSelecionado); return false;">
-              Doar
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-
-            <p class="widget-footer">Pagamento na próxima etapa</p>
-
-          </div>
-        </div> </div> </div> </div>
+    </div> 
+  </div> 
+</div>
 
 		<div id="modalPagamento" class="modal" hidden>
 

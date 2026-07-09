@@ -1,5 +1,6 @@
 package br.com.tcc.OngDoador.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tcc.OngDoador.entity.EnderecoOngEntity;
+import br.com.tcc.OngDoador.entity.OngEntity;
 import br.com.tcc.OngDoador.reposity.EnderecoOngRepository;
 
 @RestController
@@ -80,6 +82,15 @@ public class EnderecoOngController {
 
 	}
 	
-	
-	
+	@GetMapping("/buscarproximas/{cidade}/{estado}")
+	public List<OngEntity> buscarProximas(@PathVariable String cidade,@PathVariable String estado){
+	                                      
+	    List<EnderecoOngEntity> enderecos =repository.findByCidadeAndEstado(cidade, estado);	            
+	    List<OngEntity> ongs = new ArrayList<>();
+
+	    for(EnderecoOngEntity endereco : enderecos){
+	        ongs.add(endereco.getOng());
+	    }
+	    return ongs;
+	}	
 }

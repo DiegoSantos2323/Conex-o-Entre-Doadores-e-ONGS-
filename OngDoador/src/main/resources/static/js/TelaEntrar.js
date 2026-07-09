@@ -25,7 +25,6 @@ async function login() {
     if (tipoLogin === "DOADOR") {
 
         api = API_LOGIN_USUARIO;
-
         dados = {
             email: email,
             senha: senha
@@ -34,14 +33,12 @@ async function login() {
     } else if (tipoLogin === "ONG") {
 
         api = API_LOGIN_ONG;
-
         dados = {
             emailOng: email,
             senhaOng: senha
         };
 
     } else {
-
         alert("Selecione o Tipo de Login");
         return;
     }
@@ -58,15 +55,16 @@ async function login() {
 
         const dadosLogin = await response.json();
 
-        localStorage.setItem(
-            "usuarioLogado",
-            JSON.stringify(dadosLogin)
+        localStorage.setItem( "usuarioLogado", JSON.stringify(dadosLogin)
         );
+		
         alert("Login realizado com sucesso!");
 
         if (tipoLogin === "DOADOR") {
+			
             window.location.href = "TelaPerfilUsuario.html";
         } else {
+			
             window.location.href = "TelaPrincipalGestorOng.html";
         }
 

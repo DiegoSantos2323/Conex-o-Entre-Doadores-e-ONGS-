@@ -64,6 +64,14 @@ function salvarEtapaUm() {
 				alert("CPF inválido!");
 				return;
 			}
+			console.log(JSON.stringify({
+			    nomeFantasia: cadastroOng.nomeFantasia,
+			    cnpj: cadastroOng.cnpj,
+			    areaAtuacao: cadastroOng.areaAtuacao,
+			    emailOng: cadastroOng.emailOng,
+			    descricao: cadastroOng.descricao,
+			    senhaOng: cadastroOng.senhaOng
+			}, null, 2));
 			const response = await fetch(API_SALVAR_ONG, {
 				method: "POST",
 				headers: {

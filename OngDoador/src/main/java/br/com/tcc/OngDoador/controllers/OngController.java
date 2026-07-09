@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -50,8 +49,8 @@ public class OngController {
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
 	@CrossOrigin("*")
-	public OngEntity Salvar(@ModelAttribute OngEntity entity) {
-
+	public OngEntity Salvar(@RequestBody OngEntity entity) {
+		
 	    entity.setSenhaOng(
 	        encoder.encode(entity.getSenhaOng())
 	    );

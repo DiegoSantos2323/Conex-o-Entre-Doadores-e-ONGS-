@@ -13,11 +13,9 @@ async function Campanhas() {
     const container = document.getElementById("ongGrid");
 
     container.innerHTML = "";
-
     campanhas.forEach(campanha => {
 
-        let porcentagem = (campanha.arrecadado / campanha.metaMensal) * 100;
-		
+        let porcentagem = (campanha.arrecadado / campanha.metaMensal) * 100;	
 		container.innerHTML += `
 		    <div class="ong-card">
 		        <div class="card-img">
@@ -43,21 +41,13 @@ async function Campanhas() {
 		                </div>	
 						<button class="btn-ver"
 						        onclick="abrirCampanha(${campanha.id})">
-						    Ver Detalhes
+						    Apoiar Projeto
 						</button>
 		            </div>
 		        </div>
 		    </div>
 		`;
     });
-}
-
-
-
-function abrirCampanha(id){
-
-    localStorage.setItem("idCampanha", id);
-    window.location.href = "TelaOng.html";
 }
 
 

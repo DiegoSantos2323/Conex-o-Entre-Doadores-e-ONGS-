@@ -803,8 +803,8 @@ body{
 .hero-image {
     position: relative;
     width: 100%;
-    max-width: 500px; /* Ajuste o tamanho máximo como preferir */
-    height: 400px;    /* Ajuste a altura para preencher o espaço */
+    max-width: 650px; /* Ajuste o tamanho máximo como preferir */
+    height: 600px;    /* Ajuste a altura para preencher o espaço */
     border-radius: 24px; /* Deixa as bordas arredondadas como no seu print */
     overflow: hidden; /* Corta a imagem para respeitar as bordas arredondadas */
 }

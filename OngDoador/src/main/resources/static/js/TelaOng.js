@@ -1,12 +1,11 @@
 const API_LISTAR_CAMPANHA_ID = "http://localhost:8000/campanha/listarporid";
 
 let campanhaAtual = null;
-let valorSelecionado = 0;
+let valorSelecionado = 50;
 
 async function carregarCampanha(){
 
     const idCampanha = localStorage.getItem("idCampanha");
-
     const response = await fetch(API_LISTAR_CAMPANHA_ID + "/" + idCampanha);
 
     if(!response.ok){
@@ -41,67 +40,12 @@ async function carregarCampanha(){
     }
 
     document.getElementById("campanha-progresso-barra").style.width = porcentagem + "%";
-
     document.getElementById("campanha-progresso-porcentagem").innerHTML =
     porcentagem.toFixed(0) + "% da meta alcançada";
-}
-function abrirModalPagamento(){
-
-    if(campanhaAtual == null){
-        return;
-    }
-
-    document.getElementById("pixNomeOng").innerHTML =
-    campanhaAtual.ong.nomeFantasia;
-
-    document.getElementById("pixValor").innerHTML =
-    "R$ " + valorSelecionado.toFixed(2);
-
-    document.getElementById("modalPagamento").hidden = false;
+	
 }
 
-function fecharModal(){
-    document.getElementById("modalPagamento").hidden = true;
-}
-
-function selecionarValor(val, btn) {
-
-    valorSelecionado = val;
-
-    document.querySelectorAll(".valor-btn").forEach(b => b.classList.remove("active"));
-    
-    btn.classList.add("active");
-
-    document.getElementById("outroValorWrap").style.display = "none";
-}
-
-function copiarCodigo(){
-
-let codigo =
-document.getElementById("pixCode");
-
-codigo.select();
-codigo.setSelectionRange(0,99999);
-
-navigator.clipboard.writeText(
-codigo.value
-);
-
-alert("Código PIX copiado!");
-
-}
-
-function copiarPix(){
-
-    const codigo = document.getElementById("pixCode").textContent;
-
-    navigator.clipboard.writeText(codigo);
-
-    alert("Código PIX copiado!");
-
-}
-
-
+//pix
 async function abrirModalPagamento(valor){
 
     valorSelecionado = valor;
@@ -119,5 +63,46 @@ async function abrirModalPagamento(valor){
     document.getElementById("modalPagamento").hidden = false;
 
 }
+//pix
+function fecharModal(){
+    document.getElementById("modalPagamento").hidden = true;
+}
+//pix
+function selecionarValor(val, btn) {
+
+    valorSelecionado = val;
+    document.querySelectorAll(".valor-btn").forEach(b => b.classList.remove("active")); 
+    btn.classList.add("active");
+    document.getElementById("outroValorWrap").style.display = "none";
+}
+//pix
+function copiarCodigo(){
+
+		let codigo =
+		document.getElementById("pixCode");
+		
+		codigo.select();
+		codigo.setSelectionRange(0,99999);
+		
+		navigator.clipboard.writeText(
+		codigo.value
+		);
+		
+		alert("Código PIX copiado!");
+
+}
+//pix
+function copiarPix(){
+
+    const codigo = document.getElementById("pixCode").textContent;
+
+    navigator.clipboard.writeText(codigo);
+
+    alert("Código PIX copiado!");
+
+}
+
+
+
 
 window.addEventListener("load", carregarCampanha);

@@ -32,12 +32,14 @@ async function cadastrar() {
     });
 
 	//se está tudo certo recebe msg e vaia para a tela de login
+	
     if (response.ok) {
         alert("Usuário cadastrado com sucesso!");
         limparFormulario();
         window.location.href = "TelaEntrar.html";
     } else {
    //se não algum erro  
+   
         alert("Erro ao cadastrar usuário!");
     }
 }
@@ -70,22 +72,16 @@ async function BuscarNomeOng(nome) {
     );
 
     const dados = await response.json();
-
-    console.log(dados);
-
     resultadoBusca.innerHTML = "";
 
     dados.forEach(ong => {
-
         resultadoBusca.innerHTML += `
             <div class="item-ong">
                 ${ong.nomeFantasia}
             </div>
         `;
-
     });
 
-    console.log("Busca funcionando");
 }
 
 //função que valida ccpf

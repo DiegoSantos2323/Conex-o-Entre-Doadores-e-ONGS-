@@ -1,3 +1,69 @@
+/* Removemos fundos duplicados e deixamos ele fluir dentro do widget lateral */
+#widgetVisitante {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0; /* Padding menor para encaixar na barra lateral */
+    background: transparent;
+}
+
+#widgetVisitante h3 {
+    font-size: 1.3rem;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+#widgetVisitante p {
+    font-size: 0.9rem;
+    color: #718096;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+#widgetVisitante .btn-continuar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.85rem;
+    background-color: #40c4c4;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(64, 196, 196, 0.2);
+    transition: all 0.25s ease;
+    margin-bottom: 0.75rem;
+}
+
+#widgetVisitante .btn-continuar:hover {
+    background-color: #34b3b3;
+    transform: translateY(-1px);
+}
+
+#widgetVisitante .btn-secundario {
+    color: #40c4c4;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#widgetVisitante .btn-secundario:hover {
+    color: #2a9696;
+    text-decoration: underline;
+}
+
+.btn-secundario{
+    display:block;
+    margin-top:1rem;
+    text-decoration:none;
+    color:#14b8a6;
+    font-weight:600;
+}
 .modal-esquerda h2,
 .modal-esquerda p,
 .modal-esquerda span {
@@ -640,14 +706,6 @@ body{
     gap: 2rem;
 }
 
-@media (min-width:768px){
-
-    .navbar-center{
-        display: flex;
-    }
-
-}
-
 .nav-link{
     color: #6b7280;
     text-decoration: none;
@@ -759,13 +817,6 @@ body{
     gap: 2rem;
 }
 
-@media (min-width: 768px) {
-
-    .navbar-center {
-        display: flex;
-    }
-
-}
 
 .nav-link {
     color: #6b7280;
@@ -875,7 +926,13 @@ body{
 ───────────────────────────────────── */
 .main-content { flex: 1; padding: 48px 0 80px; }
 .main-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-.main-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Coluna esquerda maior, direita menor */
+    gap: 2rem;
+    align-items: start;
+    margin-top: 2rem;
+}
 
 /* ── Cards coluna esquerda ── */
 .col-left { display: flex; flex-direction: column; gap: 24px; }
