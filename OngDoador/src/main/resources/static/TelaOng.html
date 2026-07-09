@@ -209,7 +209,7 @@
               </div>
             </div>
 
-            <a href="#" class="btn-continuar" id="btnContinuar">
+           <a href="#" class="btn-continuar" id="btnContinuar" onclick="abrirModalPagamento(valorSelecionado); return false;">
               Doar
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -222,30 +222,42 @@
         </div> </div> </div> </div>
 
 		<div id="modalPagamento" class="modal" hidden>
-		
-		    <div class="modal-conteudo">
-		
-		        <span class="fechar" onclick="fecharModal()">&times;</span>
-		
-		        <h2>Pagamento via PIX</h2>
-		
-		        <p id="pixNomeOng"></p>
-		
-		        <h3 id="pixValor"></h3>
-		
-		        <div id="qrCode"></div>
-		
-		        <button onclick="copiarPix()">
-		            Copiar Código PIX
-		        </button>
-		
-		        <button onclick="confirmarPagamento()">
-		            Confirmar Pagamento
-		        </button>
-		
-		    </div>
-		
-		</div>
+
+   <div class="modal-conteudo">
+
+    <span class="fechar" onclick="fecharModal()">&times;</span>
+
+    <div class="modal-esquerda">
+
+        <h2>Pagamento via PIX</h2>
+
+        <p id="pixNomeOng"></p>
+
+        <h3 id="pixValor"></h3>
+
+        <p>Escaneie o QR Code ou copie o código PIX.</p>
+
+        <div class="pix-code-box">
+            <code id="pixCode"></code>
+        </div>
+
+        <button id="btnCopiar" onclick="copiarPix()">
+            Copiar Código PIX
+        </button>
+
+    </div>
+
+    <div class="modal-direita">
+
+        <div class="qr-wrap">
+            <div id="qrCode"></div>
+        </div>
+	
+    </div>
+
+</div>
+
+</div>
 
 
   <footer>
@@ -323,7 +335,7 @@
   });
 
   /* ── Seleção de valor ── */
-  let valorSelecionado = 50;
+
 
   function selecionarValor(val, btn) {
     valorSelecionado = val;
@@ -339,8 +351,8 @@
     document.getElementById('outroValorInput').focus();
   }
 
-  function actualizarValorCustom() {
-    const v = parseFloat(document.getElementById('outroValorInput').value.replace(/\D/g,'')) || 0;
+  function atualizarValorCustom() {
+	  const v = parseFloat(document.getElementById('outroValorInput').value.replace(/\D/g,'')) || 0;
     valorSelecionado = v;
   }
 

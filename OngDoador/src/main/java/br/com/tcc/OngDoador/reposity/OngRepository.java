@@ -15,5 +15,6 @@ public interface OngRepository extends JpaRepository<OngEntity, Long>{
 	
 	Optional<OngEntity> findByEmailOng(String emailOng);
 	
+	OngEntity findFirstByOrderByIdDesc();
 	
 }
