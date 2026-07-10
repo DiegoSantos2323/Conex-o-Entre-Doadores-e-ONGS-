@@ -49,6 +49,12 @@ async function Campanhas() {
 		`;
     });
 }
+function abrirCampanha(id){
+
+    localStorage.setItem("idCampanha", id);
+    window.location.href = "TelaOng.html";
+
+}
 
 
 window.addEventListener("load", Campanhas);

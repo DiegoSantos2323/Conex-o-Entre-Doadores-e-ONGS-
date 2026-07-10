@@ -597,9 +597,12 @@ a { text-decoration: none; }
   display: block; width: 100%;
   padding: 12px;
   background: #48D1CC; color: #fff;
+  border: none;             /* 🌟 ADICIONADO: Remove a borda preta */
+  outline: none;            /* 🌟 ADICIONADO: Remove a linha de foco ao clicar */
   border-radius: 12px;
   text-align: center;
   font-weight: 700; font-size: 0.875rem;
+  cursor: pointer;          /* 🌟 ADICIONADO: Mostra a mãozinha do mouse */
   transition: background 0.2s, transform 0.2s;
 }
 

@@ -338,12 +338,15 @@ a { text-decoration: none; }
     }
 }
 
-.nav-link{
-    color:#6b7280;
-    text-decoration:none;
+.nav-link {
+   color:#6b7280;
+
+    font-size:0.92rem;
     font-weight:500;
-    transition:color .3s;
+
+    transition:0.3s;
 }
+
 
 .nav-link:hover{
     color:#48D1CC;
