@@ -50,7 +50,14 @@ body{
 	
 	
 }
-
+.login-message {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.6rem;
+   margin-top: 1rem;
+   text-align: center;
+}
 /* ===================================
    NAVBAR
 =================================== */
@@ -197,39 +204,24 @@ body{
    BUTTONS
 =================================== */
 
+.login-message {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.6rem;
+   margin-top: 1rem;
+   text-align: center;
+}
 
-.btn-login {
-	
-	   height:38px;
-	   width: 200px;
+.login-message p {
+   font-size: 0.92rem;
+   color: #6b7280;
+   margin: 0;
+}
 
-   display:flex;
-   align-items:center;
-   justify-content:center;
-   gap:0.45rem;
-
-   padding:0 1rem;
-
-   border:none;
-   border-radius:9999px;
-
-   background:#48D1CC;
-
-   color:white;
-
-   font-size:0.82rem;
-   font-weight:600;
-
-   cursor:pointer;
-
-   transition:
-      background 0.3s ease,
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-      margin-left: 150px;
-	
-	
-	
+.login-message .btn-login {
+   color: white;
+   text-decoration: none;
 }
 .btn-link{
    color:#6b7280;
@@ -240,6 +232,34 @@ body{
    font-weight:500;
 
    transition:0.3s ease;
+}
+.btn-login {
+   height: 38px;
+   width: 200px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.45rem;
+
+   padding: 0 1rem;
+
+   border: none;
+   border-radius: 9999px;
+
+   background: #48D1CC;
+
+   color: white;
+
+   font-size: 0.82rem;
+   font-weight: 600;
+
+   cursor: pointer;
+
+   transition:
+      background 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 }
 
 .btn-link:hover{

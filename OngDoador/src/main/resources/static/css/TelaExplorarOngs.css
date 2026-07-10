@@ -361,10 +361,14 @@ a { text-decoration: none; }
   z-index: 100;
 }
 
-.register-wrap:hover .dropdown-menu,
-.register-wrap:focus-within .dropdown-menu { display: block; }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-.register-wrap:hover .btn-register svg { transform: rotate(180deg); }
+.dropdown-menu.open { display: block; }
+
+.dropdown.open .btn-primary svg { transform: rotate(180deg); }
 
 .dropdown-menu a {
   display: block; padding: 10px 14px;

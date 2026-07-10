@@ -33,37 +33,23 @@
                    <input type="text" placeholder="Buscar ONGs..." class="search-input" id="buscarOng" >        
                       <div id="resultadoBusca" class="resultado-busca"></div>                        
                </div>
-               
-             <div id="menuVisitante" class="user-menu-wrap navbar-right">
-    <a href="TelaEntrar.html" class="btn-link">Entrar</a>	
-    <div class="dropdown">
-        <button class="btn-primary dropdown-toggle">
-            Criar Conta
-        </button>
+         <div id="menuVisitante" class="user-menu-wrap navbar-right">
+    <a href="TelaEntrar.html" class="btn-link">Entrar</a>
+
+   <div class="dropdown">
+    <button class="btn-primary dropdown-toggle" onclick="toggleCriarConta(event)">
+        Criar Conta
+        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+
+    <div class="dropdown-menu" id="criarContaMenu">
+        <a href="TelaCadastroUsuario.html">Sou Doador</a>
+        <a href="TelaCadastroOngEtapaUm.html">Sou uma ONG</a>
     </div>
 </div>
-			
-			            <svg class="chevron-icon"
-			                 viewBox="0 0 24 24"
-			                 fill="none"
-			                 stroke="currentColor">
-			
-			                <polyline points="6 9 12 15 18 9"></polyline>
-			            </svg>
-			        </button>			
-			        <div class="dropdown-menu">
-			            <a href="TelaCadastroUsuario.html">Sou Doador</a>
-			            <a href="TelaCadastroOngEtapaUm.html">Sou uma ONG</a>
-			        
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-			        
-			        </div>
-			        
-			        
-			    </div>
-			
-			</div>
+</div>
 			<!-- MENU USUÁRIO -->
 			
 			 <div id="menuUsuario" class="user-menu-wrap" hidden>
@@ -263,23 +249,35 @@
   </footer>
 
  
-   <script>
-	    function switchTab(id, btn) {
-	      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-	      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-	      document.getElementById('tab-' + id).classList.add('active');
-	      btn.classList.add('active');
-	    }
-	    function toggleUserMenu() {
-	      document.getElementById('userDropdown').classList.toggle('open');
-	    }
-	    document.addEventListener('click', function(e) {
-	    	const wrap = document.getElementById("menuUsuario");
-	      if (wrap && !wrap.contains(e.target))
-	        document.getElementById('userDropdown').classList.remove('open');
-	    });
-	    </script>
-	    
+  <script>
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+    function toggleUserMenu() {
+      document.getElementById('userDropdown').classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+    	const wrap = document.getElementById("menuUsuario");
+      if (wrap && !wrap.contains(e.target))
+        document.getElementById('userDropdown').classList.remove('open');
+    });
+
+    function toggleCriarConta(event) {
+      event.stopPropagation();
+      document.getElementById('criarContaMenu').classList.toggle('open');
+      document.querySelector('.dropdown').classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+      const dropdown = document.querySelector('.dropdown');
+      if (dropdown && !dropdown.contains(e.target)) {
+        document.getElementById('criarContaMenu').classList.remove('open');
+        dropdown.classList.remove('open');
+      }
+    });
+    </script>
 	<script type="text/javascript" src="js/TelaExplorarOng.js"></script>
      <script type="text/javascript" src="js/Menu/Menu.js"></script>
      
