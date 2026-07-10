@@ -48,11 +48,9 @@
 				<div id="menuVisitante" class="user-menu-wrap">
 					<a href="TelaEntrar.html" class="btn-link">Entrar</a>
 					<div class="dropdown">
-						<button class="btn-primary dropdown-toggle">
-							Criar Conta
-
-							<svg id="chevron" class="chevron-icon" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor">
+						<button class="btn-primary dropdown-toggle" onclick="toggleDropdown()">
+					    Criar Conta
+					    <svg id="chevron" class="chevron-icon" ...>
 
                             <polyline points="6 9 12 15 18 9"></polyline>
 
@@ -295,7 +293,7 @@
 			</div>
 		</div>
 	</footer>
-	<script>
+<script>
 function toggleDropdown() {
     const menu = document.querySelector(".dropdown-menu");
     const chevron = document.querySelector(".chevron-icon");
@@ -305,6 +303,17 @@ function toggleDropdown() {
     if (chevron) {
         chevron.classList.toggle("rotated");
     }
+}
+
+function toggleUserMenu() {
+    document.getElementById('userDropdown').classList.toggle('open');
+}
+
+function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
 }
 
 document.addEventListener("click", function (e) {
@@ -318,11 +327,11 @@ document.addEventListener("click", function (e) {
     }
 
     // Fecha menu "Criar Conta"
-    const registerWrap = document.querySelector(".register-wrap");
+    const dropdownWrap = document.querySelector(".dropdown");
     const dropdownMenu = document.querySelector(".dropdown-menu");
     const chevron = document.querySelector(".chevron-icon");
 
-    if (registerWrap && !registerWrap.contains(e.target)) {
+    if (dropdownWrap && !dropdownWrap.contains(e.target)) {
         dropdownMenu.classList.remove("open");
 
         if (chevron) {
@@ -331,22 +340,7 @@ document.addEventListener("click", function (e) {
     }
 });
 </script>
-	<script>
-	    function switchTab(id, btn) {
-	      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-	      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-	      document.getElementById('tab-' + id).classList.add('active');
-	      btn.classList.add('active');
-	    }
-	    function toggleUserMenu() {
-	      document.getElementById('userDropdown').classList.toggle('open');
-	    }
-	    document.addEventListener('click', function(e) {
-	    	const wrap = document.getElementById("menuUsuario");
-	      if (wrap && !wrap.contains(e.target))
-	        document.getElementById('userDropdown').classList.remove('open');
-	    });
-	    </script>
+
 	<script type="text/javascript" src="js/Menu/Menu.js"></script>
 
 </body>
