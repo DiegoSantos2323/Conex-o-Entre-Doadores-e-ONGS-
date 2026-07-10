@@ -66,11 +66,5 @@ async function BuscarEnderecoOng(id) {
 
 }
 
-function Sair() {
 
-    localStorage.removeItem("usuarioLogado");
-
-    window.location.href = "TelaInicio.html";
-
-}
 
