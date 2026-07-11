@@ -89,7 +89,9 @@ function salvarEtapaUm() {
 	
 			if (response.ok) {
 				const ongSalva = await response.json();
-	
+				
+				const cpfGestorLimpo = cadastroOng.cpfGestor.replace(/[^\d]/g, '');
+				
 				const gestor = {
 					nomeGestor: cadastroOng.nomeGestor,
 					cpf: cadastroOng.cpfGestor,
