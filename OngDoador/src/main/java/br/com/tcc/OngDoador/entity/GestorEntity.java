@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Gestor")
@@ -30,7 +29,7 @@ public class GestorEntity implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "ongID")
-	@JsonIgnore
+	
 	private OngEntity ong;
 	// Uma ONG tem 1 gestor
 
