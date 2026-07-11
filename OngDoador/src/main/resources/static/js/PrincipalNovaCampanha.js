@@ -1,5 +1,5 @@
-const API_BUSCAR_CAMPANHAS = "http://localhost:8000/campanha/listartodos";
-const API_DELETAR_CAMPANHA = "http://localhost:8000/campanha/deletar";
+const API_BUSCAR_CAMPANHAS = "http://192.168.10.22:8014/campanha/listartodos";
+const API_DELETAR_CAMPANHA = "http://192.168.10.22:8014/campanha/deletar";
 
 document.addEventListener("DOMContentLoaded", function(){
 

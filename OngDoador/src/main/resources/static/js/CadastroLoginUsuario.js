@@ -1,5 +1,5 @@
-const API_SALVAR_USUARIO = "http://localhost:8000/usuario/salvar";
-const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
+const API_SALVAR_USUARIO = "http://192.168.10.22:8014/usuario/salvar";
+const API_BUSCAR_NOME_ONG = "http://192.168.10.22:8014/ong/buscarnome";
 
 async function cadastrar() {
 

@@ -1,5 +1,5 @@
-const API_SALVAR_ONG = "http://localhost:8000/ong/salvar";
-const API_SALVAR_GESTOR = "http://localhost:8000/gestor/salvar";
+const API_SALVAR_ONG = "http://192.168.10.22:8014/ong/salvar";
+const API_SALVAR_GESTOR = "http://192.168.10.22:8014/gestor/salvar";
 
 
 function salvarEtapaUm() {

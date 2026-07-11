@@ -1,5 +1,5 @@
-const API_SALVAR_CAMPANHA = "http://localhost:8000/campanha/salvar";
-const API_BUSCAR_ONG_POR_ID= "http://localhost:8000/ong/listarporid";
+const API_SALVAR_CAMPANHA = "http://192.168.10.22:8014/campanha/salvar";
+const API_BUSCAR_ONG_POR_ID= "http://192.168.10.22:8014/ong/listarporid";
 
 
 async function cadastrarCampanha(){

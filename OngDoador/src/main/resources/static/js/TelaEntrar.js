@@ -1,6 +1,6 @@
-const API_BUSCAR_NOME_ONG = "http://localhost:8000/ong/buscarnome";
-const API_LOGIN_ONG = "http://localhost:8000/ong/loginOng";
-const API_LOGIN_USUARIO = "http://localhost:8000/usuario/loginUsuario";
+const API_BUSCAR_NOME_ONG = "http://192.168.10.22:8014/ong/buscarnome";
+const API_LOGIN_ONG = "http://192.168.10.22/ong:8014/loginOng";
+const API_LOGIN_USUARIO = "http://192.168.10.22:8014/usuario/loginUsuario";
 
 let tipoLogin = "";
 
@@ -76,7 +76,7 @@ async function login() {
 
 
 
-// Efeitos visuais
+// Efeitos visuais hmtml
 function efeitosnoHTML() {
 
     const tipoDoador = document.getElementById("tipoDoador");

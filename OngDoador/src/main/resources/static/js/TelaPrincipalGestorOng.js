@@ -1,4 +1,4 @@
-const API_BUSCAR_ENDERECO_ONG = "http://localhost:8000/enderecoong/buscarPorOng";
+const API_BUSCAR_ENDERECO_ONG = "http://192.168.10.22:8014/enderecoong/buscarPorOng";
 
 window.onload = function () {
 

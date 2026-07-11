@@ -1,5 +1,3 @@
-
-
 function abrirOng(id){
 
     localStorage.setItem("idOng", id);

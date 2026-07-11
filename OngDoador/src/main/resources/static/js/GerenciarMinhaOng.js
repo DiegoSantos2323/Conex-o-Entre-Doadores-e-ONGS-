@@ -1,5 +1,5 @@
-const API_SALVAR_DADOS_ONG = "http://localhost:8000/ong/salvarDados";
-const API_SALVAR_ENDERECO = "http://localhost:8000/enderecoong/salvar";
+const API_SALVAR_DADOS_ONG = "http://192.168.10.22:8014/ong/salvarDados";
+const API_SALVAR_ENDERECO = "http://192.168.10.22:8014/enderecoong/salvar";
 
 // SALVAR DADOS DA ONG
 

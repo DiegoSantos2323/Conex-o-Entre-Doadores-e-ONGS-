@@ -1,4 +1,4 @@
-const API_LISTAR_CAMPANHAS = "http://localhost:8000/campanha/listartodos";
+const API_LISTAR_CAMPANHAS = "http://192.168.10.22:8014/campanha/listartodos";
 
 async function Campanhas() {
 		

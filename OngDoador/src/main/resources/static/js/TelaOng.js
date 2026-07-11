@@ -1,4 +1,4 @@
-const API_LISTAR_CAMPANHA_ID = "http://localhost:8000/campanha/listarporid";
+const API_LISTAR_CAMPANHA_ID = "http://192.168.10.22:8014/campanha/listarporid";
 
 let campanhaAtual = null;
 let valorSelecionado = 50;
